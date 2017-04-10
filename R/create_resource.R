@@ -22,4 +22,9 @@ create_resource <- function(credentials, path) {
                     encode = 'json')
 
   httr::warn_for_status(out)
+
+  out <- httr::content(out)
+  names(out) <- c('node_id', 'uri')
+
+  return(out)
 }
