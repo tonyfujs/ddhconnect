@@ -1,8 +1,7 @@
 connect_system <- function() {
   out <- httr::POST('https://ddhqa.worldbank.org/api/dataset/system/connect',
-             httr::add_headers(.headers = c('Content-Type' = 'application/json')),
-             body = list(x = '"SystemConnect":"Welcome"'),
-             encode = "json")
+             httr::accept_json(),
+             body = list(x = '"SystemConnect":"Welcome"'))
   httr::warn_for_status(out)
   out <- httr::content(out)
   out <- out$sessid
@@ -38,7 +37,15 @@ get_token <- function(cookie) {
 }
 
 
-
+logout_ddh <- function(credentials, username, password) {
+  out <- httr::POST('https://ddhqa.worldbank.org/api/dataset/user/logout',
+                    httr::add_headers(.headers = c('Content-Type' = 'application/json')),
+                    body = list(username = username,
+                                password = password),
+                    encode = "json")
+  httr::warn_for_status(out)
+  out <- httr::content(out)
+}
 
 
 
