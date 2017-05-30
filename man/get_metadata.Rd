@@ -4,15 +4,13 @@
 \alias{get_metadata}
 \title{get_metadata}
 \usage{
-get_metadata(credentials, node)
+get_metadata(id)
 }
 \arguments{
-\item{credentials}{list: object returned by get_credentials()}
-
-\item{node}{numeric: The dataset node}
+\item{id}{character: The dataset UUID}
 }
 \value{
-dataframe
+list
 }
 \description{
 Retrieve metadata for a specific dataset

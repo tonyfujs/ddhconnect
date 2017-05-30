@@ -2,30 +2,24 @@
 #'
 #' Retrieve metadata for a specific dataset
 #'
-#' @param credentials list: object returned by get_credentials()
-#' @param node numeric: The dataset node
+#' @param id character: The dataset UUID
 #'
-#' @return dataframe
+#' @return list
 #' @export
 #'
 #'
-get_metadata <- function(credentials, node) {
-  cookie <- credentials$cookie
-  token <- credentials$token
+get_metadata <- function(id) {
 
-  url <- 'https://ddhstg.worldbank.org'
-  path <- paste0('node/', node, '.json')
-  url <- httr::modify_url(url = url, path = path)
+  url <- 'https://ddhstg.worldbank.org/api/3/action/package_show?id='
+  url <- paste0(url, id)
 
   out <- httr::GET(url = url,
                    httr::add_headers(.headers = c('Content-Type' = 'application/json',
-                                                  'Cookie' =  cookie,
-                                                  'X-CSRF-Token' = token,
                                                   'charset' = 'utf-8')))
   httr::warn_for_status(out)
 
   out <- httr::content(out)
-  out <- dplyr::bind_rows(out)
+  out <- out$result[[1]]
 
   return(out)
 }
