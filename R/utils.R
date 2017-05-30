@@ -1,5 +1,5 @@
 connect_system <- function() {
-  out <- httr::POST('https://ddhqa.worldbank.org/api/dataset/system/connect',
+  out <- httr::POST('https://ddhstg.worldbank.org/api/dataset/system/connect',
              httr::accept_json(),
              body = list(x = '"SystemConnect":"Welcome"'))
   httr::warn_for_status(out)
@@ -10,7 +10,7 @@ connect_system <- function() {
 }
 
 login_service <- function(system_connect_sessid, username, password) {
-  out <- httr::POST('https://ddhqa.worldbank.org/api/dataset/user/login',
+  out <- httr::POST('https://ddhstg.worldbank.org/api/dataset/user/login',
                      httr::add_headers(.headers = c('Content-Type' = 'application/json')),
                      body = list(sessid = system_connect_sessid,
                                  username = username,
@@ -25,7 +25,7 @@ login_service <- function(system_connect_sessid, username, password) {
 }
 
 get_token <- function(cookie) {
-  out <- httr::POST('https://ddhqa.worldbank.org/services/session/token',
+  out <- httr::POST('https://ddhstg.worldbank.org/services/session/token',
                     httr::add_headers(.headers = c('Content-Type' = 'application/json',
                                                    'Cookie' =  cookie)),
                     encode = "json")
@@ -38,8 +38,13 @@ get_token <- function(cookie) {
 
 
 logout_ddh <- function(credentials, username, password) {
-  out <- httr::POST('https://ddhqa.worldbank.org/api/dataset/user/logout',
-                    httr::add_headers(.headers = c('Content-Type' = 'application/json')),
+  cookie <- credentials$cookie
+  token <- credentials$token
+
+  out <- httr::POST('https://ddhstg.worldbank.org/api/dataset/user/logout',
+                    httr::add_headers(.headers = c('Content-Type' = 'application/json',
+                                                   'Cookie' =  cookie,
+                                                   'X-CSRF-Token' = token)),
                     body = list(username = username,
                                 password = password),
                     encode = "json")
