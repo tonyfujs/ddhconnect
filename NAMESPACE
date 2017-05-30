@@ -3,6 +3,7 @@
 export(create_dataset)
 export(create_resource)
 export(get_credentials)
+export(get_datasets_list)
 export(get_lovs)
 export(get_metadata)
 export(get_user_details)

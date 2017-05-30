@@ -1,3 +1,11 @@
+#' get_datasets_list()
+#'
+#' @param datatype character: Restrict the list to a specific type of dataset. Available options are: "all", "timeseries", "geospatial", or "other"
+#'
+#' @return numeric vector
+#' @export
+#'
+#'
 get_datasets_list <- function(datatype = c('all', 'timeseries', 'microdata', 'geospatial', 'other')) {
 
   limit <- 500
