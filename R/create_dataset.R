@@ -13,7 +13,7 @@ create_dataset <- function(credentials, path) {
   cookie <- credentials$cookie
   token <- credentials$token
 
-  out <- httr::POST(url = 'https://ddhstg.worldbank.org/api/dataset/node',
+  out <- httr::POST(url = 'https://ddh.worldbank.org/api/dataset/node',
                     httr::add_headers(.headers = c('Content-Type' = 'application/json',
                                                    'Cookie' =  cookie,
                                                    'X-CSRF-Token' = token)),

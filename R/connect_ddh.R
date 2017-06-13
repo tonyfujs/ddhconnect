@@ -6,7 +6,7 @@ connect_ddh <- function(path, body = NULL) {
   # }
 
   # Build url
-  url <- httr::modify_url("https://ddhstg.worldbank.org", path = path)
+  url <- httr::modify_url("https://ddh.worldbank.org", path = path)
   # Make the request
   resp <- httr::GET(url,
             body = body,

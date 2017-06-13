@@ -14,7 +14,7 @@ get_user_details <- function(credentials, uid) {
   token <- credentials$token
 
   uid <- stringr::str_pad(uid, pad = '0', side = 'left', width = 9)
-  my_url <- paste0('https://ddhstg.worldbank.org/api/dataset/views/getuserdetails?uid=', uid)
+  my_url <- paste0('https://ddh.worldbank.org/api/dataset/views/getuserdetails?uid=', uid)
 
   out <- httr::GET(url = my_url,
                    httr::add_headers(.headers = c('Content-Type' = 'application/json',
