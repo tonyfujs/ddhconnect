@@ -2,13 +2,12 @@
 #'
 #' Retrieve controlled vocabulary / list of values (LOVs) accepted by DDH
 #'
-#' @param credentials
 #'
 #' @return dataframe
 #' @export
 #'
 #'
-get_lovs <- function(credentials) {
+get_lovs <- function() {
   # cookie <- credentials$cookie
   # token <- credentials$token
 

@@ -4,10 +4,7 @@
 \alias{get_lovs}
 \title{get_lovs}
 \usage{
-get_lovs(credentials)
-}
-\arguments{
-\item{credentials}{}
+get_lovs()
 }
 \value{
 dataframe
