@@ -52,6 +52,13 @@ logout_ddh <- function(credentials, username, password) {
   out <- httr::content(out)
 }
 
+replicate_resource <- function(n, template = ddhconnect::attach_resources_template) {
+
+  template$field_resources$und <- rep(template$field_resources$und, n)
+
+  return(template)
+
+}
 
 
 
