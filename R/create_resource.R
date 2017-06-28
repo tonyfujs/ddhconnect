@@ -14,7 +14,7 @@ create_resource <- function(credentials, path) {
   token <- credentials$token
 
   # CHECK: dataset_id
-  out <- httr::POST(url = 'https://ddh.worldbank.org/api/dataset/node',
+  out <- httr::POST(url = 'https://newdatacatalog.worldbank.org/api/dataset/node',
                     httr::add_headers(.headers = c('Content-Type' = 'application/json',
                                                    'Cookie' =  cookie,
                                                    'X-CSRF-Token' = token)),

@@ -13,18 +13,18 @@
 update_dataset <- function(credentials, nid, body) {
   cookie <- credentials$cookie
   token <- credentials$token
-  
-  out <- httr::PUT(url = 'https://ddh.worldbank.org/api/dataset/node',
+
+  out <- httr::PUT(url = 'https://newdatacatalog.worldbank.org/api/dataset/node',
                    httr::add_headers(.headers = c('Content-Type' = 'application/json',
                                                   'Cookie' =  cookie,
                                                   'X-CSRF-Token' = token)),
                    body = body,
                    encode = 'json')
-  
+
   httr::warn_for_status(out)
-  
+
   out <- httr::content(out)
   names(out) <- c('node_id', 'uri')
-  
+
   return(out)
 }

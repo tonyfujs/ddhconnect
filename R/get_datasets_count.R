@@ -8,7 +8,7 @@ get_datasets_count <- function(datatype = c('all', 'timeseries', 'microdata', 'g
 
 
   # Create URL
-  url <- 'https://ddh.worldbank.org'
+  url <- 'https://newdatacatalog.worldbank.org'
   url <- httr::modify_url(url = url,
                           path = path,
                           query = list(limit = limit)
