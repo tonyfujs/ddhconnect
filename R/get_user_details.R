@@ -4,19 +4,22 @@
 #'
 #' @param credentials list: object returned by the get_credentials() function
 #' @param uid numeric: UPI number
+#' @param root_url character: API root URL
 #'
 #' @return character
 #' @export
 #'
 
-get_user_details <- function(credentials, uid) {
+get_user_details <- function(credentials, uid, root_url = production_root_url) {
   cookie <- credentials$cookie
   token <- credentials$token
 
+  # Build url
   uid <- stringr::str_pad(uid, pad = '0', side = 'left', width = 9)
-  my_url <- paste0('https://newdatacatalog.worldbank.org/api/dataset/views/getuserdetails?uid=', uid)
-
-  out <- httr::GET(url = my_url,
+  path <- 'internal/getuserdetails'
+  url <- httr::modify_url(root_url, path = path, query = list(uid = uid))
+  # Send request
+  out <- httr::GET(url = url,
                    httr::add_headers(.headers = c('Content-Type' = 'application/json',
                                                   'Cookie' =  cookie,
                                                   'X-CSRF-Token' = token,

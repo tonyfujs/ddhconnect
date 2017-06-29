@@ -1,5 +1,9 @@
-connect_system <- function() {
-  out <- httr::POST('https://newdatacatalog.worldbank.org/api/dataset/system/connect',
+connect_system <- function(root_url = production_root_url) {
+  # Build url
+  path <- 'api/dataset/system/connect'
+  url <- httr::modify_url(root_url, path = path)
+
+  out <- httr::POST(url,
              httr::accept_json(),
              body = list(x = '"SystemConnect":"Welcome"'))
   httr::warn_for_status(out)
@@ -9,8 +13,12 @@ connect_system <- function() {
   return(out)
 }
 
-login_service <- function(system_connect_sessid, username, password) {
-  out <- httr::POST('https://newdatacatalog.worldbank.org/api/dataset/user/login',
+login_service <- function(system_connect_sessid, username, password, root_url = production_root_url) {
+  # Build url
+  path <- 'api/dataset/user/login'
+  url <- httr::modify_url(root_url, path = path)
+
+  out <- httr::POST(url,
                      httr::add_headers(.headers = c('Content-Type' = 'application/json')),
                      body = list(sessid = system_connect_sessid,
                                  username = username,
@@ -24,8 +32,13 @@ login_service <- function(system_connect_sessid, username, password) {
   return(list(login_sessid = login_sessid, login_sessname = login_sessname))
 }
 
-get_token <- function(cookie) {
-  out <- httr::POST('https://newdatacatalog.worldbank.org/services/session/token',
+get_token <- function(cookie, root_url = production_root_url) {
+
+  # Build url
+  path <- 'services/session/token'
+  url <- httr::modify_url(root_url, path = path)
+
+  out <- httr::POST(url,
                     httr::add_headers(.headers = c('Content-Type' = 'application/json',
                                                    'Cookie' =  cookie)),
                     encode = "json")
@@ -37,11 +50,15 @@ get_token <- function(cookie) {
 }
 
 
-logout_ddh <- function(credentials, username, password) {
+logout_ddh <- function(credentials, username, password, root_url = production_root_url) {
   cookie <- credentials$cookie
   token <- credentials$token
 
-  out <- httr::POST('https://newdatacatalog.worldbank.org/api/dataset/user/logout',
+  # Build url
+  path <- 'api/dataset/user/logout'
+  url <- httr::modify_url(root_url, path = path)
+
+  out <- httr::POST(url,
                     httr::add_headers(.headers = c('Content-Type' = 'application/json',
                                                    'Cookie' =  cookie,
                                                    'X-CSRF-Token' = token)),

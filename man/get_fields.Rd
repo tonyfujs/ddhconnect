@@ -4,7 +4,10 @@
 \alias{get_fields}
 \title{get_fields}
 \usage{
-get_fields()
+get_fields(root_url = production_root_url)
+}
+\arguments{
+\item{root_url}{character: API root URL}
 }
 \value{
 dataframe

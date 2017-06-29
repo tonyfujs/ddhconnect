@@ -4,12 +4,14 @@
 \alias{get_user_details}
 \title{get_user_details}
 \usage{
-get_user_details(credentials, uid)
+get_user_details(credentials, uid, root_url = production_root_url)
 }
 \arguments{
 \item{credentials}{list: object returned by the get_credentials() function}
 
 \item{uid}{numeric: UPI number}
+
+\item{root_url}{character: API root URL}
 }
 \value{
 character

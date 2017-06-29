@@ -1,4 +1,4 @@
-connect_ddh <- function(path, body = NULL) {
+connect_ddh <- function(path, body = NULL, root_url = production_root_url) {
 
   # if(!is.null(credentials)){
   #   cookie <- credentials$cookie
@@ -6,7 +6,7 @@ connect_ddh <- function(path, body = NULL) {
   # }
 
   # Build url
-  url <- httr::modify_url("https://newdatacatalog.worldbank.org", path = path)
+  url <- httr::modify_url(production_root_url, path = path)
   # Make the request
   resp <- httr::GET(url,
             body = body,

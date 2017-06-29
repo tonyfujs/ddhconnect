@@ -4,10 +4,12 @@
 \alias{get_metadata}
 \title{get_metadata}
 \usage{
-get_metadata(id)
+get_metadata(id, root_url = production_root_url)
 }
 \arguments{
 \item{id}{character: The dataset UUID}
+
+\item{root_url}{character: API root URL}
 }
 \value{
 list

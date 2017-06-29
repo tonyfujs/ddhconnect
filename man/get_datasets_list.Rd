@@ -5,10 +5,12 @@
 \title{get_datasets_list()}
 \usage{
 get_datasets_list(datatype = c("all", "timeseries", "microdata", "geospatial",
-  "other"))
+  "other"), root_url = production_root_url)
 }
 \arguments{
 \item{datatype}{character: Restrict the list to a specific type of dataset. Available options are: "all", "timeseries", "geospatial", or "other"}
+
+\item{root_url}{character: API root URL}
 }
 \value{
 numeric vector

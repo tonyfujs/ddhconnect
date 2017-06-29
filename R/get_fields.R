@@ -1,16 +1,21 @@
 #' get_fields
 #'
 #' Retrieve list of fields (machine names + screen names) for each data type
+#' @param root_url character: API root URL
 #'
 #' @return dataframe
 #' @export
 #'
 #'
-get_fields <- function() {
+get_fields <- function(root_url = production_root_url) {
   # cookie <- credentials$cookie
   # token <- credentials$token
 
-  out <- httr::GET(url = 'https://datacatalogbetastg.worldbank.org/internal/ddh_fields',
+  # Build url
+  path <- 'internal/ddh_fields'
+  url <- httr::modify_url(root_url, path = path)
+  # Send request
+  out <- httr::GET(url = url,
                    httr::add_headers(.headers = c('Content-Type' = 'application/json',
                                                   # 'Cookie' =  cookie,
                                                   # 'X-CSRF-Token' = token,

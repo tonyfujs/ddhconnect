@@ -1,4 +1,5 @@
-get_datasets_count <- function(datatype = c('all', 'timeseries', 'microdata', 'geospatial', 'other')) {
+get_datasets_count <- function(datatype = c('all', 'timeseries', 'microdata', 'geospatial', 'other'),
+                               root_url = production_root_url) {
 
   path = 'search-service/search_api/datasets'
   limit = 1
@@ -8,8 +9,7 @@ get_datasets_count <- function(datatype = c('all', 'timeseries', 'microdata', 'g
 
 
   # Create URL
-  url <- 'https://newdatacatalog.worldbank.org'
-  url <- httr::modify_url(url = url,
+  url <- httr::modify_url(url = root_url,
                           path = path,
                           query = list(limit = limit)
                           )
@@ -22,7 +22,7 @@ get_datasets_count <- function(datatype = c('all', 'timeseries', 'microdata', 'g
   }
 
   # Query
-  out <- httr::GET(url = url,
+  out <- httr::GET(url = root_url,
                    httr::add_headers(.headers = c('charset' = 'utf-8')),
                    httr::accept_json())
   httr::warn_for_status(out)

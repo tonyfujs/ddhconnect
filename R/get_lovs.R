@@ -1,17 +1,21 @@
 #' get_lovs
 #'
 #' Retrieve controlled vocabulary / list of values (LOVs) accepted by DDH
-#'
+#' @param root_url character: API root URL
 #'
 #' @return dataframe
 #' @export
 #'
 #'
-get_lovs <- function() {
+get_lovs <- function(root_url = production_root_url) {
   # cookie <- credentials$cookie
   # token <- credentials$token
 
-  out <- httr::GET(url = 'https://datacatalogbetastg.worldbank.org/internal/listvalues',
+  # Build url
+  path <- 'internal/listvalues'
+  url <- httr::modify_url(root_url, path = path)
+  # Send request
+  out <- httr::GET(url = url,
                    httr::add_headers(.headers = c('Content-Type' = 'application/json',
                                                   # 'Cookie' =  cookie,
                                                   # 'X-CSRF-Token' = token,
