@@ -1,4 +1,4 @@
-connect_system <- function(root_url = production_root_url) {
+connect_system <- function(root_url) {
   # Build url
   path <- 'api/dataset/system/connect'
   url <- httr::modify_url(root_url, path = path)
@@ -13,7 +13,7 @@ connect_system <- function(root_url = production_root_url) {
   return(out)
 }
 
-login_service <- function(system_connect_sessid, username, password, root_url = production_root_url) {
+login_service <- function(system_connect_sessid, username, password, root_url) {
   # Build url
   path <- 'api/dataset/user/login'
   url <- httr::modify_url(root_url, path = path)
@@ -32,7 +32,7 @@ login_service <- function(system_connect_sessid, username, password, root_url = 
   return(list(login_sessid = login_sessid, login_sessname = login_sessname))
 }
 
-get_token <- function(cookie, root_url = production_root_url) {
+get_token <- function(cookie, root_url) {
 
   # Build url
   path <- 'services/session/token'

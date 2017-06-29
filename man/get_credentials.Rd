@@ -4,12 +4,14 @@
 \alias{get_credentials}
 \title{get_credentials}
 \usage{
-get_credentials(username, password)
+get_credentials(username, password, root_url = production_root_url)
 }
 \arguments{
 \item{username}{character: Your DDH API username}
 
 \item{password}{character: Your DDH API password}
+
+\item{root_url}{character: API root URL}
 }
 \value{
 list
