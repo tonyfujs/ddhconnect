@@ -4,10 +4,12 @@
 \alias{get_metadata}
 \title{get_metadata}
 \usage{
-get_metadata(id, root_url = production_root_url)
+get_metadata(nid, credentials, root_url = production_root_url)
 }
 \arguments{
-\item{id}{character: The dataset UUID}
+\item{nid}{character: The dataset node id}
+
+\item{credentials}{list: object returned by the get_credentials() function}
 
 \item{root_url}{character: API root URL}
 }
