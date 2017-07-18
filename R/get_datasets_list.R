@@ -20,7 +20,7 @@ get_datasets_list <- function(datatype = c('all', 'timeseries', 'microdata', 'ge
   names(inv_datatypes_lkup) <- datatypes_lkup
   # get a count datasets
   count_url <- paste0(root_url,
-                      '/search-service/search_api/datasets?limit=1&fields=[nid]&filter[status]=1&filter[field_wbddh_data_type]=',
+                      '/search-service/search_api/datasets?limit=1&fields=[nid,]&filter[status]=1&filter[field_wbddh_data_type]=',
                       dtype)
   count <- httr::GET(url = count_url,
                      httr::add_headers(.headers = c('charset' = 'utf-8')),
