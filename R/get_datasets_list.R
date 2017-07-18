@@ -16,6 +16,8 @@ get_datasets_list <- function(datatype = c('all', 'timeseries', 'microdata', 'ge
   datatypes_lkup <- c('293', '294', '295', '853')
   names(datatypes_lkup) <- c('timeseries', 'microdata', 'geospatial', 'other')
   dtype <- datatypes_lkup[datatype]
+  inv_datatypes_lkup <- names(datatypes_lkup)
+  names(inv_datatypes_lkup) <- datatypes_lkup
   # get a count datasets
   count_url <- paste0(root_url,
                       '/search-service/search_api/datasets?limit=1&fields=[nid]&filter[status]=1&filter[field_wbddh_data_type]=',
@@ -56,6 +58,7 @@ get_datasets_list <- function(datatype = c('all', 'timeseries', 'microdata', 'ge
   uuid <- unlist(uuid)
   title <- unlist(title)
   field_wbddh_data_type <- unlist(field_wbddh_data_type)
+  field_wbddh_data_type <- inv_datatypes_lkup[field_wbddh_data_type]
 
   out <- data.frame(nid = nid, uuid = uuid, title = title, data_type = field_wbddh_data_type, stringsAsFactors = FALSE)
 
