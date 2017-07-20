@@ -30,6 +30,10 @@ update_dataset <- function(credentials, nid, body, root_url = production_root_ur
   httr::warn_for_status(out)
 
   out <- httr::content(out)
+  # CHECK response is as expected
+  assertthat::assert_that(all(names(out) %in% c('nid', 'uri')),
+                          msg = "Unexpected response from DDH API")
+
   names(out) <- c('node_id', 'uri')
 
   return(out)
