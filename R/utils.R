@@ -5,7 +5,8 @@ connect_system <- function(root_url) {
 
   out <- httr::POST(url,
              httr::accept_json(),
-             body = list(x = '"SystemConnect":"Welcome"'))
+             body = list(x = '"SystemConnect":"Welcome"'),
+             encode = 'json')
   httr::warn_for_status(out)
   out <- httr::content(out)
   out <- out$sessid
