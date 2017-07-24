@@ -7,7 +7,7 @@ connect_system <- function(root_url) {
              httr::accept_json(),
              body = list(x = '"SystemConnect":"Welcome"'),
              encode = 'json')
-  httr::warn_for_status(out)
+  httr::stop_for_status(out, task = 'connect to DDH')
   out <- httr::content(out)
   out <- out$sessid
 
@@ -25,7 +25,7 @@ login_service <- function(system_connect_sessid, username, password, root_url) {
                                  username = username,
                                  password = password),
                      encode = "json")
-  httr::warn_for_status(out)
+  httr::stop_for_status(out, task = 'retrieve session ID via login service')
   out <- httr::content(out)
   login_sessid <- out$sessid
   login_sessname <- out$session_name
@@ -43,7 +43,7 @@ get_token <- function(cookie, root_url) {
                     httr::add_headers(.headers = c('Content-Type' = 'application/json',
                                                    'Cookie' =  cookie)),
                     encode = "json")
-  httr::warn_for_status(out)
+  httr::stop_for_status(out, task = 'retrieve token')
 
   out <- httr::content(out)
 
