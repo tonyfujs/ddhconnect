@@ -13,11 +13,11 @@
 #' @export
 #'
 
-search_catalog <- function(path = 'search-service/search_api/datasets',
-                           fields = c('nid', 'uuid', 'title', 'field_contact_email', 'field_wbddh_data_type', 'status'),
+search_catalog <- function(fields = c('nid', 'uuid', 'title', 'field_contact_email', 'field_wbddh_data_type', 'status'),
                            filters = c('field_wbddh_data_type'=294, 'status'=1),
                            limit = 200,
                            credentials,
+                           path = 'search-service/search_api/datasets',
                            root_url = production_root_url) {
 
 
@@ -34,7 +34,7 @@ search_catalog <- function(path = 'search-service/search_api/datasets',
                       query = query_count,
                       root_url = root_url)
   count <- as.numeric(count$count)
-
+  #if (count < limit) {limit <- count}
 
   # Return query
   iterations <- ceiling(count / limit)
@@ -47,7 +47,7 @@ search_catalog <- function(path = 'search-service/search_api/datasets',
                             query = temp_query,
                             root_url = root_url)
     temp_resp <- temp_resp$result
-    index <- (1+temp_offset):(temp_offset+limit)
+    index <- (1 + temp_offset):(temp_offset + length(temp_resp))
     out[index] <- purrr::map(temp_resp, function(x) x)
   }
 

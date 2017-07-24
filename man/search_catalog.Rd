@@ -4,14 +4,13 @@
 \alias{search_catalog}
 \title{search_catalog}
 \usage{
-search_catalog(path = "search-service/search_api/datasets",
-  fields = c("nid", "uuid", "title", "field_contact_email",
+search_catalog(fields = c("nid", "uuid", "title", "field_contact_email",
   "field_wbddh_data_type", "status"), filters = c(field_wbddh_data_type = 294,
-  status = 1), limit = 200, credentials, root_url = production_root_url)
+  status = 1), limit = 200, credentials,
+  path = "search-service/search_api/datasets",
+  root_url = production_root_url)
 }
 \arguments{
-\item{path}{character: path to the search_api}
-
 \item{fields}{character vector: fields to be returned by the search}
 
 \item{filters}{named character vector: filters to be applied to the search}
@@ -19,6 +18,8 @@ search_catalog(path = "search-service/search_api/datasets",
 \item{limit}{numeric: Maximum number of records to retrieve by search iteration}
 
 \item{credentials}{list: API authentication credentials}
+
+\item{path}{character: path to the search_api}
 
 \item{root_url}{character: API root URL}
 }
