@@ -10,11 +10,11 @@ test_resource_update_json <- fromJSON('data-raw/test_resource_update.json', simp
 
 # Save data
 devtools::use_data(attach_resources_template,
-                  overwrite = TRUE)
+                   test_dataset_update_json,
+                   test_resource_update_json,
+                   overwrite = TRUE)
 
 devtools::use_data(production_root_url,
                    stg_root_url,
-                   test_dataset_update_json,
-                   test_resource_update_json,
                    overwrite = TRUE,
                    internal = TRUE)
