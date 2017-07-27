@@ -1,0 +1,172 @@
+{
+  "title": "TEST DATASET",
+  "body": {
+    "und": [
+      {
+        "value": "This a dataset description"
+      }
+    ]
+  },
+  "field_contact_email": {
+    "und": [
+      {
+        "value": "tfujs@worldbank.org"
+      }
+    ]
+  },
+  "field_topic": {
+    "und": {
+      "tid": "936"
+    }
+  },
+  "field_wbddh_reference_id": {
+    "und": [
+      {
+        "value": "LVA_2009_HBS_v01_M"
+      }
+    ]
+  },
+  "field_wbddh_data_class": {
+    "und": {
+      "tid": "359"
+    }
+  },
+  "field_wbddh_data_collector": {
+    "und": {
+      "value": "Central Statistical Bureau of Latvia"
+    }
+  },
+  "field_wbddh_data_type": {
+    "und": {
+      "tid": "294"
+    }
+  },
+  "field_wbddh_disclaimer": {
+    "und": {
+      "value": "The user of the data acknowledges that the original collector of the data, the authorized distributor of the data, and the relevant funding agency bear no responsibility for use of the data or for interpretations or inferences based upon such uses."
+    }
+  },
+  "field_wbddh_kind_of_data": {
+    "und": {
+      "tid": "855"
+    }
+  },
+  "field_wbddh_languages_supported": {
+    "und": {
+      "tid": "337"
+    }
+  },
+  "field_wbddh_mode_data_collection": {
+    "und": {
+      "tid": "478"
+    }
+  },
+  "field_wbddh_primary_investigator": {
+    "und": [
+      {
+        "value": "Central Statistical Bureau of Latvia"
+      }
+    ]
+  },
+  "field_wbddh_study_type": {
+    "und": {
+      "value": "Income/Expenditure/Household Survey"
+    }
+  },
+  "field_wbddh_terms_of_use": {
+    "und": {
+      "tid": "439"
+    }
+  },
+  "field_wbddh_access_authority": {
+    "und": [
+      {
+        "value": ""
+      }
+    ]
+  },
+  "field_wbddh_funding_name": {
+    "und": [
+      {
+        "value": "Central Statistical Bureau of Latvia"
+      }
+    ]
+  },
+  "field_wbddh_version_description": {
+    "und": [
+      {
+        "value": "v01"
+      }
+    ]
+  },
+  "field_wbddh_unit_of_analysis": {
+    "und": [
+      {
+        "value": "- Households,\n- Individuals. \n\nHousehold is defined as a person or group of persons tied by relationship or other personal relations, having common subsistence expenditures and inhabiting the same living unit (house, flat, etc.), maintenance of which is covered by such persons jointly."
+      }
+    ]
+  },
+  "field_wbddh_universe": {
+    "und": {
+      "value": [""]
+    }
+  },
+  "field_wbddh_acronym": {
+    "und": [
+      {
+        "value": "HBS 2009"
+      }
+    ]
+  },
+  "field_wbddh_country": {
+    "und": {
+      "tid": "156"
+    }
+  },
+  "field_wbddh_release_date": {
+    "und": [
+      {
+        "value": "2017-01-01"
+      }
+    ]
+  },
+  "field_wbddh_modified_date": {
+    "und": [
+      {
+        "value": "2017-07-01"
+      }
+    ]
+  },
+  "field_wbddh_sampling_procedure": {
+    "und": [
+      {
+        "value": "A two-stage stratified random sampling method was used to select households. The annual household sample is evenly distributed over time (the same number of households participates in the survey within each of the 52 weeks of the year). Primary sampling units are selected within each stratum using systematic probability proportional to size sampling with a random starting point. In the second stage households from each sampled PSU are selected by simple random sampling. The annual household sample is evenly distributed over time (the same number of households participates in the survey within each of the 52 weeks of the year) and space. Primary sampling units are selected within each stratum using systematic probability proportional to size sampling with a random starting point. In the second stage households from each sampled PSU are selected by simple random sampling. Households are stratified by the degree of urbanization (location): the capital city of Riga"
+      }
+    ]
+  },
+  "field_wbddh_questionnaires": {
+    "und": [
+      {
+        "value": "Two types of survey instruments are used for Latvia HBS: Household Questionnaire and Household Diary. 1) Household Questionnaire. The Household Questionnaire is filled by interviewers. It consists of questionnaires for an introductory interview and a final interview. - Household Introductory Interview covers social and demographic composition of a household, housing conditions, the possibility to use (cultivate) land, employment of household members (age 15 years and above); - The Final Interview covers questions on income of the household members in cash, transfers (different recall periods), income in kind received from the employer, and different benefits from the state and local government social assistance, possession of durable goods in the household, household expenditure on the purchase of durable goods and other goods that are bought more seldom, on services during the last 12 months, self evaluation of living conditions (subjective poverty indicators). Indiv"
+      }
+    ]
+  },
+  "field_wbddh_citation_text": {
+    "und": [
+      {
+        "value": "The use of the datasets must be acknowledged using a citation which would include: - the identification of the Primary Investigator (including country name) - the full title of the survey and its acronym (when available), and the year(s) of implementation - the survey reference number - the source and date of download (for datasets disseminated online) Example: Central Statistical Bureau of Latvia. Latvia Household Budget Survey (HBS) 2009, Ref. LVA_2009_HBS_v01_M. Dataset downloaded from [URL] on [date]."
+      }
+    ]
+  },
+  "field_ddh_harvest_src": {
+    "und": {
+      "tid": "1190"
+    }
+  },
+  "field_exception_s_": {
+    "und": {
+      "tid": "1194"
+    }
+  },
+  "type": "dataset"
+}

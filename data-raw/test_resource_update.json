@@ -1,0 +1,26 @@
+{
+  "title": "TEST - RESOURCE",
+  "field_wbddh_data_class": {
+    "und": {
+      "tid": "359"
+    }
+  },
+  "field_exception_s_": {
+    "und": {
+      "tid": "1194"
+    }
+  },
+  "field_wbddh_resource_type": {
+    "und": {
+      "tid": "1007"
+    }
+  },
+  "field_link_api": {
+    "und": [
+      {
+        "url": "http://www.google.com"
+      }
+    ]
+  },
+  "type": "resource"
+}
