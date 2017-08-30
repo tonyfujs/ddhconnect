@@ -23,6 +23,9 @@ search_catalog(fields = c("nid", "uuid", "title", "field_contact_email",
 
 \item{root_url}{character: API root URL}
 }
+\value{
+list
+}
 \description{
 Helper function to search the DDH data catalog
 }

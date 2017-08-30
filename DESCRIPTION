@@ -17,6 +17,7 @@ Imports: httr,
     jsonlite,
     plyr,
     purrr,
-    tidyr
+    tidyr,
+    assertthat
 RoxygenNote: 6.0.1
 Depends: R (>= 2.10)

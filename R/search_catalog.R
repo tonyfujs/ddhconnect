@@ -9,7 +9,7 @@
 #' @param credentials list: API authentication credentials
 #' @param root_url character: API root URL
 #'
-#' @return
+#' @return list
 #' @export
 #'
 
