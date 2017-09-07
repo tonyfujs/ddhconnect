@@ -21,7 +21,7 @@ get_lovs <- function(root_url = production_root_url) {
                                                   # 'X-CSRF-Token' = token,
                                                   'charset' = 'utf-8')),
                    httr::accept_json())
-  httr::warn_for_status(out)
+  err_handler(out)
 
   out <- httr::content(out)
 
