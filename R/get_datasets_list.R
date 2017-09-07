@@ -7,6 +7,27 @@
 #' @export
 #'
 #'
+
+# get_datasets_list <- function(datatype = c('all', 'timeseries', 'microdata', 'geospatial', 'other'),
+#                               root_url = production_root_url) {
+#
+#   # Identify datasets to be listed
+#   datatypes_lkup <- c('293', '294', '295', '853')
+#   names(datatypes_lkup) <- c('timeseries', 'microdata', 'geospatial', 'other')
+#   dtype <- datatypes_lkup[datatype]
+#
+#   # Define the parameters for the search
+#   fields = c('nid', 'uuid', 'title', 'field_wbddh_data_type')
+#   filters = c('field_wbddh_data_type'=dtype, 'status'=1)
+#   limit = 500
+#   credentials = list(cookie='a', token='b')
+#   path = 'search-service/search_api/datasets'
+#
+#   out = search_catalog(fields, filters, limit, credentials, path, root_url)
+#
+# }
+
+
 get_datasets_list <- function(datatype = c('all', 'timeseries', 'microdata', 'geospatial', 'other'),
                               root_url = production_root_url) {
 
@@ -20,8 +41,10 @@ get_datasets_list <- function(datatype = c('all', 'timeseries', 'microdata', 'ge
   names(inv_datatypes_lkup) <- datatypes_lkup
   # get a count datasets
   count_url <- paste0(root_url,
-                      '/search-service/search_api/datasets?limit=1&fields=[nid,]&filter[status]=1&filter[field_wbddh_data_type]=',
-                      dtype)
+                      '/search-service/search_api/datasets?limit=1&fields=[nid,]&filter[status]=1')
+  if(datatype != 'all') {
+    count_url <- paste0(count_url, '&filter[field_wbddh_data_type]=', dtype)
+  }
   count <- httr::GET(url = count_url,
                      httr::add_headers(.headers = c('charset' = 'utf-8')),
                      httr::accept_json())
@@ -38,10 +61,13 @@ get_datasets_list <- function(datatype = c('all', 'timeseries', 'microdata', 'ge
   for (i in 1:iterations) {
     temp_offset <- (i - 1) * 500
     temp_url <- paste0(root_url,
-                       '/search-service/search_api/datasets?limit=500&fields=[nid,uuid,title,field_wbddh_data_type,]&filter[status]=1&filter[field_wbddh_data_type]=',
-                       dtype,
+                       '/search-service/search_api/datasets?limit=500&fields=[nid,uuid,title,field_wbddh_data_type,]',
                        '&offset=',
-                       temp_offset)
+                       temp_offset,
+                       '&filter[status]=1')
+    if(datatype != 'all') {
+      temp_url <- paste0(temp_url, '&filter[field_wbddh_data_type]=', dtype)
+    }
     temp_resp <- httr::GET(url = temp_url,
                            httr::add_headers(.headers = c('charset' = 'utf-8')),
                            httr::accept_json())
