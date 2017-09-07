@@ -84,7 +84,32 @@ build_search_query <- function(fields,
 }
 
 
-
+err_handler <- function(x) {
+  if (x$status_code > 201) {
+    obj <- try({
+      err <- jsonlite::fromJSON(httr::content(x, "text", encoding = "UTF-8"))$form_errors
+      errmsg <- paste('error:', err[[1]])
+      list(err = err, errmsg = errmsg)
+    }, silent = TRUE)
+    if (class(obj) != "try-error") {
+      stop(sprintf("%s - %s",
+                   httr::http_status(x)$message,
+                   obj$errmsg),
+           call. = FALSE)
+    } else {
+      obj <- {
+        err <- httr::http_condition(x, "error")
+        errmsg <- httr::content(x, "text", encoding = "UTF-8")
+        list(err = err, errmsg = errmsg)
+      }
+      stop(sprintf("%s - %s\n  %s",
+                   x$status_code,
+                   obj$err[["message"]],
+                   obj$errmsg),
+           call. = FALSE)
+    }
+  }
+}
 
 
 

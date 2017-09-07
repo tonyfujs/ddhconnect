@@ -24,7 +24,7 @@ get_metadata <- function(nid, credentials, root_url = production_root_url) {
                                                   charset = 'utf-8',
                                                   Cookie = cookie,
                                                   `X-CSRF-Token` = token)))
-  httr::warn_for_status(out)
+  err_handler(out)
 
   out <- httr::content(out)
 

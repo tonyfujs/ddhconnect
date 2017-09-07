@@ -24,7 +24,7 @@ get_user_details <- function(credentials, uid, root_url = production_root_url) {
                                                   'Cookie' =  cookie,
                                                   'X-CSRF-Token' = token,
                                                   'charset' = 'utf-8')))
-  httr::warn_for_status(out)
+  err_handler(out)
 
   out <- httr::content(out)
   out <- unlist(out)

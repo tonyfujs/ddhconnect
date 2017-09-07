@@ -22,7 +22,7 @@ logout_ddh <- function(credentials, root_url = production_root_url) {
                                                    'Cookie' =  cookie,
                                                    'X-CSRF-Token' = token)),
                     encode = "json")
-  httr::warn_for_status(out)
+  err_handler(out)
   out <- httr::content(out)
 
   return(out)
