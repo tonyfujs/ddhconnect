@@ -8,7 +8,7 @@
 #'
 #'
 
-get_datasets_list_temp <- function(datatype = c('all', 'timeseries', 'microdata', 'geospatial', 'other'),
+get_datasets_list <- function(datatype = c('all', 'timeseries', 'microdata', 'geospatial', 'other'),
                                    root_url = production_root_url) {
 
   # Identify datasets to be listed
