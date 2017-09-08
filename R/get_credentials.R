@@ -21,6 +21,7 @@ get_credentials <- function(username, password, root_url = production_root_url) 
 
   # Get token
   cookie <- paste0(login_session_info$login_sessname, '=', login_session_info$login_sessid)
+  temp_token <- get_token(cookie = cookie, root_url = root_url)
   token <- get_token(cookie = cookie, root_url = root_url)
 
   credentials <- list(cookie = cookie, token = token)
