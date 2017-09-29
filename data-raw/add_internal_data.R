@@ -3,7 +3,7 @@ library(jsonlite)
 attach_resources_template <- fromJSON('./data-raw/attach_single_resource_schema.json', simplifyVector = FALSE)
 
 production_root_url <- 'https://newdatacatalog.worldbank.org'
-stg_root_url <- 'https://datacatalogbetastg.worldbank.org/'
+stg_root_url <- 'https://newdatacatalogstg.worldbank.org/'
 
 test_dataset_update_json <- fromJSON('data-raw/test_dataset_update.json', simplifyVector = FALSE)
 test_resource_update_json <- fromJSON('data-raw/test_resource_update.json', simplifyVector = FALSE)
