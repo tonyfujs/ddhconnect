@@ -12,7 +12,7 @@
 #'
 get_resource_nid <- function(nid, credentials, root_url = production_root_url) {
 
-  out <- get_metadata(nid = nid, credentials = credentials, root_url = root_url)
+  out <- get_metadata(nid = nid, root_url = root_url)
 
   out <- unname(unlist(out$field_resources))
 

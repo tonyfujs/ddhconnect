@@ -10,23 +10,14 @@
 #' @export
 #'
 #'
-get_metadata <- function(nid, credentials, root_url = production_root_url) {
-
-  cookie <- credentials$cookie
-  token <- credentials$token
+get_metadata <- function(nid, root_url = dkanr::get_url()) {
 
   # Build url
   path <- paste0('api/dataset/node/', nid)
   url <- httr::modify_url(root_url, path = path)
   # Send request
-  out <- httr::GET(url = url,
-                   httr::add_headers(.headers = c(`Content-Type` = 'application/json',
-                                                  charset = 'utf-8',
-                                                  Cookie = cookie,
-                                                  `X-CSRF-Token` = token)))
-  err_handler(out)
-
-  out <- httr::content(out)
+  json_out <- dkanr::retrieve_node(nid, root_url)
+  out <- jsonlite::fromJSON(json_out)
 
   return(out)
 }
