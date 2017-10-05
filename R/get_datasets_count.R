@@ -1,5 +1,6 @@
 get_datasets_count <- function(datatype = c('all', 'timeseries', 'microdata', 'geospatial', 'other'),
-                               root_url = dkanr::get_url()) {
+                               root_url = dkanr::get_url(),
+                               credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())) {
 
   limit <- 1
   datatypes_lkup <- c(293, 294, 295, 853)
@@ -14,7 +15,7 @@ get_datasets_count <- function(datatype = c('all', 'timeseries', 'microdata', 'g
     query <- paste0(query, '&', datatype_filter)
   }
 
-  out <- search_ddh(query, root_url)
+  out <- search_ddh(credentials, query, root_url)
   count <- as.numeric(out$count)
   
   return(count)

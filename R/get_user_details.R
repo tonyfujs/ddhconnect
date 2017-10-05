@@ -10,7 +10,7 @@
 #' @export
 #'
 
-get_user_details <- function(credentials, uid, root_url = production_root_url) {
+get_user_details <- function(credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token()), uid, root_url = dkanr::get_url()) {
   cookie <- credentials$cookie
   token <- credentials$token
 
@@ -24,7 +24,7 @@ get_user_details <- function(credentials, uid, root_url = production_root_url) {
                                                   'Cookie' =  cookie,
                                                   'X-CSRF-Token' = token,
                                                   'charset' = 'utf-8')))
-  err_handler(out)
+  dkanr::err_handler(out)
 
   out <- httr::content(out)
   out <- unlist(out)

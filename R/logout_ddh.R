@@ -9,7 +9,7 @@
 #' @export
 #'
 
-logout_ddh <- function(credentials, root_url = production_root_url) {
+logout_ddh <- function(credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token()), root_url = dkanr::get_url()) {
   cookie <- credentials$cookie
   token <- credentials$token
 
@@ -22,7 +22,7 @@ logout_ddh <- function(credentials, root_url = production_root_url) {
                                                    'Cookie' =  cookie,
                                                    'X-CSRF-Token' = token)),
                     encode = "json")
-  err_handler(out)
+  dkanr::err_handler(out)
   out <- httr::content(out)
 
   return(out)

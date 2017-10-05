@@ -12,24 +12,7 @@
 #' @export
 #'
 
-update_dataset <- function(credentials, nid, body, root_url = production_root_url) {
-  cookie <- credentials$cookie
-  token <- credentials$token
-
-  # Build url
-  path <- paste0('api/dataset/node/', nid)
-  url <- httr::modify_url(root_url, path = path)
-
-  out <- httr::PUT(url = url,
-                   httr::add_headers(.headers = c('Content-Type' = 'application/json',
-                                                  'Cookie' =  cookie,
-                                                  'X-CSRF-Token' = token)),
-                   body = body,
-                   encode = 'json')
-
-  err_handler(out)
-
-  out <- httr::content(out)
-
-  return(out)
+update_dataset <- function(credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token()), nid, body, root_url = dkanr::get_url()) {
+  out <- dkanr::update_node(nid, root_url, body, credentials)
+  return(jsonlite::fromJSON(out))
 }

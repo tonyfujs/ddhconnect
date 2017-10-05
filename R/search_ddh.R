@@ -1,6 +1,6 @@
 #' search_ddh
 #'
-#' Search DHH using the search_api service
+#' Search DDH using the search_api service
 #'
 #' @param query character: full text query
 #' @param root_url character: API root URL
@@ -8,10 +8,9 @@
 #' @return list
 #'
 
-search_ddh <- function(query = 'limit=20&fields=[,nid,uuid,title,]&filter[field_wbddh_data_type]=294', root_url = dkanr::get_url()) {
-  settings <- dkanr::dkanr_settings()
-  cookie <- settings$cookie
-  token <- settings$token
+search_ddh <- function(credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token()), query = 'limit=20&fields=[,nid,uuid,title,]&filter[field_wbddh_data_type]=294', root_url = dkanr::get_url()) {
+  cookie <- credentials$cookie
+  token <- credentials$token
 
   # Build url
   path <- 'search-service/search_api/datasets'

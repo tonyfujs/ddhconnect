@@ -12,7 +12,6 @@
 
 get_credentials <- function(username, password, root_url = dkanr::get_url()) {
   dkanr::dkanr_setup(root_url, username, password)
-  settings <- dkanr::dkanr_settings()
-  credentials <- list(cookie = settings$cookie, token = settings$token)
+  credentials <- list(cookie = Sys.getenv("DKANR_COOKIE"), token = Sys.getenv("DKANR_TOKEN"))
   return(credentials)
 }

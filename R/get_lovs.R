@@ -8,20 +8,16 @@
 #'
 #'
 get_lovs <- function(root_url = production_root_url) {
-  # cookie <- credentials$cookie
-  # token <- credentials$token
-
+  
   # Build url
   path <- 'internal/listvalues'
   url <- httr::modify_url(root_url, path = path)
   # Send request
   out <- httr::GET(url = url,
                    httr::add_headers(.headers = c('Content-Type' = 'application/json',
-                                                  # 'Cookie' =  cookie,
-                                                  # 'X-CSRF-Token' = token,
                                                   'charset' = 'utf-8')),
                    httr::accept_json())
-  err_handler(out)
+  dkanr::err_handler(out)
 
   out <- httr::content(out)
 
