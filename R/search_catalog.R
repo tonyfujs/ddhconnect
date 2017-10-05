@@ -27,7 +27,7 @@ search_catalog <- function(fields = c('nid', 'uuid', 'title', 'field_contact_ema
                               limit = limit)
 
   # get a count datasets
-  count <- search_ddh(credentials, 
+  count <- search_ddh(credentials = credentials, 
                       query = query_count,
                       root_url = root_url)
   count <- as.numeric(count$count)
@@ -40,7 +40,7 @@ search_catalog <- function(fields = c('nid', 'uuid', 'title', 'field_contact_ema
   for (i in 1:iterations) {
     temp_offset <- (i - 1) * limit
     temp_query <- paste0(query, '&offset=', temp_offset)
-    temp_resp <- search_ddh(credentials,
+    temp_resp <- search_ddh(credentials = credentials,
                             query = temp_query,
                             root_url = root_url)
     temp_resp <- temp_resp$result
