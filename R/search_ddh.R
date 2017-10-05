@@ -2,6 +2,7 @@
 #'
 #' Search DDH using the search_api service
 #'
+#' @param credentials list: API authentication credentials
 #' @param query character: full text query
 #' @param root_url character: API root URL
 #'
