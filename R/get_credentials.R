@@ -10,7 +10,7 @@
 #' @export
 #'
 
-get_credentials <- function(username, password, root_url = production_url) {
+get_credentials <- function(username, password, root_url) {
   dkanr::dkanr_setup(root_url, username, password)
   credentials <- list(cookie = Sys.getenv("DKANR_COOKIE"), token = Sys.getenv("DKANR_TOKEN"))
   return(credentials)
