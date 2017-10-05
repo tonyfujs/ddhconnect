@@ -9,9 +9,9 @@
 #' @export
 #'
 #'
-get_resource_nid <- function(nid, root_url = dkanr::get_url()) {
+get_resource_nid <- function(nid, root_url = dkanr::get_url(), credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())) {
 
-  out <- get_metadata(nid = nid, root_url = root_url)
+  out <- get_metadata(nid = nid, root_url = root_url, credentials = credentials)
 
   out <- unname(unlist(out$field_resources))
 
