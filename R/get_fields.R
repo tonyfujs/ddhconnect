@@ -7,7 +7,7 @@
 #' @export
 #'
 #'
-get_fields <- function(root_url = production_root_url) {
+get_fields <- function(root_url = dkanr::get_url()) {
 
   # Build url
   path <- 'internal/ddh_fields'
