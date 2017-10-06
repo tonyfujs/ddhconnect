@@ -1,6 +1,6 @@
 #' get_metadata
 #'
-#' Retrieve metadata for a specific dataset
+#' Retrieve metadata for a specific dataset or resource
 #'
 #' @param nid character: The dataset node id
 #' @param credentials list: object returned by the get_credentials() function
