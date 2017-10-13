@@ -2,7 +2,7 @@
 #'
 #' Retrieve user details: first name, last name, DDH internal ID
 #'
-#' @param credentials list: object returned by the get_credentials() function
+#' @param credentials list: authentication token and cookie
 #' @param uid numeric: UPI number
 #' @param root_url character: API root URL
 #'

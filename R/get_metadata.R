@@ -3,7 +3,7 @@
 #' Retrieve metadata for a specific dataset
 #'
 #' @param nid character: The dataset node id
-#' @param credentials list: object returned by the get_credentials() function
+#' @param credentials list: authentication token and cookie
 #' @param root_url character: API root URL
 #'
 #' @return list

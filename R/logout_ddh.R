@@ -2,7 +2,7 @@
 #'
 #' Close an existing connection with the DDH API
 #'
-#' @param credentials list: object returned by the get_credentials() function
+#' @param credentials list: authentication token and cookie
 #' @param root_url character: Server's root URL
 #'
 #' @return list
