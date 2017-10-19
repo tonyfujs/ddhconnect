@@ -9,13 +9,12 @@
 #'
 #'
 
-get_datasets_list <- function(datatype = c('all', 'timeseries', 'microdata', 'geospatial', 'other'),
+get_datasets_list <- function(datatype = c('All', 'Time Series', 'Microdata', 'Geospatial', 'Other'),
                               root_url = dkanr::get_url(),
                               credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())) {
 
   # Identify datasets to be listed
-  datatypes_lkup <- c('293', '294', '295', '853')
-  names(datatypes_lkup) <- c('timeseries', 'microdata', 'geospatial', 'other')
+  datatypes_lkup <- construct_datatypes_lookup(root_url)
   dtype <- datatypes_lkup[datatype]
   inv_datatypes_lkup <- names(datatypes_lkup)
   names(inv_datatypes_lkup) <- datatypes_lkup

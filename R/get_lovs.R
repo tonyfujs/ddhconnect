@@ -7,8 +7,8 @@
 #' @export
 #'
 #'
-get_lovs <- function(root_url = production_root_url) {
-  
+get_lovs <- function(root_url = dkanr::get_url()) {
+
   # Build url
   path <- 'internal/listvalues'
   url <- httr::modify_url(root_url, path = path)

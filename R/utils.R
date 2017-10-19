@@ -16,3 +16,11 @@ build_search_query <- function(fields,
 
   out <- paste(limit_text, fields_text, filters_text, sep = '&')
 }
+
+construct_datatypes_lookup <- function(root_url = dkanr::get_url()){
+  lovs <- get_lovs(root_url)
+  data_type_lovs <- subset(lovs, lovs$machine_name == "field_wbddh_data_type")
+  datatypes_lkup <- data_type_lovs$tid
+  names(datatypes_lkup) <- data_type_lovs$list_value_name
+  return(datatypes_lkup)
+}
