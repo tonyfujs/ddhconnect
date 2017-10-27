@@ -4,10 +4,11 @@
 \alias{get_user_details}
 \title{get_user_details}
 \usage{
-get_user_details(credentials, uid, root_url = production_root_url)
+get_user_details(credentials = list(cookie = dkanr::get_cookie(), token =
+  dkanr::get_token()), uid, root_url = dkanr::get_url())
 }
 \arguments{
-\item{credentials}{list: object returned by the get_credentials() function}
+\item{credentials}{list: authentication token and cookie}
 
 \item{uid}{numeric: UPI number}
 

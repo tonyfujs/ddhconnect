@@ -6,9 +6,9 @@
 \usage{
 search_catalog(fields = c("nid", "uuid", "title", "field_contact_email",
   "field_wbddh_data_type", "status"), filters = c(field_wbddh_data_type = 294,
-  status = 1), limit = 200, credentials,
-  path = "search-service/search_api/datasets",
-  root_url = production_root_url)
+  status = 1), limit = 200, root_url = dkanr::get_url(),
+  credentials = list(cookie = dkanr::get_cookie(), token =
+  dkanr::get_token()))
 }
 \arguments{
 \item{fields}{character vector: fields to be returned by the search}
@@ -17,11 +17,9 @@ search_catalog(fields = c("nid", "uuid", "title", "field_contact_email",
 
 \item{limit}{numeric: Maximum number of records to retrieve by search iteration}
 
-\item{credentials}{list: API authentication credentials}
-
-\item{path}{character: path to the search_api}
-
 \item{root_url}{character: API root URL}
+
+\item{credentials}{list: API authentication credentials}
 }
 \value{
 list

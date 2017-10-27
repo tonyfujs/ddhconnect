@@ -6,4 +6,3 @@
 #'
 #' @examples
 #' attach_resources_template
-"attach_resources_template"
