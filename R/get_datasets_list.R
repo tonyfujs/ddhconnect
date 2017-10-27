@@ -29,10 +29,10 @@ get_datasets_list <- function(datatype = c('All', 'Time Series', 'Microdata', 'G
 
   out <- search_catalog(fields, filters, limit, root_url, credentials)
 
-  nid <- purrr::map_chr(out, 'nid')
-  uuid <- purrr::map_chr(out, 'uuid')
-  title <- purrr::map_chr(out, 'title')
-  field_wbddh_data_type <- purrr::map_chr(out, function(x) x$field_wbddh_data_type$und[[1]]$tid)
+  nid <- as.character(purrr::map(out, 'nid'))
+  uuid <- as.character(purrr::map(out, 'uuid'))
+  title <- as.character(purrr::map(out, 'title'))
+  field_wbddh_data_type <- as.character(purrr::map(out, function(x) x$field_wbddh_data_type$und[[1]]$tid))
   field_wbddh_data_type <- inv_datatypes_lkup[field_wbddh_data_type]
 
   out <- data.frame(nid = nid, uuid = uuid, title = title, data_type = field_wbddh_data_type, stringsAsFactors = FALSE)
