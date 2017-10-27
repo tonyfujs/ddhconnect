@@ -10,7 +10,7 @@
 #' @export
 #'
 #'
-get_metadata <- function(nid, root_url = dkanr::get_url(), credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())) {
+get_metadata <- function(nid, credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token()), root_url = dkanr::get_url()) {
 
   # Build url
   path <- paste0('api/dataset/node/', nid)
