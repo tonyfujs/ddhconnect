@@ -27,7 +27,7 @@ search_catalog <- function(fields = c('nid', 'uuid', 'title', 'field_contact_ema
                               limit = limit)
 
   # get a count datasets
-  count <- search_ddh(credentials = credentials, 
+  count <- search_ddh(credentials = credentials,
                       query = query_count,
                       root_url = root_url)
   count <- as.numeric(count$count)
@@ -37,16 +37,18 @@ search_catalog <- function(fields = c('nid', 'uuid', 'title', 'field_contact_ema
   iterations <- ceiling(count / limit)
   out <- vector(mode = 'list', length = count)
 
-  for (i in 1:iterations) {
-    temp_offset <- (i - 1) * limit
-    temp_query <- paste0(query, '&offset=', temp_offset)
-    temp_resp <- search_ddh(credentials = credentials,
-                            query = temp_query,
-                            root_url = root_url)
-    temp_resp <- temp_resp$result
-    index <- (1 + temp_offset):(temp_offset + length(temp_resp))
-    out[index] <- purrr::map(temp_resp, function(x) x)
+  # if there are no results, 500 error
+  if (length(out) > 0){
+    for (i in 1:iterations) {
+      temp_offset <- (i - 1) * limit
+      temp_query <- paste0(query, '&offset=', temp_offset)
+      temp_resp <- search_ddh(credentials = credentials,
+                              query = temp_query,
+                              root_url = root_url)
+      temp_resp <- temp_resp$result
+      index <- (1 + temp_offset):(temp_offset + length(temp_resp))
+      out[index] <- purrr::map(temp_resp, function(x) x)
+    }
   }
-
   return(out)
 }

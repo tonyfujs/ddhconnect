@@ -24,3 +24,8 @@ construct_datatypes_lookup <- function(root_url = dkanr::get_url()){
   names(datatypes_lkup) <- data_type_lovs$list_value_name
   return(datatypes_lkup)
 }
+
+check_duplicates <- function(value){
+  results = search_catalog(fields = c("nid", "title"), filters = c(title=value))
+  return(results)
+}
