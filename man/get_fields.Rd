@@ -4,7 +4,7 @@
 \alias{get_fields}
 \title{get_fields}
 \usage{
-get_fields(root_url = production_root_url)
+get_fields(root_url = dkanr::get_url())
 }
 \arguments{
 \item{root_url}{character: API root URL}

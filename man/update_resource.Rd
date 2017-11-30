@@ -4,10 +4,11 @@
 \alias{update_resource}
 \title{update_resource}
 \usage{
-update_resource(credentials, nid, body, root_url = production_root_url)
+update_resource(credentials = list(cookie = dkanr::get_cookie(), token =
+  dkanr::get_token()), nid, body, root_url = dkanr::get_url())
 }
 \arguments{
-\item{credentials}{list: object returned by the get_credentials() function}
+\item{credentials}{list: authentication token and cookie}
 
 \item{nid}{character: Node ID of the resource to be updated}
 

@@ -4,12 +4,11 @@
 \alias{get_resource_nid}
 \title{get_resource_nid}
 \usage{
-get_resource_nid(nid, credentials, root_url = production_root_url)
+get_resource_nid(nid, root_url = dkanr::get_url(), credentials = list(cookie
+  = dkanr::get_cookie(), token = dkanr::get_token()))
 }
 \arguments{
 \item{nid}{character: The DATASET node id}
-
-\item{credentials}{list: object returned by the get_credentials() function}
 
 \item{root_url}{character: API root URL}
 }

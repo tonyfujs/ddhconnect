@@ -2,7 +2,6 @@
 
 export(create_dataset)
 export(create_resource)
-export(get_credentials)
 export(get_datasets_list)
 export(get_fields)
 export(get_lovs)
