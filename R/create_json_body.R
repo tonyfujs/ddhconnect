@@ -10,9 +10,15 @@
 #'
 
 create_json_body <- function(values = c("title"="Test Create JSON", "body"="Test Creation of JSON",
-                                        "field_wbddh_dsttl_upi"="123", "field_wbddh_country"="43;45")) {
+                                        "field_wbddh_dsttl_upi"="123", "field_wbddh_country"="43;45"),
+                             node_type = "dataset") {
   json_body <- list()
-  json_formats = ddhconnect::dataset_json_format_lookup
+  if(node_type == "dataset") {
+    json_formats <- ddhconnect::dataset_json_format_lookup
+  }
+  if(node_type == "resource") {
+    json_formats <- ddhconnect::resource_json_format_lookup
+  }
   to_update <- subset(json_formats, machine_names %in% names(values))
   for(i in 1:nrow(to_update)) {
     field_name <- to_update[i,1]

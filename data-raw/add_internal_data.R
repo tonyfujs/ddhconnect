@@ -11,6 +11,7 @@ test_resource_update_json <- fromJSON('data-raw/test_resource_update.json', simp
 mandatory_text_fields <- readLines('data-raw/mandatory_text_fields.txt')
 
 dataset_json_format_lookup <- read.csv("./data-raw/dataset_json_format_lookup.csv", stringsAsFactors = FALSE)
+resource_json_format_lookup <- read.csv("./data-raw/resource_json_format_lookup.csv", stringsAsFactors = FALSE)
 
 # Save data
 devtools::use_data(attach_resources_template,
@@ -24,4 +25,6 @@ devtools::use_data(production_root_url,
                    overwrite = TRUE,
                    internal = TRUE)
 
-devtools::use_data(dataset_json_format_lookup, overwrite = TRUE)
+devtools::use_data(dataset_json_format_lookup,
+                   resource_json_format_lookup,
+                   overwrite = TRUE)
