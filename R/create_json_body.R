@@ -16,7 +16,7 @@ create_json_body <- function(values = c("title"="Test Create JSON", "body"="Test
   if(node_type == "dataset") {
     json_formats <- ddhconnect::dataset_json_format_lookup
   }
-  if(node_type == "resource") {
+  else if(node_type == "resource") {
     json_formats <- ddhconnect::resource_json_format_lookup
   }
   to_update <- subset(json_formats, machine_names %in% names(values))
@@ -27,11 +27,11 @@ create_json_body <- function(values = c("title"="Test Create JSON", "body"="Test
     if (is.character(json_template[[field_name]])) {
       json_template[[field_name]] <- ddhconnect:::safe_unbox(ddhconnect:::safe_assign(values[[field_name]]))
     }
-    # controlled metadata fields
+    # controlled vocabulary fields
     else if(is.null(names(json_template[[field_name]]$und))) {
       json_template[[field_name]]$und <- unlist(stringr::str_split(values[[field_name]], pattern = ';'))
     }
-    # free text metadata fields
+    # free text fields
     else {
       subfield_name <- names(json_template[[field_name]]$und)
       json_template[[field_name]]$und[[subfield_name]] <- ddhconnect:::safe_unbox(ddhconnect:::safe_assign(values[[field_name]]))
