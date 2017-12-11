@@ -4,10 +4,11 @@
 \alias{logout_ddh}
 \title{logout_ddh}
 \usage{
-logout_ddh(credentials, root_url = production_root_url)
+logout_ddh(credentials = list(cookie = dkanr::get_cookie(), token =
+  dkanr::get_token()), root_url = dkanr::get_url())
 }
 \arguments{
-\item{credentials}{list: object returned by the get_credentials() function}
+\item{credentials}{list: authentication token and cookie}
 
 \item{root_url}{character: Server's root URL}
 }

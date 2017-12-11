@@ -1,20 +1,20 @@
 #' get_datasets_list()
 #'
 #' @param datatype character: Restrict the list to a specific type of dataset. Available options are: "all", "timeseries", "geospatial", or "other"
-#' @param credentials list: API authentication credentials
 #' @param root_url character: API root URL
+#' @param credentials list: API authentication credentials
 #'
 #' @return numeric vector
 #' @export
 #'
 #'
 
-get_datasets_list <- function(datatype = c('all', 'timeseries', 'microdata', 'geospatial', 'other'),
-                                   credentials, root_url = production_root_url) {
+get_datasets_list <- function(datatype = c('All', 'Time Series', 'Microdata', 'Geospatial', 'Other'),
+                              root_url = dkanr::get_url(),
+                              credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())) {
 
   # Identify datasets to be listed
-  datatypes_lkup <- c('293', '294', '295', '853')
-  names(datatypes_lkup) <- c('timeseries', 'microdata', 'geospatial', 'other')
+  datatypes_lkup <- construct_datatypes_lookup(root_url)
   dtype <- datatypes_lkup[datatype]
   inv_datatypes_lkup <- names(datatypes_lkup)
   names(inv_datatypes_lkup) <- datatypes_lkup
@@ -26,14 +26,13 @@ get_datasets_list <- function(datatype = c('all', 'timeseries', 'microdata', 'ge
     filters = c('field_wbddh_data_type'=unname(dtype), filters)
   }
   limit = 500
-  path = 'search-service/search_api/datasets'
 
-  out = search_catalog(fields, filters, limit, credentials, path, root_url)
+  out <- search_catalog(fields, filters, limit, root_url, credentials)
 
-  nid <- purrr::map_chr(out, 'nid')
-  uuid <- purrr::map_chr(out, 'uuid')
-  title <- purrr::map_chr(out, 'title')
-  field_wbddh_data_type <- purrr::map_chr(out, function(x) x$field_wbddh_data_type$und[[1]]$tid)
+  nid <- as.character(purrr::map(out, 'nid'))
+  uuid <- as.character(purrr::map(out, 'uuid'))
+  title <- as.character(purrr::map(out, 'title'))
+  field_wbddh_data_type <- as.character(purrr::map(out, function(x) x$field_wbddh_data_type$und[[1]]$tid))
   field_wbddh_data_type <- inv_datatypes_lkup[field_wbddh_data_type]
 
   out <- data.frame(nid = nid, uuid = uuid, title = title, data_type = field_wbddh_data_type, stringsAsFactors = FALSE)

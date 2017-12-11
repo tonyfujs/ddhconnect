@@ -4,10 +4,11 @@
 \alias{update_dataset}
 \title{update_dataset}
 \usage{
-update_dataset(credentials, nid, body, root_url = production_root_url)
+update_dataset(credentials = list(cookie = dkanr::get_cookie(), token =
+  dkanr::get_token()), nid, body, root_url = dkanr::get_url())
 }
 \arguments{
-\item{credentials}{list: object returned by the get_credentials() function}
+\item{credentials}{list: authentication token and cookie}
 
 \item{nid}{character: Node ID of the dataset to be updated}
 

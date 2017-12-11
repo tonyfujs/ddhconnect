@@ -4,18 +4,19 @@
 \alias{get_metadata}
 \title{get_metadata}
 \usage{
-get_metadata(nid, credentials, root_url = production_root_url)
+get_metadata(nid, root_url = dkanr::get_url(), credentials = list(cookie =
+  dkanr::get_cookie(), token = dkanr::get_token()))
 }
 \arguments{
 \item{nid}{character: The dataset node id}
 
-\item{credentials}{list: object returned by the get_credentials() function}
-
 \item{root_url}{character: API root URL}
+
+\item{credentials}{list: authentication token and cookie}
 }
 \value{
 list
 }
 \description{
-Retrieve metadata for a specific dataset
+Retrieve metadata for a specific dataset or resource
 }

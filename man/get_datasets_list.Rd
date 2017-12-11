@@ -4,13 +4,17 @@
 \alias{get_datasets_list}
 \title{get_datasets_list()}
 \usage{
-get_datasets_list(datatype = c("all", "timeseries", "microdata", "geospatial",
-  "other"), root_url = production_root_url)
+get_datasets_list(datatype = c("All", "Time Series", "Microdata",
+  "Geospatial", "Other"), root_url = dkanr::get_url(),
+  credentials = list(cookie = dkanr::get_cookie(), token =
+  dkanr::get_token()))
 }
 \arguments{
 \item{datatype}{character: Restrict the list to a specific type of dataset. Available options are: "all", "timeseries", "geospatial", or "other"}
 
 \item{root_url}{character: API root URL}
+
+\item{credentials}{list: API authentication credentials}
 }
 \value{
 numeric vector

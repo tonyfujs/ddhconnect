@@ -7,9 +7,7 @@
 #' @export
 #'
 #'
-get_fields <- function(root_url = production_root_url) {
-  # cookie <- credentials$cookie
-  # token <- credentials$token
+get_fields <- function(root_url = dkanr::get_url()) {
 
   # Build url
   path <- 'internal/ddh_fields'
@@ -17,8 +15,6 @@ get_fields <- function(root_url = production_root_url) {
   # Send request
   out <- httr::GET(url = url,
                    httr::add_headers(.headers = c('Content-Type' = 'application/json',
-                                                  # 'Cookie' =  cookie,
-                                                  # 'X-CSRF-Token' = token,
                                                   'charset' = 'utf-8')),
                    httr::accept_json())
   httr::warn_for_status(out)
