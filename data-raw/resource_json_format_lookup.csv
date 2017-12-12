@@ -1,3 +1,4 @@
+machine_names,json_template
 title,"""title"": """"'"
 body,"""body"": {
 		""und"": [{
