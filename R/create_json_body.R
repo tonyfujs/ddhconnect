@@ -19,6 +19,7 @@ create_json_body <- function(values = c("title"="Test Create JSON", "body"="Test
   else if(node_type == "resource") {
     json_formats <- ddhconnect::resource_json_format_lookup
   }
+  machine_names <- json_formats$machine_names
   to_update <- subset(json_formats, machine_names %in% names(values))
   for(i in 1:nrow(to_update)) {
     field_name <- to_update[i,1]
