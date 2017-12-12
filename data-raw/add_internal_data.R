@@ -28,3 +28,4 @@ devtools::use_data(production_root_url,
 devtools::use_data(dataset_json_format_lookup,
                    resource_json_format_lookup,
                    overwrite = TRUE)
+
