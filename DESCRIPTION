@@ -19,6 +19,7 @@ Imports: httr,
     purrr,
     tidyr,
     assertthat,
-    dkanr
+    dkanr,
+    tools
 RoxygenNote: 6.0.1
 Depends: R (>= 2.10)
