@@ -1,0 +1,109 @@
+---
+title: "Contributing Content"
+author: "Tony Fujs"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to ddhconnect}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# DDHCONNECT: Contributing Content
+The ddhconnect package allows you to add datasets and resources for any type of data.
+
+With proper authorization, you can add datasets and resources to the Data Catalog. It is important to remember
+
+
+## Setting Up Your Connection
+First, begin by setting up your account with the following `dkanr_setup` function to authenticate the user. Login information for access to the API's extended services can be obtained by contacting the World Bank's (IT Services)[www.worldbank.org], provided you are authorized for these credentials.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+library(dkanr)
+library(dhhconnect)
+dkanr_setup(url = 'http://datacatalog.worldbank.com',
+            username = 'YOUR_USERNAME',
+            password = 'YOUR_PASSWORD')
+```
+
+You can view your profile information for the Data Catalog by calling `get_user_details()`. This will return your first and last name as well as your internal ID.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
+get_user_details(credentials, uid = "YOUR_UPI_#")
+```
+
+## Creating Content
+To add content to the site, begin by formatting your content into named vectors by assigning the field names and their corresponding values [ex: c(“title” = “World Development Indicators”)]. These can then be passed to the create functions to automatically populate your JSON body which can then be passed to the Data Catalog. Please reference the curation documentation to see which fields are required.
+
+### Adding a new dataset
+Adding a new dataset to Data Catalog begins with adding the dataset's metadata. To begin the contribution process, gather the required and recommended metadata information for your dataset. Follow the DDH Curation handbook for guidelines to populate the correct information.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+dataset_metadata = c("title" = "YOUR DATASET TITLE",
+     "field_wbddh_country" = "YOUR DATASET COUNTRY")
+```
+
+Once the named vector has been created, use the `create_dataset()` function to add that information to the Data Catalog. This named vector should be passed through the `body=` parameter
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+dataset_json = create_json_body(values = dataset_metadata, node_type = “dataset”)
+create_dataset(credentials, body = dataset_json)
+```
+
+### Adding a supporting file/link
+Once the metadata has been added, you can add the data files/links to the site, in addition to other supporting resources. Using the same method as adding the metadata, you can add a resource to the Data Catalog by creating a named list, formatting it into the JSON body, and passing it to `create_resource()`.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+resource_metadata = c("title" = "YOUR RESOURCE TITLE",
+     "field_wbddh_country" = "YOUR RESOURCE COUNTRY")
+resource_json = create_json_body(values = resource_metadata, node_type = “resource”)
+create_resource(credentials, body = resource_json)
+```
+
+Once this resource has been added to the Data Catalog, it needs to be mapped to the corresponding metadata for the dataset using the function `attach_resource_template()`.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+attach_resource_template()
+```
+
+Since multiple resource can be mapped to one dataset, looping functions make this process more simple.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+resource_1 = c("title" = "YOUR RESOURCE TITLE",
+     "field_wbddh_country" = "YOUR RESOURCE COUNTRY")
+resource_2 = c("title" = "YOUR RESOURCE TITLE",
+    "field_wbddh_country" = "YOUR RESOURCE COUNTRY")
+
+all_resources = c(resource_1, resource_2)
+for (resource in all_resources){
+  resource_json = create_json_body(values = resource, node_type = “resource”)
+  create_resource(credentials, body = resource_json)
+  attach_resource_template()
+}
+```
+
+## Updating Content
+Updating content in the Data Catalog requires knowing the node ID of the content you wish you edit.
+
+### updating a dataset
+To obtain the node id, you may search the catalog based on the title of the object. For example, passing the following parameters will return the node id for the World Development Indicators.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+search_catalog(fields=c("nid", "title"), filters=c("title"="World Development Indicators"))
+```
+
+### updating a resource
+Use the same process as with creating a new dataset, by creating a named vector with the formatted metadata and passing it to create a JSON body. To update the node, use the `update_dataset()` function.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+dataset_metadata = c("title" = "YOUR DATASET TITLE",
+     "field_wbddh_country" = "YOUR DATASET COUNTRY")
+dataset_json = create_json_body(values = dataset_metadata, node_type = “dataset”)
+update_dataset(credentials, body = dataset_json)
+```
+
+The same methodology may be used for updating the resource metadata. First, obtain the resource node id. Second, format the JSON. Lastly, use the `update_resource` function.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+resource_metadata = c("title" = "YOUR RESOURCE TITLE",
+     "field_wbddh_country" = "YOUR RESOURCE COUNTRY")
+resource_json = create_json_body(values = resource_metadata, node_type = “resource”)
+update_resource(credentials, body = resource_json)
+```
+
+## Ending Your Connection
+After finishing your tasks, you can log out of your account.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+logout_ddh()
+```
