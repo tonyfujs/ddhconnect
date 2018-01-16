@@ -2,12 +2,11 @@
 #'
 #' Helper function to search the DDH data catalog
 #'
-#' @param path character: path to the search_api
 #' @param fields character vector: fields to be returned by the search
 #' @param filters named character vector: filters to be applied to the search
 #' @param limit numeric: Maximum number of records to retrieve by search iteration
-#' @param credentials list: API authentication credentials
 #' @param root_url character: API root URL
+#' @param credentials list: API authentication credentials
 #'
 #' @return list
 #' @export
@@ -16,15 +15,13 @@
 search_catalog <- function(fields = c('nid', 'uuid', 'title', 'field_contact_email', 'field_wbddh_data_type', 'status'),
                            filters = c('field_wbddh_data_type'=294, 'status'=1),
                            limit = 200,
-                           credentials,
-                           path = 'search-service/search_api/datasets',
-                           root_url = production_root_url) {
-
+                           root_url = dkanr::get_url(),
+                           credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())) {
 
   # Build queries
   query_count <- build_search_query(fields = fields,
-                                    filters = filters,
-                                    limit = 1)
+                                     filters = filters,
+                                     limit = 1)
   query <- build_search_query(fields = fields,
                               filters = filters,
                               limit = limit)
@@ -54,5 +51,6 @@ search_catalog <- function(fields = c('nid', 'uuid', 'title', 'field_contact_ema
   }else {
     warning("Your query returned no results. Please try again.")
   }
+
   return(out)
 }
