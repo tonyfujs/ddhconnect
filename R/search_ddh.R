@@ -1,15 +1,15 @@
 #' search_ddh
 #'
-#' Search DHH using the search_api service
+#' Search DDH using the search_api service
 #'
-#' @param credentials list: object returned by the get_credentials() function
+#' @param credentials list: API authentication credentials
 #' @param query character: full text query
 #' @param root_url character: API root URL
 #'
 #' @return list
 #'
 
-search_ddh <- function(credentials, query = 'limit=20&fields=[,nid,uuid,title,]&filter[field_wbddh_data_type]=294', root_url = production_root_url) {
+search_ddh <- function(credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token()), query = 'limit=20&fields=[,nid,uuid,title,]&filter[field_wbddh_data_type]=294', root_url = dkanr::get_url()) {
   cookie <- credentials$cookie
   token <- credentials$token
 

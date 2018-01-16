@@ -4,7 +4,7 @@
 \alias{get_lovs}
 \title{get_lovs}
 \usage{
-get_lovs(root_url = production_root_url)
+get_lovs(root_url = dkanr::get_url())
 }
 \arguments{
 \item{root_url}{character: API root URL}

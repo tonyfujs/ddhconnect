@@ -4,12 +4,13 @@
 \alias{search_ddh}
 \title{search_ddh}
 \usage{
-search_ddh(credentials,
+search_ddh(credentials = list(cookie = dkanr::get_cookie(), token =
+  dkanr::get_token()),
   query = "limit=20&fields=[,nid,uuid,title,]&filter[field_wbddh_data_type]=294",
-  root_url = production_root_url)
+  root_url = dkanr::get_url())
 }
 \arguments{
-\item{credentials}{list: object returned by the get_credentials() function}
+\item{credentials}{list: API authentication credentials}
 
 \item{query}{character: full text query}
 
@@ -19,5 +20,5 @@ search_ddh(credentials,
 list
 }
 \description{
-Search DHH using the search_api service
+Search DDH using the search_api service
 }
