@@ -16,10 +16,14 @@ resource_json_format_lookup <- read.csv("./data-raw/resource_json_format_lookup.
 names(dataset_json_format_lookup) <- c("machine_names", "json_template")
 names(resource_json_format_lookup) <- c("machine_names", "json_template")
 
+ui_names_lookup <- read.csv("./data-raw/ui_names_lookup.csv", stringsAsFactors = FALSE)
+names(ui_names_lookup) <- c("machine_names", "ui_names")
+
 # Save data
 devtools::use_data(attach_resources_template,
                    test_dataset_update_json,
                    test_resource_update_json,
+                   ui_names_lookup,
                    overwrite = TRUE)
 
 devtools::use_data(production_root_url,
