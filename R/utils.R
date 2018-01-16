@@ -24,21 +24,6 @@ construct_datatypes_lookup <- function(root_url = dkanr::get_url()){
   names(datatypes_lkup) <- data_type_lovs$list_value_name
   return(datatypes_lkup)
 }
-<<<<<<< HEAD
 
 safe_unbox <- purrr::possibly(jsonlite::unbox, otherwise = '')
 safe_assign <- function(x) {if (length(x) > 0) {x} else {""}}
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> 8027557e60e6df910a52d663e86314968db37b87
