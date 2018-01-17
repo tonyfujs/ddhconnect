@@ -11,8 +11,8 @@
 
 map_tids <- function(metadata){
   lovs_df <- ddhconnect::get_lovs()
-  for(field_name in names(metadata)){
-    if(field_name %in% lovs_df$machine_name){
+  for (field_name in names(metadata)) {
+    if (field_name %in% lovs_df$machine_name) {
       lovs_subset <- lovs_df[which(lovs_df$machine_name == field_name),]
       tid <- lovs_subset[grep(metadata[field_name], lovs_subset$list_value_name, ignore.case = TRUE),]$tid
       metadata[[field_name]] <- tid

@@ -17,15 +17,15 @@ download_resource <- function(resource_id,
   path <- resource_metadata$field_link_api$und[[1]]$url
   ext <- tools::file_ext(path)
 
-  if(resource_metadata$type == "resource"){
-    if(ext != ""){
+  if (resource_metadata$type == "resource") {
+    if (ext != "") {
       download.file(url = path, destfile = basename(path))
       out <- ext
-    }else{
+    } else {
       warning("This resource is not downloadable")
       out <- path
     }
-  }else{
+  } else {
     warning("This is a dataset, not a resource. Please enter the nid for a resource.")
     out <- resource_metadata$title
   }

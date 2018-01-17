@@ -9,12 +9,13 @@ replicate_resource <- function(n, template = ddhconnect::attach_resources_templa
 build_search_query <- function(fields,
                                filters,
                                limit) {
-  limit_text <- paste0('limit=', limit)
-  fields_text <- paste(fields, collapse = ',')
-  fields_text <- paste0('fields=[,', fields_text, ',]')
-  filters_text <- dkanr:::filters_to_text_query(filters, 'filter')
+  limit_text <- paste0("limit=", limit)
+  fields_text <- paste(fields, collapse = ",")
+  fields_text <- paste0("fields=[,", fields_text, ",]")
+  filters_text <- dkanr:::filters_to_text_query(filters, "filter")
 
-  out <- paste(limit_text, fields_text, filters_text, sep = '&')
+  out <- paste(limit_text, fields_text, filters_text, sep = "&")
+  return(out)
 }
 
 construct_datatypes_lookup <- function(root_url = dkanr::get_url()){
@@ -25,5 +26,5 @@ construct_datatypes_lookup <- function(root_url = dkanr::get_url()){
   return(datatypes_lkup)
 }
 
-safe_unbox <- purrr::possibly(jsonlite::unbox, otherwise = '')
+safe_unbox <- purrr::possibly(jsonlite::unbox, otherwise = "")
 safe_assign <- function(x) {if (length(x) > 0) {x} else {""}}
