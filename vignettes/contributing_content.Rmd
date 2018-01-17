@@ -27,7 +27,7 @@ dkanr_setup(url = 'http://datacatalog.worldbank.com',
 
 You can view your profile information for the Data Catalog by calling `get_user_details()`. This will return your first and last name as well as your internal ID.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
+credentials <- list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
 get_user_details(credentials, uid = "YOUR_UPI_#")
 ```
 
@@ -39,20 +39,21 @@ Adding a new dataset to Data Catalog begins with adding the dataset's metadata. 
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
 dataset_metadata = c("title" = "YOUR DATASET TITLE",
      "field_wbddh_country" = "YOUR DATASET COUNTRY")
+mapped <- map_tids(dataset_metadata)
 ```
 
 Once the named vector has been created, use the `create_dataset()` function to add that information to the Data Catalog. This named vector should be passed through the `body=` parameter
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-dataset_json = create_json_body(values = dataset_metadata, node_type = “dataset”)
+dataset_json <- create_json_body(values = dataset_metadata, node_type = “dataset”)
 create_dataset(credentials, body = dataset_json)
 ```
 
 ### Adding a supporting file/link
 Once the metadata has been added, you can add the data files/links to the site, in addition to other supporting resources. Using the same method as adding the metadata, you can add a resource to the Data Catalog by creating a named list, formatting it into the JSON body, and passing it to `create_resource()`.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-resource_metadata = c("title" = "YOUR RESOURCE TITLE",
+resource_metadata <- c("title" = "YOUR RESOURCE TITLE",
      "field_wbddh_country" = "YOUR RESOURCE COUNTRY")
-resource_json = create_json_body(values = resource_metadata, node_type = “resource”)
+resource_json <- create_json_body(values = resource_metadata, node_type = “resource”)
 create_resource(credentials, body = resource_json)
 ```
 
@@ -63,14 +64,14 @@ attach_resource_template()
 
 Since multiple resource can be mapped to one dataset, looping functions make this process more simple.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-resource_1 = c("title" = "YOUR RESOURCE TITLE",
-     "field_wbddh_country" = "YOUR RESOURCE COUNTRY")
-resource_2 = c("title" = "YOUR RESOURCE TITLE",
-    "field_wbddh_country" = "YOUR RESOURCE COUNTRY")
+resource_1 <- c("title" = "YOUR RESOURCE TITLE",
+                "field_wbddh_country" = "YOUR RESOURCE COUNTRY")
+resource_2 <- c("title" = "YOUR RESOURCE TITLE",
+                "field_wbddh_country" = "YOUR RESOURCE COUNTRY")
 
-all_resources = c(resource_1, resource_2)
-for (resource in all_resources){
-  resource_json = create_json_body(values = resource, node_type = “resource”)
+all_resources <- c(resource_1, resource_2)
+for (resource in all_resources) {
+  resource_json <- create_json_body(values = resource, node_type = “resource”)
   create_resource(credentials, body = resource_json)
   attach_resource_template()
 }

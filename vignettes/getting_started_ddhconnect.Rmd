@@ -16,7 +16,7 @@ The [Data Catalog](https://datacatalog.worldbank.org/) is a one-stop shop for th
 First, begin by setting up your connection to the Data Catalog with `dkanr_setup`.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE}
 library(ddhconnect)
-data_catalog_url = 'http://datacatalog.worldbank.org'
+data_catalog_url <- 'http://datacatalog.worldbank.org'
 dkanr::dkanr_setup(url = data_catalog_url)
 ```
 
@@ -28,8 +28,8 @@ For a more general search, use the filtering parameter to subset the catalog by 
 
 For example, to look at all the geospatial data available, determine if the field takes free text or a specific value from a list. Since `"field_wbddh_data_type"` takes a value from a set list, locate `"geospatial"` and return the `"tid"` for that string in using the `filters` parameter. This will return all the datasets that are categorized as `"geospatial"` while returning `"nid"` and `"title"` for each. The `fields` parameter takes a list of fields which you want to return.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-geo_datasets = search_catalog(fields = c("nid", "title"),
-               filters = c("field_wbddh_data_type" = "295"))
+geo_datasets <- search_catalog(fields = c("nid", "title"),
+                               filters = c("field_wbddh_data_type" = "295"))
 geo_datasets
 # geo_nids = c()
 # for (dataset in geo_datasets){
@@ -41,8 +41,8 @@ geo_datasets
 ### Specific search
 Let's say we want to find the specific dataset "World Development Indicators". You would pass the title string into the `filters` parameter in a named list format, using the field name as the key and the string you want to search with as the value. The function currently supports exact string matching.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE}
-wdi = c("title" = "World Development Indicators")
-search_results = search_catalog(filters = wdi)
+wdi <- c("title" = "World Development Indicators")
+search_results <- search_catalog(filters = wdi)
 ```
 
 ## View the metadata of a specific result
@@ -50,29 +50,29 @@ To view all of the metadata of a particular dataset or resource, you can use the
 
 In this example, we are retrieved the results from the World Development Indicators search. To explore the metadata for the dataset, you can call `"get_metadata()"`, which will return information from all populated fields.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-indicators_search = search_catalog(fields = c("nid", "title"),
-               filters = c("title" = "World Development Indicators"))
-wdi_nid = indicators_search[[1]]$nid
+indicators_search <- search_catalog(fields = c("nid", "title"),
+                                    filters = c("title" = "World Development Indicators"))
+wdi_nid <- indicators_search[[1]]$nid
 get_metadata(nid = wdi_nid)
 ```
 
 ## View the data files, links, and additional resources
 After finding the specific dataset, you can see if there is a data file or url to view the data. First, list all resources, which include the dataset file/link and other supporting materials.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE}
-indicators_search = search_catalog(fields = c("nid", "title"),
-               filters = c("title" = "World Development Indicators"))
-wdi_nid = indicators_search[[1]]$nid
-indicators_resources = get_resource_nid(nid = wdi_nid)
+indicators_search <- search_catalog(fields = c("nid", "title"),
+                                    filters = c("title" = "World Development Indicators"))
+wdi_nid <- indicators_search[[1]]$nid
+indicators_resources <- get_resource_nid(nid = wdi_nid)
 indicators_resources
 ```
 
 The results show that there are several different resources available corresponding with "World Development Indicators". If you are interested in locating the actual data, you must filter the resource results. In this case, we are filtering the resource results when the type is download.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE}
-indicators_resources = get_resource_nid(nid = wdi_nid)
-tid_download = "986"
-for (resource_id in indicators_resources){
-  resource_metadata = get_metadata(nid = resource_id)
-  if (resource_metadata$field_wbddh_resource_type$und$tid == tid_download){
+indicators_resources <- get_resource_nid(nid = wdi_nid)
+tid_download <- "986"
+for (resource_id in indicators_resources) {
+  resource_metadata <- get_metadata(nid = resource_id)
+  if (resource_metadata$field_wbddh_resource_type$und$tid == tid_download) {
     print(resource_metadata$title)
     print(resource_metadata$nid)
   }
@@ -83,6 +83,7 @@ for (resource_id in indicators_resources){
 You can also download the data via the API. The results show that there are files that can be downloaded associated with the World Development Indicators. You can use the `download.file` function by passing the file url and your destination file name. Be sure to use the correct file ending in the destination path.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
 library(rcurl)
-resource_metadata = get_metadata(nid = 94974)
-download.file(url = resource_metadata$field_link_api$und$url, destfile = "WDI.zip")
+resource_metadata <- get_metadata(nid = 94974)
+download.file(url = resource_metadata$field_link_api$und$url,
+              destfile = "WDI.zip")
 ```
