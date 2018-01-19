@@ -9,6 +9,7 @@ Description: More about what it does (maybe more than one line)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+VignetteBuilder: knitr
 Imports: httr,
     dplyr,
     stringr,
@@ -20,6 +21,9 @@ Imports: httr,
     tidyr,
     assertthat,
     dkanr,
-    tools
+    tools,
+    testthat,
+    utils
+Suggests: knitr
 RoxygenNote: 6.0.1
 Depends: R (>= 2.10)

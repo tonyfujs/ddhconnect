@@ -19,7 +19,7 @@ download_resource <- function(resource_id,
 
   if (resource_metadata$type == "resource") {
     if (ext != "") {
-      download.file(url = path, destfile = basename(path))
+      utils::download.file(url = path, destfile = basename(path))
       out <- ext
     } else {
       warning("This resource is not downloadable")

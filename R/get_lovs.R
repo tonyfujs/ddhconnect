@@ -1,12 +1,12 @@
-#" get_lovs
-#"
-#" Retrieve controlled vocabulary / list of values (LOVs) accepted by DDH
-#" @param root_url character: API root URL
-#"
-#" @return dataframe
-#" @export
-#"
-#"
+#' get_lovs
+#'
+#' Retrieve controlled vocabulary / list of values (LOVs) accepted by DDH
+#' @param root_url character: API root URL
+#'
+#' @return dataframe
+#' @export
+#'
+
 get_lovs <- function(root_url = dkanr::get_url()) {
   # Build url
   path <- "internal/listvalues"

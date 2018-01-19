@@ -3,6 +3,7 @@
 #' Create the JSON body for updating the given fields or creating a new dataset
 #'
 #' @param values character vector: list of correspodning values that need to be updated
+#' @param node_type string: type of node to upload (dataset or resource)
 #'
 #' @import dplyr
 #' @return json string
@@ -28,7 +29,7 @@ create_json_body <- function(values = c("title" = "Test Create JSON",
     json_template <- jsonlite::fromJSON(to_update[i, 2])
     # title and status
     if (is.character(json_template[[field_name]])) {
-      json_template[[field_name]] <- ddhconnect:::safe_unbox(ddhconnect:::safe_assign(values[[field_name]]))
+      json_template[[field_name]] <- safe_unbox(safe_assign(values[[field_name]]))
     } else if (is.null(names(json_template[[field_name]]$und))) {
       json_template[[field_name]]$und <- unlist(stringr::str_split(values[[field_name]], pattern = ';'))
     } else {

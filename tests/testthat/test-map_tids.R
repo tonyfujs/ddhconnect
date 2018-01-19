@@ -1,7 +1,7 @@
 context("map strings to tids")
 
 
-
+# login required before running tests due to get_lovs
 springsteen <- c("thunder" = "road",
                  "born" = "to run",
                  "dancing" = "in the dark")
@@ -57,4 +57,3 @@ test_that("Multiple lov fields that can take multiple values", {
     map_tids(old_springsteen),
     new_springsteen)
 })
-

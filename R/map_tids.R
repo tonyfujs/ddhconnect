@@ -10,7 +10,9 @@
 #'
 #'
 
-map_tids <- function(values) {
+map_tids <- function(values,
+                     credentials = list(cookie = dkanr::get_cookie(),
+                                        token = dkanr::get_token())) {
   lovs_df <- ddhconnect::get_lovs()
   keep <- intersect(names(values), lovs_df$machine_name)
   lovs_subset <- lovs_df[which(lovs_df$machine_name %in% keep), ]

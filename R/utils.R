@@ -18,7 +18,7 @@ build_search_query <- function(fields,
   return(out)
 }
 
-construct_datatypes_lookup <- function(root_url = dkanr::get_url()){
+construct_datatypes_lookup <- function(root_url = dkanr::get_url()) {
   lovs <- get_lovs(root_url)
   data_type_lovs <- subset(lovs, lovs$machine_name == "field_wbddh_data_type")
   datatypes_lkup <- data_type_lovs$tid
@@ -27,4 +27,10 @@ construct_datatypes_lookup <- function(root_url = dkanr::get_url()){
 }
 
 safe_unbox <- purrr::possibly(jsonlite::unbox, otherwise = "")
-safe_assign <- function(x) {if (length(x) > 0) {x} else {""}}
+safe_assign <- function(x) {
+  if (length(x) > 0) {
+    x
+  } else {
+    ""
+  }
+}

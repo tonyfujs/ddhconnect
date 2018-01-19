@@ -10,6 +10,8 @@ create_json_body(values = c(title = "Test Create JSON", body =
 }
 \arguments{
 \item{values}{character vector: list of correspodning values that need to be updated}
+
+\item{node_type}{string: type of node to upload (dataset or resource)}
 }
 \value{
 json string

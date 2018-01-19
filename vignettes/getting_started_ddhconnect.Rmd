@@ -40,7 +40,7 @@ geo_datasets
 
 ### Specific search
 Let's say we want to find the specific dataset "World Development Indicators". You would pass the title string into the `filters` parameter in a named list format, using the field name as the key and the string you want to search with as the value. The function currently supports exact string matching.
-```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
 wdi <- c("title" = "World Development Indicators")
 search_results <- search_catalog(filters = wdi)
 ```
@@ -58,7 +58,7 @@ get_metadata(nid = wdi_nid)
 
 ## View the data files, links, and additional resources
 After finding the specific dataset, you can see if there is a data file or url to view the data. First, list all resources, which include the dataset file/link and other supporting materials.
-```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
 indicators_search <- search_catalog(fields = c("nid", "title"),
                                     filters = c("title" = "World Development Indicators"))
 wdi_nid <- indicators_search[[1]]$nid
@@ -67,7 +67,7 @@ indicators_resources
 ```
 
 The results show that there are several different resources available corresponding with "World Development Indicators". If you are interested in locating the actual data, you must filter the resource results. In this case, we are filtering the resource results when the type is download.
-```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval = FALSE}
 indicators_resources <- get_resource_nid(nid = wdi_nid)
 tid_download <- "986"
 for (resource_id in indicators_resources) {
