@@ -1,16 +1,16 @@
-#" search_catalog
-#"
-#" Helper function to search the DDH data catalog
-#"
-#" @param fields character vector: fields to be returned by the search
-#" @param filters named character vector: filters to be applied to the search
-#" @param limit numeric: Maximum number of records to retrieve by search iteration
-#" @param root_url character: API root URL
-#" @param credentials list: API authentication credentials
-#"
-#" @return list
-#" @export
-#"
+#' search_catalog
+#'
+#' Helper function to search the DDH data catalog
+#'
+#' @param fields character vector: fields to be returned by the search
+#' @param filters named character vector: filters to be applied to the search
+#' @param limit numeric: Maximum number of records to retrieve by search iteration
+#' @param root_url character: API root URL
+#' @param credentials list: API authentication credentials
+#'
+#' @return list
+#' @export
+#'
 
 search_catalog <- function(fields = c("nid", "uuid", "title", "field_contact_email", "field_wbddh_data_type", "status"),
                            filters = c("field_wbddh_data_type" = 294, "status" = 1),

@@ -1,12 +1,13 @@
-#" get_fields
-#"
-#" Retrieve list of fields (machine names + screen names) for each data type
-#" @param root_url character: API root URL
-#"
-#" @return dataframe
-#" @export
-#"
-#"
+#' get_fields
+#'
+#' Retrieve list of fields (machine names + screen names) for each data type
+#' @param root_url character: API root URL
+#'
+#' @return dataframe
+#' @export
+#'
+#'
+
 get_fields <- function(root_url = dkanr::get_url()) {
 
   # Build url

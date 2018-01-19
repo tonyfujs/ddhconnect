@@ -1,14 +1,14 @@
-#" get_user_details
-#"
-#" Retrieve user details: first name, last name, DDH internal ID
-#"
-#" @param credentials list: authentication token and cookie
-#" @param uid numeric: UPI number
-#" @param root_url character: API root URL
-#"
-#" @return character
-#" @export
-#"
+#' get_user_details
+#'
+#' Retrieve user details: first name, last name, DDH internal ID
+#'
+#' @param credentials list: authentication token and cookie
+#' @param uid numeric: UPI number
+#' @param root_url character: API root URL
+#'
+#' @return character
+#' @export
+#'
 
 get_user_details <- function(credentials = list(cookie = dkanr::get_cookie(),
                                                 token = dkanr::get_token()),

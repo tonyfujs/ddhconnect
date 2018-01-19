@@ -1,13 +1,13 @@
-#" get_datasets_list()
-#"
-#" @param datatype character: Restrict the list to a specific type of dataset. Available options are: "all", "timeseries", "geospatial", or "other"
-#" @param root_url character: API root URL
-#" @param credentials list: API authentication credentials
-#"
-#" @return numeric vector
-#" @export
-#"
-#"
+#' get_datasets_list()
+#'
+#' @param datatype character: Restrict the list to a specific type of dataset. Available options are: 'all', 'timeseries', 'geospatial', or 'other'
+#' @param root_url character: API root URL
+#' @param credentials list: API authentication credentials
+#'
+#' @return numeric vector
+#' @export
+#'
+#'
 
 get_datasets_list <- function(datatype = c("All", "Time Series", "Microdata", "Geospatial", "Other"),
                               root_url = dkanr::get_url(),

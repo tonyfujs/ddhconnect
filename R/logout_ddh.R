@@ -1,13 +1,13 @@
-#" logout_ddh
-#"
-#" Close an existing connection with the DDH API
-#"
-#" @param credentials list: authentication token and cookie
-#" @param root_url character: Server"s root URL
-#"
-#" @return list
-#" @export
-#"
+#' logout_ddh
+#'
+#' Close an existing connection with the DDH API
+#'
+#' @param credentials list: authentication token and cookie
+#' @param root_url character: Server"s root URL
+#'
+#' @return list
+#' @export
+#'
 
 logout_ddh <- function(credentials = list(cookie = dkanr::get_cookie(),
                                           token = dkanr::get_token()),
