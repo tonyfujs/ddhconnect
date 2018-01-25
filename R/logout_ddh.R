@@ -22,7 +22,7 @@ logout_ddh <- function(credentials = list(cookie = dkanr::get_cookie(), token = 
                                                    'Cookie' =  cookie,
                                                    'X-CSRF-Token' = token)),
                     encode = "json")
-  dkanr::err_handler(out)
+  dkanr:::err_handler(out)
   out <- httr::content(out)
 
   return(out)
