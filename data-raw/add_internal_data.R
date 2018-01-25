@@ -13,6 +13,9 @@ mandatory_text_fields <- readLines('data-raw/mandatory_text_fields.txt')
 dataset_json_format_lookup <- read.csv("./data-raw/dataset_json_format_lookup.csv", stringsAsFactors = FALSE)
 resource_json_format_lookup <- read.csv("./data-raw/resource_json_format_lookup.csv", stringsAsFactors = FALSE)
 
+names(dataset_json_format_lookup) <- c("machine_names", "json_template")
+names(resource_json_format_lookup) <- c("machine_names", "json_template")
+
 # Save data
 devtools::use_data(attach_resources_template,
                    test_dataset_update_json,
