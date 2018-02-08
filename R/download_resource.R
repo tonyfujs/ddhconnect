@@ -16,11 +16,15 @@ download_resource <- function(resource_id,
                            credentials = credentials)
 
   path_locs <- c(resource[[1]]$field_link_api$und[[1]]$url,
-                resource[[1]]$field_link_remote_file$und[[1]]$url,
-                resource[[1]]$field_upload$und[[1]]$uri)
-
+                 resource[[1]]$field_link_remote_file$und[[1]]$url,
+                 resource[[1]]$field_upload$und[[1]]$uri)
   path <- unname(unlist(path_locs))
 
+  if (grepl("^public", path)) {
+    base <- "https://datacatalog.worldbank.org/sites/default/files/"
+    file_str <- gsub("^public://", "", path)
+    path <- paste0(base, file_str)
+  }
   ext <- tools::file_ext(path)
 
   if (resource[[1]]$type == "resource") {
