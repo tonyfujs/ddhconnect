@@ -3,7 +3,7 @@
 #' Close an existing connection with the DDH API
 #'
 #' @param credentials list: authentication token and cookie
-#' @param root_url character: Server"s root URL
+#' @param root_url character: Server's root URL
 #'
 #' @return list
 #' @export

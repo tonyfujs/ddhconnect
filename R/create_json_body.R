@@ -24,7 +24,7 @@ create_json_body <- function(values = c("title" = "Test Create JSON",
 
   machine_names <- json_formats$machine_names
   to_update <- subset(json_formats, machine_names %in% names(values))
-  for (i in 1:nrow(to_update)) {
+  for (i in seq_len(to_update)) {
     field_name <- to_update[i, 1]
     json_template <- jsonlite::fromJSON(to_update[i, 2])
     # title and status
