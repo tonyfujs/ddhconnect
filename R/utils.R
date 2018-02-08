@@ -6,9 +6,9 @@ replicate_resource <- function(n, template = ddhconnect::attach_resources_templa
 
 }
 
-build_search_query <- function(fields,
-                               filters,
-                               limit) {
+build_search_query <- function(fields = '',
+                               filters = '',
+                               limit = 200) {
   limit_text <- paste0("limit=", limit)
   fields_text <- paste(fields, collapse = ",")
   fields_text <- paste0("fields=[,", fields_text, ",]")
@@ -27,10 +27,4 @@ construct_datatypes_lookup <- function(root_url = dkanr::get_url()) {
 }
 
 safe_unbox <- purrr::possibly(jsonlite::unbox, otherwise = "")
-safe_assign <- function(x) {
-  if (length(x) > 0) {
-    x
-  } else {
-    ""
-  }
-}
+safe_assign <- function(x) {if (length(x) > 0) {x} else {""}}
