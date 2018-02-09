@@ -4,15 +4,15 @@
 \alias{get_metadata}
 \title{get_metadata}
 \usage{
-get_metadata(nid, root_url = dkanr::get_url(), credentials = list(cookie =
-  dkanr::get_cookie(), token = dkanr::get_token()))
+get_metadata(nid, credentials = list(cookie = dkanr::get_cookie(), token =
+  dkanr::get_token()), root_url = dkanr::get_url())
 }
 \arguments{
 \item{nid}{character: The dataset node id}
 
-\item{root_url}{character: API root URL}
-
 \item{credentials}{list: authentication token and cookie}
+
+\item{root_url}{character: API root URL}
 }
 \value{
 list

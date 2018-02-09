@@ -1,0 +1,174 @@
+{
+  "title": "Congo, Rep. - Skills Development Project for Employability 2015",
+  "body": {
+    "und": [
+      {
+        "value": "The Skill Development for Employability Project has been launched in 2015 by the government of the Republic of Congo, and jointly financed with the World bank. The project provides vocational training to young men and women in Brazzaville and Pointe Noire. The World Bank Africa Gender Innovation Lab (GIL) is conducting an impact evaluation of one of its sub-component, in which beneficiaries enroll in a six-month technical training course, followed by a three-month internship, and a job search support program. To reach its targets, the project is being rolled out over several years, training successively different cohorts of applicants. This dataset was generated through the baseline survey of the first cohort participating in this subcomponent. In the future, it will be expanded to include the subsequent cohorts of participants. Applicants must be between 17 and 30-year-old, and have the possibility to choose between a number of trades including mechanics/auto-mechanics, electricity, welding, textile, hospitality, carpentry, cooking. Following their internship, they receive support from the program to launch their job search or independent activity. The program’s main objectives is to increase participants' level of employment, by strengthening their technical and managerial skills. Moreover, the project is designed to support young women who wish to cross over to non-traditional sectors, which are typically dominated by men, but are more profitable. In other words, the program seeks to find solutions to address gender segregation in the labor market. The project is providing a daily transportation fees of 1500 CFA to young men and 2000 CFA to young women. A higher amount was provided to women, notably to encourage young mothers to participate to the program. Through these incentives, the project hopes to enroll about 50% women among the beneficiaries."
+      }
+    ]
+  },
+  "field_topic": {
+    "und": ["936"]
+  },
+  "field_wbddh_reference_id": {
+    "und": [
+      {
+        "value": "COG_2015_PDCE-BL_v01_M"
+      }
+    ]
+  },
+  "field_wbddh_data_class": {
+    "und": ["358"]
+  },
+  "field_wbddh_data_type": {
+    "und": ["294"]
+  },
+  "field_wbddh_disclaimer": {
+    "und": [
+      {
+        "value": "The user of the data acknowledges that the original collector of the data, the authorized distributor of the data, and the relevant funding agency bear no responsibility for use of the data or for interpretations or inferences based upon such uses."
+      }
+    ]
+  },
+  "field_wbddh_kind_of_data": {
+    "und": ["855"]
+  },
+  "field_license_wbddh": {
+    "und": ["1347"]
+  },
+  "field_wbddh_languages_supported": {
+    "und": ["337"]
+  },
+  "field_wbddh_mode_data_collection": {
+    "und": ["476"]
+  },
+  "field_wbddh_primary_investigator": {
+    "und": [
+      {
+        "value": "Shubha Chakravarty - World Bank ; Léa Rouanet - World Bank - AGIL; Lacina Traoré - World Bank - AGIL; Marine Gassier - World Bank - AGIL"
+      }
+    ]
+  },
+  "field_wbddh_series_information": {
+    "und": [
+      {
+        "value": "The Skill Development for Employability Project has been launched in 2015 by the government of the Republic of Congo, and jointly financed with the World bank. The project provides vocational training to young men and women in Brazzaville and Pointe Noire. The World Bank Africa Gender Innovation Lab (GIL) is conducting an impact evaluation of one of its sub-component, in which beneficiaries enroll in a six-month technical training course, followed by a three-month internship, and a job search support program."
+      }
+    ]
+  },
+  "field_wbddh_study_type": {
+    "und": [
+      {
+        "value": "Other Household Survey"
+      }
+    ]
+  },
+  "field_wbddh_terms_of_use": {
+    "und": ["Public Use"]
+  },
+  "field_wbddh_access_authority": {
+    "und": [
+      {
+        "value": ""
+      }
+    ]
+  },
+  "field_wbddh_funding_name": {
+    "und": [
+      {
+        "value": ""
+      }
+    ]
+  },
+  "field_wbddh_subtitle": {
+    "und": [
+      {
+        "value": "Cohort 1 (Baseline)"
+      }
+    ]
+  },
+  "field_wbddh_unit_of_analysis": {
+    "und": [
+      {
+        "value": "Individual"
+      }
+    ]
+  },
+  "field_wbddh_universe": {
+    "und": [
+      {
+        "value": "These datasets are the baseline data of the first cohort of the project. The data contain information on 880 individuals who received or not the program."
+      }
+    ]
+  },
+  "field_wbddh_weighting": {
+    "und": [
+      {
+        "value": "None"
+      }
+    ]
+  },
+  "field_wbddh_acronym": {
+    "und": [
+      {
+        "value": "PDCE 2015"
+      }
+    ]
+  },
+  "field_wbddh_country": {
+    "und": ["85"]
+  },
+  "field_wbddh_search_tags": {
+    "und": [
+      {
+        "value": "V82;COHORT;F5;0;discrete;1;Identifiant de la cohorte;REAL;880;vald;invd;freq;numeric;other;V83;IDENT;2;12;11;Identifiant de l'enquêté;BZ01190891A;BZ01190893A;BZ01190895A;BZ01190897A;BZ01190898A;BZ01190899A;BZ01190903A;BZ01190909A;BZ01190913A;BZ01190918A;BZ01190934A;BZ01190936A;BZ01190944A;BZ01190945A;BZ01190948A;BZ01190949A;BZ01190951A;BZ01190953A;BZ01190960A;BZ02190712A;BZ02190714A;BZ02190715A;BZ02190716A;BZ02190719A;BZ02190720A;BZ02190726A;BZ02190729A;BZ02190731A;BZ02190734A;BZ02190736A;BZ02190738A;BZ02190739A;BZ02190746A;BZ02190753A;BZ02190755A;BZ02190757A;BZ02190758A;BZ02190768A;BZ02190769A;BZ02190778A;BZ02190783A;BZ02190788A;BZ02190789A;BZ02190795A;BZ02190796A;BZ02190797A;BZ02190798A;BZ02190799A;BZ02190803A;BZ02190805A;BZ02190810A;BZ02190817A;BZ02190825A;BZ02190827A;BZ02190830A;BZ02190833A;BZ02190834A;BZ02190836A;BZ02190837A;BZ02190840A;BZ02190842A;BZ02190843A;BZ02190848A;BZ02190849A;BZ02190851A;BZ02190852A;BZ02190854A;BZ02190858A;BZ02190861A;BZ02190862A;BZ02190863A;BZ02190864A;BZ02190866A;BZ02190871A;BZ02190874A;BZ02190880A;BZ02190881A;BZ03180697A;BZ03181028A;BZ03181030A;BZ03181037A;BZ03181042A;BZ03181043A;BZ03181044A;BZ03181054A;BZ03181058A;BZ03181063A;BZ03181066A;BZ03181069A;BZ03181074A;BZ03181077A;BZ03181080A;BZ03181081A;BZ03181082A;BZ03181087A;BZ03181089A;BZ03181092A;BZ03181095A;BZ03181097A;BZ03181099A;BZ03181107A;BZ03181108A;BZ03181111A;BZ03181113A;BZ03181115A;BZ03181120A;BZ03181123A;BZ03181126A;BZ03181127A;BZ03181153A;BZ03181523A;BZ03181524A;BZ03181527A;BZ04171132A;BZ04180445A;BZ04180453A;BZ04180467A;BZ04180478A;BZ04180479A;BZ04180501A;BZ04180506A;BZ04180507A;BZ04180508A;BZ04180513A;BZ04180515A;BZ04180518A;BZ04180519A;BZ04180527A;BZ04180528A;BZ04180531A;BZ04180540A;BZ04180543A;BZ04180675A;BZ04180688A;BZ04180693A;BZ04180696A;BZ04180701A;BZ04180705A;BZ04181124A;BZ04181130A;BZ04181131A;BZ04181133A;BZ04181140A;BZ04181141A;BZ04181150A;BZ05050229A;BZ05050410A;BZ05170154A;BZ05170155A;BZ05170160A;BZ05170217A;BZ05170238A;BZ05170239A;BZ05170241A;BZ05170242A;BZ05170248A;BZ05170256A;BZ05170263A;BZ05170264A;BZ05170266A;BZ05170268A;BZ05170271A;BZ05170272A;BZ05170273A;BZ05170278A;BZ05170293A;BZ05170298A;BZ05170301A;BZ05170305A;BZ05170309A;BZ05170310A;BZ05170312A;BZ05170313A;BZ05170314A;BZ05170318A;BZ05170328A;BZ05170332A;BZ05170335A;BZ05170338A;BZ05170341A;BZ05170349A;BZ05170350A;BZ05170358A;BZ05170359A;BZ05170360A;BZ05170361A;BZ05170374A;BZ05170375A;BZ05170376A;BZ05170377A;BZ05170378A;BZ05170380A;BZ05170386A;BZ05170387A;BZ05170389A;BZ05170391A;BZ05170392A;BZ05170393A;BZ05170394A;BZ05170395A;BZ05170397A;BZ05170398A;BZ05170400A;BZ05170401A;BZ05170404A;BZ05170408A;BZ05170411A;BZ05170414A;BZ05170418A;BZ05170420A;BZ05170430A;BZ06170444A;BZ06170452A;BZ06170463A;BZ06170466A;BZ06170475A;BZ06170497A;BZ06170498A;BZ06170510A;BZ06170512A;BZ06170523A;BZ06170526A;BZ06170550A;BZ06170553A;BZ06170556A;BZ06170557A;BZ06170558A;BZ06170570A;BZ06170571A;BZ06170574A;BZ06170581A;BZ06170582A;BZ06170584A;BZ06170588A;BZ06170589A;BZ06170590A;BZ06170592A;BZ06170597A;BZ06170599A;BZ06170601A;BZ06170607A;BZ06170608A;BZ06170609A;BZ06170610A;BZ06170611A;BZ06170613A;BZ06170617A;BZ06170619A;BZ06170623A;BZ06170628A;BZ06170631A;BZ06170632A;BZ06170634A;BZ06170637A;BZ06170644A;BZ06170647A;BZ06170653A;BZ06170659A;BZ06170663A;BZ06170667A;BZ06170691A;BZ06170702A;BZ06170963A;BZ06170964A;BZ06170976A;BZ06170979A;BZ06170980A;BZ06170982A;BZ06170987A;BZ06171021A;BZ06171100A;BZ06171101A;BZ06171104A;BZ06171456A;BZ07160176A;BZ07160177A;BZ07160180A;BZ07160187A;BZ07160190A;BZ07160192A;BZ07160193A;BZ07160194A;BZ07160195A;BZ07160205A;BZ07160212A;BZ07160213A;BZ07160216A;BZ07160221A;BZ07160223A;BZ07160224A;BZ07160226A;BZ07160227A;BZ07160230A;BZ07160231A;BZ07160234A;BZ08200237A;BZ08200645A;BZ08200650A;BZ08201161A;BZ08201163A;BZ08201167A;BZ08201169A;BZ08201172A;BZ08201173A;BZ08201176A;BZ08201182A;BZ08201183A;BZ08201185A;BZ08201186A;BZ08201187A;BZ08201192A;BZ08201195A;BZ08201201A;BZ08201204A;BZ08201205A;BZ08201209A;BZ08201216A;BZ08201218A;BZ08201220A;BZ08201228A;BZ08201232A;BZ08201233A;BZ08201234A;BZ08201237A;BZ08201238A;BZ08201243A;BZ08201249A;BZ08201250A;BZ08201251A;BZ08201252A;BZ08201253A;BZ08201256A;BZ08201257A;BZ08201259A;BZ08201302A;BZ08201304A;BZ08201306A;BZ08201307A;BZ08201308A;BZ08201310A;BZ08201313A;BZ08201318A;BZ08201319A;BZ08201320A;BZ08201324A;BZ08201327A;BZ08201331A;BZ08201332A;BZ08201333A;BZ08201342A;BZ08201343A;BZ08201349A;BZ08201350A;BZ08201352A;BZ08201357A;BZ08201400A;BZ08201404A;BZ08201405A;BZ08201412A;BZ08201416A;BZ08201417A;BZ08201420A;BZ08201421A;BZ08201423A;BZ08201424A;BZ08201425A;BZ08201426A;BZ08201427A;BZ08201429A;BZ08201432A;BZ08201434A;BZ08201445A;BZ08201451A;BZ08201454A;BZ08201457A;BZ08201460A;BZ08201467A;BZ08201468A;BZ08201472A;BZ08201478A;BZ08201479A;BZ08201482A;BZ08201483A;BZ08201484A;BZ08201517A;BZ09160005A;BZ09160006A;BZ09160022A;BZ09160030A;BZ09160041A;BZ09160042A;BZ09160043A;BZ09160044A;BZ09160059A;BZ09160061A;BZ09160062A;BZ09160064A;BZ09160065A;BZ09160067A;BZ09160068A;BZ09160073A;BZ09160078A;BZ09160080A;BZ09160081A;BZ09160082A;BZ09160089A;BZ09160092A;BZ09160093A;BZ09160095A;BZ09160098A;BZ09160099A;BZ09160103A;BZ09160104A;BZ09160106A;BZ09160110A;BZ09160112A;BZ09160116A;BZ09160117A;BZ09160122A;BZ09160125A;BZ09160126A;BZ09160133A;BZ09160136A;BZ09160150A;BZ09160153A;BZ09160162A;BZ09160163A;BZ09160165A;BZ09160168A;BZ09160170A;BZ09160173A;BZ09160259A;BZ09160306A;BZ09160323A;BZ09160324A;BZ09160325A;BZ09160372A;BZ09160384A;BZ09160707A;PN01110027A;PN01120003A;PN01120004A;PN01120005A;PN01120008A;PN01120009A;PN01120011A;PN01120012A;PN01120014A;PN01120016A;PN01120017A;PN01120019A;PN01120024A;PN01120025A;PN01120026A;PN01120029A;PN01120030A;PN01120032A;PN01120038A;PN01120039A;PN01120042A;PN01120043A;PN01120044A;PN01120046A;PN01120047A;PN01120048A;PN01120049A;PN01120051A;PN01120052A;PN01120054A;PN01120055A;PN01120056A;PN01120057A;PN01120059A;PN01120061A;PN01120062A;PN01120064A;PN02130065A;PN02130066A;PN02130067A;PN02130068A;PN02130069A;PN02130070A;PN02130071A;PN02130072A;PN02130073A;PN02130075A;PN02130078A;PN02130079A;PN02130080A;PN02130084A;PN02130088A;PN02130090A;PN02130092A;PN02130093A;PN02130095A;PN02130096A;PN02130097A;PN02130099A;PN02130102A;PN02130103A;PN02130106A;PN02130107A;PN03140109A;PN03140110A;PN03140113A;PN03140114A;PN03140115A;PN03140116A;PN03140118A;PN03140119A;PN03140120A;PN03140123A;PN03140125A;PN03140127A;PN03140128A;PN03140129A;PN03140130A;PN03140132A;PN03140134A;PN03140135A;PN03140136A;PN03140137A;PN03140138A;PN03140141A;PN03140142A;PN03140143A;PN03140144A;PN03140146A;PN03140148A;PN03140149A;PN03140150A;PN03140152A;PN03140154A;PN03140155A;PN03140156A;PN03140157A;PN03140158A;PN03140160A;PN03140162A;PN03140164A;PN03140165A;PN03140166A;PN03140167A;PN03140169A;PN03140170A;PN03140171A;PN03140172A;PN03140173A;PN03140176A;PN03140177A;PN03140178A;PN03140179A;PN03140180A;PN03140181A;PN03140183A;PN03140184A;PN03140186A;PN03140187A;PN03140188A;PN03140191A;PN03140193A;PN03140194A;PN03140197A;PN03140198A;PN03140199A;PN03140202A;PN03140203A;PN03140204A;PN03140205A;PN03140206A;PN03140209A;PN03140212A;PN03140214A;PN03140215A;PN03140217A;PN03140218A;PN03140221A;PN03140223A;PN03140224A;PN03140227A;PN03140228A;PN03140230A;PN03140231A;PN03140232A;PN03140234A;PN03140235A;PN03140236A;PN03140237A;PN03140238A;PN04130271A;PN04150239A;PN04150240A;PN04150241A;PN04150242A;PN04150244A;PN04150247A;PN04150248A;PN04150249A;PN04150251A;PN04150253A;PN04150254A;PN04150255A;PN04150256A;PN04150257A;PN04150258A;PN04150261A;PN04150262A;PN04150263A;PN04150267A;PN04150270A;PN04150272A;PN04150275A;PN04150280A;PN04150282A;PN04150283A;PN04150284A;PN04150287A;PN04150288A;PN04150289A;PN04150294A;PN04150295A;PN04150297A;PN04150298A;PN04150299A;PN04150300A;PN04150303A;PN04150305A;PN04150307A;PN04150308A;PN04150310A;PN04150311A;PN04150312A;PN04150313A;PN04150314A;PN04150315A;PN04150316A;PN04150317A;PN04150318A;PN04150321A;PN04150323A;PN04150324A;PN04150325A;PN04150326A;PN04150328A;PN04150330A;PN04150331A;PN04150332A;PN04150334A;PN04150335A;PN04150336A;PN04150337A;PN04150339A;PN04150340A;PN04150341A;PN04150342A;PN04150347A;PN04150348A;PN04150349A;PN04150350A;PN04150351A;PN04150353A;PN04150354A;PN04150355A;PN04150356A;PN04150357A;PN04150359A;PN04150360A;PN04150362A;PN04150363A;PN04150364A;PN04150365A;PN04150366A;PN04150367A;PN04150368A;PN04150371A;PN04150372A;PN04150374A;PN04150375A;PN04150376A;PN04150378A;PN04150379A;PN04150380A;PN04150381A;PN04150382A;PN04150383A;PN04150385A;PN04150386A;PN04150392A;PN04150393A;PN05160394A;PN05160395A;PN05160397A;PN05160399A;PN05160400A;PN05160401A;PN05160402A;PN05160403A;PN05160404A;PN05160405A;PN05160406A;PN05160407A;PN05160408A;PN05160409A;PN05160410A;PN05160411A;PN05160412A;PN05160414A;PN05160416A;PN05160417A;PN05160418A;PN05160420A;PN05160422A;PN05160423A;PN05160424A;PN05160426A;PN05160427A;PN05160429A;PN05160431A;PN05160432A;PN05160434A;PN05160435A;PN05160438A;PN05160442A;PN05160444A;PN05160446A;PN05160447A;PN05160448A;PN05160450A;PN05160451A;PN05160453A;PN05160455A;PN05160457A;PN05160458A;PN05160459A;PN05160460A;PN05160462A;PN05160464A;PN05160466A;PN05160468A;PN05160470A;PN05160471A;PN05160472A;PN05160473A;PN05160475A;PN05160476A;PN05160477A;PN05160479A;PN05160480A;PN05160482A;PN05160483A;PN05160484A;PN05160485A;PN05160489A;PN05160490A;PN05160492A;PN05160494A;PN05160495A;PN05160498A;PN05170488A;PN05170698A;PN05170699A;PN05170701A;PN05170703A;PN05170704A;PN05170705A;PN05170708A;PN05170709A;PN05170714A;PN05170715A;PN05170716A;PN05170717A;PN05170718A;PN05170720A;PN05170721A;PN05170722A;PN05170723A;PN05170729A;PN05170730A;PN05170732A;PN05170736A;PN06160439A;PN06170501A;PN06170503A;PN06170504A;PN06170505A;PN06170511A;PN06170512A;PN06170514A;PN06170519A;PN06170522A;PN06170525A;PN06170526A;PN06170527A;PN06170529A;PN06170532A;PN06170535A;PN06170536A;PN06170540A;PN06170542A;PN06170546A;PN06170547A;PN06170548A;PN06170549A;PN06170550A;PN06170551A;PN06170552A;PN06170557A;PN06170558A;PN06170559A;PN06170560A;PN06170561A;PN06170564A;PN06170565A;PN06170567A;PN06170569A;PN06170571A;PN06170574A;PN06170575A;PN06170576A;PN06170580A;PN06170581A;PN06170583A;PN06170584A;PN06170587A;PN06170592A;PN06170593A;PN06170597A;PN06170599A;PN06170603A;PN06170604A;PN06170605A;PN06170606A;PN06170607A;PN06170609A;PN06170611A;PN06170615A;PN06170616A;PN06170617A;PN06170618A;PN06170619A;PN06170623A;PN06170624A;PN06170625A;PN06170627A;PN06170629A;PN06170632A;PN06170636A;PN06170638A;PN06170639A;PN06170640A;PN06170641A;PN06170642A;PN06170643A;PN06170645A;PN06170647A;PN06170648A;PN06170651A;PN06170653A;PN06170654A;PN06170655A;PN06170657A;PN06170660A;PN06170661A;PN06170662A;PN06170663A;PN06170664A;PN06170665A;PN06170666A;PN06170667A;PN06170668A;PN06170670A;PN06170675A;PN06170678A;PN06170679A;PN06170680A;PN06170681A;PN06170686A;PN06170687A;PN06170690A;PN06170694A;character;V84;ID1_cal;contin;13;16;4;3;1527;min;max;V85;ID8_depart;17;28;Brazzaville;439;Pointe-Noire;441;V86;ID5;29;854;26;597;257;Sysmiss;V87;ID6;30;39;10;V88;ID6_year_cal;40;43;1985;2015;870;V89;ID9_0;44;Choisissez s'il vous plaît;Première visit;862;Troisième visit;9;TroisiÃ¨me visit;French: [ID9_0]Choisissez s'il vous plaÃ®t;V90;ID9_1;45;63;19;[ID9_1] Date;2015-11-27;38;2015-11-28;56;2015-11-29;2015-11-30;65;2015-12-01;57;2015-12-02;62;2015-12-03;2015-12-04;47;2015-12-05;2015-12-06;2015-12-07;2015-12-08;2015-12-09;2015-12-10;7;2015-12-22;55;2015-12-23;67;2015-12-24;73;2015-12-30;77;2015-12-31;2016-01-04;64;2016-01-05;20;2016-01-06;2016-01-07;French: [ID9_1]Date;V91;ID13_1;Résultat;6;questionnaire complÃ©tÃ©;866;entretien partiel;5;enquÃªtÃ© absent;enquÃªtÃ© ne se prÃ©sente pas au rdv;entretien reportÃ© Ã  plus tard;refus;French: [ID13_1]RÃ©sultat:;V92;ID9_2;83;[ID9_2]Date;18;French: [ID9_2]Date;V93;ID12_2_preload;84;88;Femme;Homme;V94;ID11_2;89;92;Identifiant de l'enquêteur;14;107;116;C116;French: [ID11_2]Identifiant de l'enquÃªteur;V95;ID13_2;93;[ID13_2] Résultat;questionnaire complété;enquêté absent;enquêté ne se présente pas au rdv;entretien reporté à plus tard;French: [ID13_2]RÃ©sultat:;V96;ID9_3;94;112;[ID9_3] Date;French: [ID9_3]Date;V97;ID12_3_preload;113;117;V98;ID11_3;118;120;[ID11_3] Identifiant de l'enquêteur;871;French: [ID11_3]Identifiant de l'enquÃªteur;V99;ID13_3;121;[ID13_3] Résultat;French: [ID13_3]RÃ©sultat:;V100;ID15;122;124;[ID15]Identifiant du superviseur;109;385;495;French: [ID15]Identifiant du superviseur;V101;ID16;125;143;[ID16]Date de la vérification;2014-11-27;2014-12-02;2014-12-23;2015-01-04;34;49;53;71;8;66;2015-12-29;French: [ID16]Date de la vÃ©rification;V102;ID5_1;144;V103;ID7;145;876;Célibataire;837;Marié;Union libre;33;Veuf(ve);V104;ID12;146;214;666;V105;age;147;148;V106;DE01;149;223;75;1 DE0 - Logement (loyer, entretien, réparations);V107;DE1;224;225;1 DE - Logement (loyer, entretien, réparations), Montant en Milliers de FCFA;80;869;French: [DE17]Autre (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE16]Autre (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE15]Autre (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE14]Avez-vous d'autre dÃ©penses?\nFrench: [DE13]Divertissements (CD, DVDÂ…) et loisirs (cinÃ©ma, lectureÂ…) (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE12]Tabac, Alcool, Autres boissons (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE11]VÃªtements/chaussures, Bijoux, BeautÃ© (Salon de coiffure, produitsÂ…) (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE10]Meubles, Ã©quipements mÃ©nagers, appareils Ã©lectroniques (Ã  usage domestique) (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE9]DÃ©penses cÃ©rÃ©monielles (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE8]Charges, Ã©nergie (eau, Ã©lectricitÃ©, gaz, etc.) (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE7]Recharge de tÃ©lÃ©phone (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE6]Transport (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE5]DÃ©penses de santÃ© pour le rÃ©pondant (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE4]Etudes/fournitures scolaires pour le rÃ©pondant (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE3]Nourriture (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE2]DÃ©penses d'Ã©ducation et santÃ© des enfants Ã  charge (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie)\nFrench: [DE1]Logement (loyer, entretien, rÃ©parations) (Montant en Milliers de FCFA. (0 si aucune dÃ©pense dans cette catÃ©gorie);V108;DE02;226;300;2 DE0 - Dépenses d'éducation et santé des enfants à charge;V109;DE2;301;302;2 DE - Dépenses d'éducation et santé des enfants à charge, Montant en Milliers de FCFA;868;V110;DE03;303;377;3 DE0 - Nourriture;V111;DE3;378;379;3 DE - Nourriture, Montant en Milliers de FCFA;90;860;V112;DE04;380;454;4 DE0 - Etudes/fournitures scolaires pour le répondant;V113;DE4;455;456;4 DE - Etudes/fournitures scolaires pour le répondant, Montant en Milliers de FCFA;35;V114;DE05;457;531;5 DE0 - Dépenses de santé pour le répondant;V115;DE5;532;533;5 DE - Dépenses de santé pour le répondant, Montant en Milliers de FCFA;V116;DE06;534;608;6 DE0 - Transport;V117;DE6;609;610;6 DE - Transport, Montant en Milliers de FCFA;50;V118;DE07;611;685;7 DE0 - Recharge de téléphone;V119;DE7;686;687;7 DE - Recharge de téléphone, Montant en Milliers de FCFA;V120;DE08;688;762;8 DE0 - Charges, énergie (eau, électricité, gaz, etc.);V121;DE8;763;764;8 DE - Charges, énergie (eau, électricité, gaz, etc.), Montant en Milliers de FCFA;V122;DE09;765;839;9 DE0 - Dépenses cérémonielles;V123;DE9;840;842;9 DE - Dépenses cérémonielles, Montant en Milliers de FCFA;100;V124;DE010;843;921;79;10 DE0 - Meubles, équipements ménagers, appareils électroniques (à usage domestique);V125;DE10;922;924;10 DE - Meubles, équipements ménagers, appareils électroniques, Montant en Milliers de FCFA;V126;DE011;925;999;11 DE0 - Vêtements/chaussures, Bijoux, Beauté;V127;DE11;1000;1001;11 DE - Vêtements/chaussures, Bijoux, Beauté, Montant en Milliers de FCFA;V128;DE012;1002;1076;12 DE0 - Tabac, Alcool, Autres boissons;V129;DE12;1077;1078;12 DE - Tabac, Alcool, Autres boissons, Montant en Milliers de FCFA;V130;DE013;1079;1153;13 DE0 - Divertissements (CD, DVD…) et loisirs;V131;DE13;1154;1157;13 DE - Divertissements (CD, DVD…) et loisirs, Montant en Milliers de FCFA;3000"
+      }
+    ]
+  },
+  "field_wbddh_release_date": {
+    "und": [
+      {
+        "value": "2018-01-09 19:39:01"
+      }
+    ]
+  },
+  "field_wbddh_modified_date": {
+    "und": [
+      {
+        "value": "2018-01-09 19:54:16"
+      }
+    ]
+  },
+  "field_wbddh_sampling_procedure": {
+    "und": [
+      {
+        "value": "The overall sample of the study is estimated to be about 3500 individuals (control and treatment). For this first cohort, the study sample was 929 individuals - 880 were surveyed. To select the project's beneficiaries, applications were collected in all districts of Brazzaville and Pointe Noire. A team spent a full day in each district collecting applications and conducting a pre-screening of interested candidates. The project spent 5 days to collect applications in the 9 districts of Brazzaville and 6 days in the 6 districts of Pointe-Noire. To be eligible to the program the following criteria were requested: - Be aged between 17 and 30-year-old - Having been out of school for at least a year before the application - Have at least 6 years' education level - Be a Congolese national In the application center, the young men and women were helped by members of governments to fill an application form. After filling personal information requested on the form, they received information on the different trades offered by the program, before selecting up to two trades for which they were interested in receiving training. This process was followed by a one-to-one interview with a trainer in their selected trades, during which they were also asked to take a test in reading and basic maths. For each trade, the goal was to select three times as many applications as there were available spots. A random draw was then conducted within each trade to assign applicants to control or treatment groups."
+      }
+    ]
+  },
+  "field_wbddh_deviations_sample": {
+    "und": [
+      {
+        "value": "None"
+      }
+    ]
+  },
+  "field_wbddh_citation_text": {
+    "und": [
+      {
+        "value": "Use of the dataset must be acknowledged using a citation which would include: - the Identification of the Primary Investigator - the title of the survey (including country, acronym and year of implementation) - the survey reference number - the source and date of download"
+      }
+    ]
+  },
+  "field_ddh_harvest_src": {
+    "und": ["1016"]
+  },
+  "field_ddh_harvest_sys_id": {
+    "und": [
+      {
+        "value": 9692
+      }
+    ]
+  },
+  "type": "dataset"
+} 
