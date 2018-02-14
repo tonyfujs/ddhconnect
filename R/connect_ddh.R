@@ -10,10 +10,10 @@ connect_ddh <- function(path, body = NULL, root_url = production_root_url) {
   # Make the request
   resp <- httr::GET(url,
             body = body,
-            httr::add_headers(.headers = c('Content-Type' = 'application/json',
-                                           # 'Cookie' =  cookie,
-                                           # 'X-CSRF-Token' = token,
-                                           'charset' = 'utf-8'))
+            httr::add_headers(.headers = c("Content-Type" = "application/json",
+                                           # "Cookie" =  cookie,
+                                           # "X-CSRF-Token" = token,
+                                           "charset" = "utf-8"))
   )
   # CHECK: response in expected format
   if (httr::http_type(resp) != "application/json") {

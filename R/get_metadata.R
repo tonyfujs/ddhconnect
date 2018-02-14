@@ -10,11 +10,12 @@
 #' @export
 #'
 #'
-get_metadata <- function(nid, credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token()), root_url = dkanr::get_url()) {
 
-  # Build url
-  path <- paste0('api/dataset/node/', nid)
-  url <- httr::modify_url(root_url, path = path)
+get_metadata <- function(nid,
+                         credentials = list(cookie = dkanr::get_cookie(),
+                                                 token = dkanr::get_token()),
+                         root_url = dkanr::get_url()) {
+
   # Send request
   json_out <- dkanr::retrieve_node(nid, root_url, credentials)
   out <- jsonlite::fromJSON(json_out)
