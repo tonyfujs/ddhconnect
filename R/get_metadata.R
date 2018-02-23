@@ -18,7 +18,7 @@ get_metadata <- function(nid,
 
   # Send request
   json_out <- dkanr::retrieve_node(nid, root_url, credentials)
-  out <- jsonlite::fromJSON(json_out)
+  out <- jsonlite::fromJSON(json_out, simplifyVector = FALSE)
 
   return(out)
 }
