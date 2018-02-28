@@ -1,4 +1,4 @@
-connect_ddh <- function(path, body = NULL, root_url = production_root_url) {
+connect_ddh <- function(path, body = NULL, root_url = dkanr::get_url()) {
 
   # if(!is.null(credentials)){
   #   cookie <- credentials$cookie
