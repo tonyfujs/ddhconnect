@@ -21,12 +21,8 @@ attach_resources_to_dataset <- function(dataset_nid,
   # purrr::map(resource_nids, dkanr::update_node(nid = dataset_nid,
   #                                              body = body))
   for(i in 1:length(resource_nids)) {
-    tryCatch( {
-      dkanr::update_node(nid = dataset_nid, body = body)
-    }, error = function(e) {
-      print("Returns an error")
-    })
+      out <- dkanr::update_node(nid = dataset_nid, body = body)
   }
 
-  # return(jsonlite::fromJSON(out))
+  return(jsonlite::fromJSON(out))
 }
