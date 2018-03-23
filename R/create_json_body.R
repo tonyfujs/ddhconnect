@@ -30,7 +30,13 @@ create_json_body <- function(values = c("title"="Test Create JSON", "body"="Test
     }
     # controlled vocabulary fields
     else if(is.null(names(json_template[[field_name]]$und))) {
-      json_template[[field_name]]$und <- unlist(stringr::str_split(values[[field_name]], pattern = ';'))
+      values <- unlist(stringr::str_split(values[[field_name]], pattern = ';'))
+      # check for invalid values
+      lovs <- get_lovs()
+      if(nrow(lovs %>% filter(machine_name == field_name & tid %in% values)) != length(values)){
+        stop(paste("Invalid value for", field_name))
+      }
+      json_template[[field_name]]$und <- values
     }
     # free text fields
     else {
