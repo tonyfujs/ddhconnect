@@ -10,7 +10,7 @@ logout_ddh(credentials = list(cookie = dkanr::get_cookie(), token =
 \arguments{
 \item{credentials}{list: authentication token and cookie}
 
-\item{root_url}{character: Server"s root URL}
+\item{root_url}{character: Server's root URL}
 }
 \value{
 list
