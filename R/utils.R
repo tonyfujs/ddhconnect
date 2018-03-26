@@ -9,15 +9,16 @@ replicate_resource <- function(n, template = ddhconnect::attach_resources_templa
 build_search_query <- function(fields = '',
                                filters = '',
                                limit = 200) {
-  limit_text <- paste0('limit=', limit)
-  fields_text <- paste(fields, collapse = ',')
-  fields_text <- paste0('fields=[,', fields_text, ',]')
-  filters_text <- dkanr:::filters_to_text_query(filters, 'filter')
+  limit_text <- paste0("limit=", limit)
+  fields_text <- paste(fields, collapse = ",")
+  fields_text <- paste0("fields=[,", fields_text, ",]")
+  filters_text <- dkanr:::filters_to_text_query(filters, "filter")
 
-  out <- paste(limit_text, fields_text, filters_text, sep = '&')
+  out <- paste(limit_text, fields_text, filters_text, sep = "&")
+  return(out)
 }
 
-construct_datatypes_lookup <- function(root_url = dkanr::get_url()){
+construct_datatypes_lookup <- function(root_url = dkanr::get_url()) {
   lovs <- get_lovs(root_url)
   data_type_lovs <- subset(lovs, lovs$machine_name == "field_wbddh_data_type")
   datatypes_lkup <- data_type_lovs$tid
@@ -25,5 +26,5 @@ construct_datatypes_lookup <- function(root_url = dkanr::get_url()){
   return(datatypes_lkup)
 }
 
-safe_unbox <- purrr::possibly(jsonlite::unbox, otherwise = '')
+safe_unbox <- purrr::possibly(jsonlite::unbox, otherwise = "")
 safe_assign <- function(x) {if (length(x) > 0) {x} else {""}}

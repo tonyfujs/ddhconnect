@@ -10,7 +10,7 @@ get_datasets_list(datatype = c("All", "Time Series", "Microdata",
   dkanr::get_token()))
 }
 \arguments{
-\item{datatype}{character: Restrict the list to a specific type of dataset. Available options are: "all", "timeseries", "geospatial", or "other"}
+\item{datatype}{character: Restrict the list to a specific type of dataset. Available options are: 'all', 'timeseries', 'geospatial', or 'other'}
 
 \item{root_url}{character: API root URL}
 
