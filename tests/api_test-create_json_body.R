@@ -1,3 +1,5 @@
+library(testthat)
+
 credentials <- list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
 url <- dkanr::get_url()
 nid <- 79069
