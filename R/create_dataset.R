@@ -13,7 +13,6 @@
 create_dataset <- function(root_url = dkanr::get_url(),
                            body, credentials = list(cookie = dkanr::get_cookie(),
                                                     token = dkanr::get_token())) {
-
   out <- dkanr::create_node(root_url, body, credentials)
 
   return(jsonlite::fromJSON(out))

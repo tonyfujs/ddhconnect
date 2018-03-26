@@ -19,6 +19,10 @@ create_json_body <- function(values = c("title"="Test Create JSON", "body"="Test
   else if(node_type == "resource") {
     json_formats <- ddhconnect::resource_json_format_lookup
   }
+  else {
+    stop("Invalid value for node_type. node_type must either be \"dataset\" or \"resource\".")
+  }
+  values["type"] <- node_type
   machine_names <- json_formats$machine_names
   to_update <- subset(json_formats, machine_names %in% names(values))
   for(i in 1:nrow(to_update)) {
@@ -30,17 +34,17 @@ create_json_body <- function(values = c("title"="Test Create JSON", "body"="Test
     }
     # controlled vocabulary fields
     else if(is.null(names(json_template[[field_name]]$und))) {
-      values <- unlist(stringr::str_split(values[[field_name]], pattern = ';'))
+      vals <- unlist(stringr::str_split(values[[field_name]], pattern = ';'))
       # check for invalid values
       lovs <- get_lovs()
-      if(nrow(lovs %>% filter(machine_name == field_name & tid %in% values)) != length(values)){
-        invalid_vals <- setdiff(values, lovs %>% filter(machine_name == field_name & tid %in% values) %>% pull(tid))
+      if(nrow(lovs %>% filter(machine_name == field_name & tid %in% vals)) != length(vals)){
+        invalid_vals <- setdiff(values, lovs %>% filter(machine_name == field_name & tid %in% vals) %>% pull(tid))
         stop(paste0("Invalid values for ", field_name, ": ",
                    paste(invalid_vals, collapse = " "),
                    "\nPlease choose from the valid values for ", field_name, ":\n",
                    paste(lovs %>% filter(machine_name == field_name) %>% pull(tid), collapse = ", ")))
       }
-      json_template[[field_name]]$und <- values
+      json_template[[field_name]]$und <- vals
     }
     # free text fields
     else {
