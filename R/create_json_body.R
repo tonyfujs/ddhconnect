@@ -34,7 +34,8 @@ create_json_body <- function(values = c("title"="Test Create JSON", "body"="Test
       # check for invalid values
       lovs <- get_lovs()
       if(nrow(lovs %>% filter(machine_name == field_name & tid %in% values)) != length(values)){
-        stop(paste("Invalid value for", field_name))
+        stop(paste("Invalid value for", field_name, ". Please choose from one of the following valid values:\n",
+                   paste(lovs %>% filter(machine_name == field_name) %>% pull(tid), collapse = " ")))
       }
       json_template[[field_name]]$und <- values
     }
