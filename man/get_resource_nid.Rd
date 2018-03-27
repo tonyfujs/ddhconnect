@@ -11,6 +11,8 @@ get_resource_nid(nid, root_url = dkanr::get_url(), credentials = list(cookie
 \item{nid}{character: The DATASET node id}
 
 \item{root_url}{character: API root URL}
+
+\item{credentials}{list: authentication token and cookie}
 }
 \value{
 character

@@ -1,0 +1,116 @@
+﻿machine_name,form name
+field_wbddh_abstract,Abstract
+field_wbddh_access_authority,"Access Authority Name, Affiliation, Email"
+field_access_authority_url,Access Authority URL
+field_wbddh_acronym,Acronym
+field_wbddh_additional_publisher,Additional Publisher
+field_wbddh_aggregation_method,Aggregation Method
+field_wbddh_responsible,Are you the responsible TTL for this dataset?
+field_wbddh_base_period,Base Period
+field_best_bets,Best Bets
+field_wbddh_bit_depth,Bit Depth
+field_wbddh_citation_text,Citation Text
+field_wbddh_collaborator_upi,Collaborator Name(s)
+,Collections
+field_contact_email,Contact Email
+field_wbddh_copyright,Copyright
+field_wbddh_curator_notes,Curator Notes
+field_wbddh_type_of_license,Custom License Information
+field_wbddh_data_class,Data Classification of a Dataset
+field_data_collection_cycle,Data Collection Cycle
+field_wbddh_data_dates,Data Collection Dates
+field_wbddh_data_collector,Data Collector(s) Name
+field_wbddh_data_editing,Data Editing
+field_wbddh_data_notes,Data Notes
+field_wbddh_data_type,Data Type
+field__wbddh_depositor_notes,Depositor Notes
+body,Description
+field_wbddh_deviations_sample,Deviations from Sample Design
+field_wbddh_disclaimer,Disclaimer
+field_wbddh_disclosure_risk,Disclosure Risk
+field_wbddh_east_bounding_coord,East Bounding Coordinate
+field_wbddh_economy_coverage,Economy Coverage
+field_wbddh_embargo_comments,Embargo Comments
+field_wbddh_ds_embargo_date,Embargo Date
+field_wbddh_end_date,End Date
+field_wbddh_estimate_sampling,Estimates of Sampling Error
+field_exception_s_,Exception
+field_ddh_external_contact_email,External Contact Email
+field_wbddh_funding_name,"Funding Name, Abbreviation, Role"
+field_wbddh_country,Geographical Coverage
+field_wbddh_gps_ccsas,GP & CCSAs
+field_grant_number,Grant Number
+field_wbddh_subscription,Is this dataset a subscription
+field_wbddh_search_tags,Keywords
+field_wbddh_kind_of_data,Kind of Data
+field_wbddh_languages_supported,Languages Supported
+field_wbddh_modified_date,Last Updated Date
+field_license_wbddh,License
+field_wbddh_limitations_geo,Limitations and Exceptions
+field_wbddh_lineage,Lineage (O)
+field_wbddh_map_projection,Map Projection
+field_wbddh_charset,Metadata Character Set
+field_wbddh_file_identifier,Metadata file identifier (O)
+field_wbddh_produced_by,"Metadata Produced By Name, Abbreviation, Affiliation, Role"
+field_wbddh_standard_name,Metadata standard name (O)
+field_wbddh_mode_data_collection,Mode of Data Collection
+field_wbddh_next_expected_update,Next Expected update
+field_wbddh_north_bounding_coord,North Bouding Coordinate
+field_wbddh_note_data_collection,Notes on Data Collection
+field_wbddh_no_of_economies,Number of Economies
+field_ddh_online_linkage,Online Linkage
+field_wbddh_organization,Organization
+field_wbddh_other_acknowledgment,Other Acknowledgments
+,Other Collections
+field_wbddh_other_forms_of_data,Other Forms of Data Appraisal
+field_wbddh_other_processing,Other Processing
+field_wbddh_other_producer,"Other Producer (s) Name, Affiliation, Role"
+field_wbddh_parent_catalog_id,Parent Catalog Title
+field_wbddh_periodicity,Periodicity
+field_wbddh_pixel_resolution,Pixel Resolution
+field_wbddh_place_keywords,Place Keyword(s)
+field_wbddh_primary_investigator,"Primary Investigator Name, Affiliation"
+field_wbddh_publication_place,Publication Place
+field_wbddh_publisher_name,Publisher Name
+field_wbddh_questionnaires,Questionnaires
+field_wbddh_reference_system,Reference System
+field_wbddh_related_indicators,Related Indicators
+field_related_links_and_publicat,Related links and Publications
+field_wbddh_release_date,Release Date
+field_wbddh_response_rates,Response Rates
+field_wbddh_sampling_procedure,Sampling Procedure
+field_wbddh_satellite,Satellite
+field_wbddh_scene_location,Scene Location
+field_wbddh_scene_size,Scene Size
+field_wbddh_sensor,Sensor
+field_wbddh_series_code,Series Code
+field_wbddh_series_information,Series Information
+field_wbddh_source,Source
+field_wbddh_ds_source,Source Type
+field_wbddh_south_bounding_coord,South Bounding Coordinate
+field_wbddh_spatial_resolution,Spatial Resolution (O)
+field_wbddh_spectral_range,Spectral Range
+field_wbddh_start_date,Start Date
+field_wbddh_statistical_concept,Statistical Concept and Methodology
+field_wbddh_study_type,Study Type
+field_wbddh_subtitle,Subtitle
+field_wbddh_supervision,Supervision
+field_tags,Tags
+field_time_period_cycle,Time Period Cycle
+field_wbddh_time_periods,Time Periods
+title,Title
+field_topic,Topics
+field_wbddh_dstranslated_title,Translated Title
+field_wbddh_dsttl_upi,TTL Name or UPI
+field_wbddh_unit_of_analysis,Unit of Analysis
+field_ddh_unit_of_measure,Unit of measure
+field_wbddh_universe,Universe
+field_wbddh_update_frequency,Update Frequency
+field_wbddh_update_schedule,Update Schedule
+field_wbddh_version_description,Version Description
+field_wbddh_version_notes,Version Notes
+field_wbddh_version_date,Version Production Date
+field_wbddh_project_id,WB Project ID
+field_wbddh_web_service_index,Web Service Index
+field_wbddh_weighting,Weighting
+field_wbddh_west_bounding_coord,West Bounding Coordinate

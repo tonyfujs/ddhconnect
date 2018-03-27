@@ -10,20 +10,24 @@
 #' @export
 #'
 
-get_user_details <- function(credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token()), uid, root_url = dkanr::get_url()) {
+get_user_details <- function(credentials = list(cookie = dkanr::get_cookie(),
+                                                token = dkanr::get_token()),
+                             uid,
+                             root_url = dkanr::get_url()) {
+
   cookie <- credentials$cookie
   token <- credentials$token
 
   # Build url
-  uid <- stringr::str_pad(uid, pad = '0', side = 'left', width = 9)
-  path <- 'internal/getuserdetails'
+  uid <- stringr::str_pad(uid, pad = "0", side = "left", width = 9)
+  path <- "internal/getuserdetails"
   url <- httr::modify_url(root_url, path = path, query = list(uid = uid))
   # Send request
   out <- httr::GET(url = url,
-                   httr::add_headers(.headers = c('Content-Type' = 'application/json',
-                                                  'Cookie' =  cookie,
-                                                  'X-CSRF-Token' = token,
-                                                  'charset' = 'utf-8')))
+                   httr::add_headers(.headers = c("Content-Type" = "application/json",
+                                                  "Cookie" =  cookie,
+                                                  "X-CSRF-Token" = token,
+                                                  "charset" = "utf-8")))
   dkanr:::err_handler(out)
 
   out <- httr::content(out)
