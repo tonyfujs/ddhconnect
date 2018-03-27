@@ -2,6 +2,7 @@
 
 export(attach_resource_to_dataset)
 export(create_dataset)
+export(create_json_attach)
 export(create_json_body)
 export(create_resource)
 export(dkanr_logout)
