@@ -206,13 +206,7 @@ field_wbddh_dsttl_upi,"{""field_wbddh_dsttl_upi"": {
                 ""autocomplete_hidden_value"": """"
             }
     }}"
-field_wbddh_search_tags,"{""field_wbddh_search_tags"": {
-        ""und"": [
-            {
-                ""value"": """"
-            }
-        ]
-    }}"
+field_wbddh_search_tags,"{""field_wbddh_search_tags"": { ""und"": [ { ""value"": """" } ] }}"
 field_wbddh_version_date,"{""field_wbddh_version_date"": {
 		""und"": [{
 			""value"": """"
@@ -282,9 +276,7 @@ field_frequency,"{""field_frequency"": {
 field_granularity_list,"{""field_granularity_list"": {
         ""und"": []
     }}"
-field_tags,"{""field_tags"": {
-        ""und"": []
-    }}"
+field_tags,"{""field_tags"": { ""und"": [ { ""value"": """" } ] }}"
 field_wbddh_data_notes,"{""field_wbddh_data_notes"": {
         ""und"": [
             {
@@ -362,3 +354,4 @@ field_wbddh_update_schedule,"{""field_wbddh_update_schedule"": {
         ]
     }}"
 type,"{""type"": """"}"
+workflow_status,"{""workflow_status"": """"}"

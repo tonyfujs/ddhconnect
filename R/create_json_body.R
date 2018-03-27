@@ -21,6 +21,10 @@ create_json_body <- function(values = c("title" = "Test Create JSON",
   } else if (node_type == "resource") {
     json_formats <- ddhconnect::resource_json_format_lookup
   }
+  else {
+    stop("Invalid value for node_type. node_type must either be \"dataset\" or \"resource\".")
+  }
+  values["type"] <- node_type
 
   machine_names <- json_formats$machine_names
   to_update <- subset(json_formats, machine_names %in% names(values))
@@ -29,10 +33,24 @@ create_json_body <- function(values = c("title" = "Test Create JSON",
     json_template <- jsonlite::fromJSON(to_update[i, 2])
     # title and status
     if (is.character(json_template[[field_name]])) {
-      json_template[[field_name]] <- safe_unbox(safe_assign(values[[field_name]]))
-    } else if (is.null(names(json_template[[field_name]]$und))) {
-      json_template[[field_name]]$und <- unlist(stringr::str_split(values[[field_name]], pattern = ';'))
-    } else {
+      json_template[[field_name]] <- ddhconnect:::safe_unbox(ddhconnect:::safe_assign(values[[field_name]]))
+    }
+    # controlled vocabulary fields
+    else if(is.null(names(json_template[[field_name]]$und))) {
+      vals <- unlist(stringr::str_split(values[[field_name]], pattern = ';'))
+      # check for invalid values
+      lovs <- get_lovs()
+      if(nrow(lovs %>% filter(machine_name == field_name & tid %in% vals)) != length(vals)){
+        invalid_vals <- setdiff(values, lovs %>% filter(machine_name == field_name & tid %in% vals) %>% pull(tid))
+        stop(paste0("Invalid values for ", field_name, ": ",
+                   paste(invalid_vals, collapse = " "),
+                   "\nPlease choose from the valid values for ", field_name, ":\n",
+                   paste(lovs %>% filter(machine_name == field_name) %>% pull(tid), collapse = ", ")))
+      }
+      json_template[[field_name]]$und <- vals
+    }
+    # free text fields
+    else {
       subfield_name <- names(json_template[[field_name]]$und)
       json_template[[field_name]]$und[[subfield_name]] <- safe_unbox(safe_assign(values[[field_name]]))
     }
