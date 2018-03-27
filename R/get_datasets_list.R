@@ -9,9 +9,11 @@
 #'
 #'
 
-get_datasets_list <- function(datatype = c("All", "Time Series", "Microdata", "Geospatial", "Other"),
+get_datasets_list <- function(datatype = c("All", "Time Series", "Microdata",
+                                           "Geospatial", "Other"),
                               root_url = dkanr::get_url(),
-                              credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())) {
+                              credentials = list(cookie = dkanr::get_cookie(),
+                                                 token = dkanr::get_token())) {
 
   # Identify datasets to be listed
   datatypes_lkup <- construct_datatypes_lookup(root_url)
@@ -32,7 +34,8 @@ get_datasets_list <- function(datatype = c("All", "Time Series", "Microdata", "G
   nid <- purrr::map_chr(out, "nid")
   uuid <- purrr::map_chr(out, "uuid")
   title <- purrr::map_chr(out, "title")
-  field_wbddh_data_type <- purrr::map_chr(out, function(x) x$field_wbddh_data_type$und[[1]]$tid)
+  field_wbddh_data_type <- purrr::map_chr(out,
+                            function(x) x$field_wbddh_data_type$und[[1]]$tid)
   field_wbddh_data_type <- inv_datatypes_lkup[field_wbddh_data_type]
 
   out <- data.frame(nid = nid,

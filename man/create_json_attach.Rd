@@ -4,12 +4,12 @@
 \alias{create_json_attach}
 \title{create_json_attach}
 \usage{
-create_json_attach(resource_nids)
+create_json_attach(resource_nids, root_url = dkanr::get_url())
 }
 \arguments{
-\item{resource_nid}{character: resource node id}
+\item{resource_nids}{character: node ids of the resources}
 
-\item{json_template}{list: List generated from JSON template}
+\item{root_url}{string: API root URL}
 }
 \value{
 json

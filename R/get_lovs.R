@@ -13,7 +13,8 @@ get_lovs <- function(root_url = dkanr::get_url()) {
   url <- httr::modify_url(root_url, path = path)
   # Send request
   out <- httr::GET(url = url,
-                   httr::add_headers(.headers = c("Content-Type" = "application/json",
+                   httr::add_headers(.headers = c("Content-Type" =
+                                                    "application/json",
                                                   "charset" = "utf-8")),
                    httr::accept_json())
   dkanr:::err_handler(out)
@@ -33,7 +34,8 @@ get_lovs <- function(root_url = dkanr::get_url()) {
   tid <- purrr::map_chr(out, "tid")
 
 
-  out <- data.frame(vocabulary_name, machine_name, list_value_name, tid, stringsAsFactors = FALSE)
+  out <- data.frame(vocabulary_name, machine_name, list_value_name, tid,
+                    stringsAsFactors = FALSE)
 
   return(out)
 }

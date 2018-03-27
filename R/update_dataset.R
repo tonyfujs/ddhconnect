@@ -12,7 +12,11 @@
 #' @export
 #'
 
-update_dataset <- function(credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token()), nid, body, root_url = dkanr::get_url()) {
+update_dataset <- function(credentials = list(cookie = dkanr::get_cookie(),
+                                              token = dkanr::get_token()),
+                           nid,
+                           body,
+                           root_url = dkanr::get_url()) {
   out <- dkanr::update_node(nid, root_url, body, credentials)
   return(jsonlite::fromJSON(out))
 }

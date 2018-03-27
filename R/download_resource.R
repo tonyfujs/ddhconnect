@@ -9,10 +9,12 @@
 #'
 
 download_resource <- function(resource_nid,
+                              root_url = dkanr::get_url(),
                               credentials = list(cookie = dkanr::get_cookie(),
                                                  token = dkanr::get_token())){
 
   resource <- get_metadata(nid = resource_nid,
+                           root_url = root_url,
                            credentials = credentials)
   resource_url <- dkanr::get_resource_url(resource)
   ext <- tools::file_ext(resource_url)

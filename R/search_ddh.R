@@ -11,7 +11,8 @@
 
 search_ddh <- function(credentials = list(cookie = dkanr::get_cookie(),
                                           token = dkanr::get_token()),
-                       query = "limit=20&fields=[,nid,uuid,title,]&filter[field_wbddh_data_type]=294",
+                       query = "limit=20&fields=[,nid,uuid,title,]&
+                                filter[field_wbddh_data_type]=294",
                        root_url = dkanr::get_url()) {
 
   cookie <- credentials$cookie
@@ -22,7 +23,8 @@ search_ddh <- function(credentials = list(cookie = dkanr::get_cookie(),
   url <- httr::modify_url(root_url, path = path, query = query)
   # Send request
   out <- httr::GET(url = url,
-                    httr::add_headers(.headers = c("Content-Type" = "application/json",
+                    httr::add_headers(.headers = c("Content-Type" =
+                                                     "application/json",
                                                    "charset" = "utf-8",
                                                    "Cookie" =  cookie,
                                                    "X-CSRF-Token" = token)),

@@ -21,7 +21,8 @@ logout_ddh <- function(credentials = list(cookie = dkanr::get_cookie(),
   url <- httr::modify_url(root_url, path = path)
 
   out <- httr::POST(url,
-                    httr::add_headers(.headers = c("Content-Type" = "application/json",
+                    httr::add_headers(.headers = c("Content-Type" =
+                                                     "application/json",
                                                    "Cookie" =  cookie,
                                                    "X-CSRF-Token" = token)),
                     encode = "json")

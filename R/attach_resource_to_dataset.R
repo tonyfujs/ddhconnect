@@ -21,7 +21,7 @@ attach_resources_to_dataset <- function(dataset_nid,
   out <- vector("list", length = length(resource_nids))
   # purrr::map(resource_nids, dkanr::update_node(nid = dataset_nid,
   #                                              body = body))
-  for(i in 1:length(resource_nids)) {
+  for (i in 1:length(resource_nids)) {
       out[i] <- dkanr::update_node(nid = dataset_nid, body = body)
   }
 

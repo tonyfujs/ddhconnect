@@ -6,12 +6,14 @@
 \usage{
 create_json_body(values = c(title = "Test Create JSON", body =
   "Test Creation of JSON", field_wbddh_dsttl_upi = "123", field_wbddh_country =
-  "43;45"), node_type = "dataset")
+  "43;45"), node_type = "dataset", root_url = dkanr::get_url())
 }
 \arguments{
 \item{values}{character vector: list of correspodning values that need to be updated}
 
 \item{node_type}{string: type of node to upload (dataset or resource)}
+
+\item{root_url}{string: API root URL}
 }
 \value{
 json string

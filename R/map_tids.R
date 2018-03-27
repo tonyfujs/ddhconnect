@@ -20,7 +20,8 @@ map_tids <- function(values,
   for (field_name in keep) {
     val_split <- unlist(strsplit(values[field_name], ";"))
     for (val in val_split) {
-      map_tid <- lovs_subset[grep(val, lovs_subset$list_value_name, ignore.case = TRUE), ]$tid
+      map_tid <- lovs_subset[grep(val, lovs_subset$list_value_name,
+                                  ignore.case = TRUE), ]$tid
       val_split[val_split == val] <- map_tid
     }
     values[field_name] <- paste(val_split, collapse = ";")
