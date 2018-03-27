@@ -26,4 +26,3 @@ attach_resources_to_dataset <- function(dataset_nid,
   }
 
   return(purrr::map(out, function(x) jsonlite::fromJSON(x)))
-}
