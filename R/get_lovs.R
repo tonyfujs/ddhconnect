@@ -13,8 +13,7 @@ get_lovs <- function(root_url = dkanr::get_url()) {
   url <- httr::modify_url(root_url, path = path)
   # Send request
   out <- httr::GET(url = url,
-                   httr::add_headers(.headers = c("Content-Type" =
-                                                    "application/json",
+                   httr::add_headers(.headers = c("Content-Type" = "application/json",
                                                   "charset" = "utf-8")),
                    httr::accept_json())
   dkanr:::err_handler(out)

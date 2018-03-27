@@ -1,5 +1,4 @@
-get_datasets_count <- function(datatype = c("All", "Time Series", "Microdata",
-                                            "Geospatial", "Other"),
+get_datasets_count <- function(datatype = c("All", "Time Series", "Microdata", "Geospatial", "Other"),
                                root_url = dkanr::get_url(),
                                credentials = list(cookie = dkanr::get_cookie(),
                                                   token = dkanr::get_token())) {

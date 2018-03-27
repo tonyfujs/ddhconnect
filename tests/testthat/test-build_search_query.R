@@ -24,7 +24,7 @@ test_that("multiple filters works", {
 
 test_that("string filter value works", {
   expect_equal(
-    build_search_query(filters = c("field_wbddh_data_type"="Microdata")),
+    build_search_query(filters = c("field_wbddh_data_type" = "Microdata")),
     "limit=200&fields=[,,]&filter[field_wbddh_data_type]=Microdata"
   )
 })
