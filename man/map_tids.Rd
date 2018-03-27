@@ -4,13 +4,12 @@
 \alias{map_tids}
 \title{map_tids}
 \usage{
-map_tids(values, credentials = list(cookie = dkanr::get_cookie(), token =
-  dkanr::get_token()))
+map_tids(values, root_url = dkanr::get_url())
 }
 \arguments{
 \item{values}{character vector: list of corresponding values that need to be checked for tids}
 
-\item{credentials}{(optional) list: authentication token and cookie}
+\item{root_url}{character: API root URL}
 }
 \value{
 values character vector

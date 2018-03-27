@@ -3,7 +3,7 @@
 #' Map strings to tids
 #'
 #' @param values character vector: list of corresponding values that need to be checked for tids
-#' @param credentials (optional) list: authentication token and cookie
+#' @param root_url character: API root URL
 #'
 #' @return values character vector
 #' @export
@@ -11,9 +11,8 @@
 #'
 
 map_tids <- function(values,
-                     credentials = list(cookie = dkanr::get_cookie(),
-                                        token = dkanr::get_token())) {
-  lovs_df <- ddhconnect::get_lovs()
+                     root_url = dkanr::get_url()) {
+  lovs_df <- ddhconnect::get_lovs(root_url = root_url)
   keep <- intersect(names(values), lovs_df$machine_name)
   lovs_subset <- lovs_df[which(lovs_df$machine_name %in% keep), ]
 

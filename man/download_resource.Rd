@@ -4,11 +4,14 @@
 \alias{download_resource}
 \title{download_resource}
 \usage{
-download_resource(resource_nid, credentials = list(cookie =
-  dkanr::get_cookie(), token = dkanr::get_token()))
+download_resource(resource_nid, root_url = dkanr::get_url(),
+  credentials = list(cookie = dkanr::get_cookie(), token =
+  dkanr::get_token()))
 }
 \arguments{
 \item{resource_nid}{character: Resource NID}
+
+\item{root_url}{string: API root URL}
 
 \item{credentials}{list: authentication token and cookie}
 }

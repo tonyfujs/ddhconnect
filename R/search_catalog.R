@@ -32,9 +32,9 @@ search_catalog <- function(fields = c("nid", "uuid", "title",
                               limit = limit)
 
   # get a count datasets
-  count <- search_ddh(credentials = credentials,
-                      query = query_count,
-                      root_url = root_url)
+  count <- search_ddh(query = query_count,
+                      root_url = root_url,
+                      credentials = credentials)
   count <- as.numeric(count$count)
 
   # Return query

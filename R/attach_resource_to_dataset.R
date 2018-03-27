@@ -22,7 +22,10 @@ attach_resources_to_dataset <- function(dataset_nid,
   # purrr::map(resource_nids, dkanr::update_node(nid = dataset_nid,
   #                                              body = body))
   for (i in 1:length(resource_nids)) {
-      out[i] <- dkanr::update_node(nid = dataset_nid, body = body)
+      out[i] <- dkanr::update_node(nid = dataset_nid,
+                                   body = body,
+                                   url = root_url,
+                                   credentials = credentials)
   }
 
   return(purrr::map(out, function(x) jsonlite::fromJSON(x)))

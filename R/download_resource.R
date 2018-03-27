@@ -3,6 +3,7 @@
 #' Download a resource file, extracting the path from `get_metadata()` output
 #'
 #' @param resource_nid character: Resource NID
+#' @param root_url string: API root URL
 #' @param credentials list: authentication token and cookie
 #'
 #' @export
@@ -14,7 +15,7 @@ download_resource <- function(resource_nid,
                                                  token = dkanr::get_token())){
 
   resource <- get_metadata(nid = resource_nid,
-                           root_url = root_url,
+                           root_url = dkan::get_url(),
                            credentials = credentials)
   resource_url <- dkanr::get_resource_url(resource)
   ext <- tools::file_ext(resource_url)
