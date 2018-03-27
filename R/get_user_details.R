@@ -28,7 +28,7 @@ get_user_details <- function(uid,
                                                   "Cookie" =  cookie,
                                                   "X-CSRF-Token" = token,
                                                   "charset" = "utf-8")))
-  dkanr:::err_handler(out)
+  dkanr::err_handler(out)
 
   out <- httr::content(out)
   out <- unlist(out)

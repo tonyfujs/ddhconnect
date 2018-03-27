@@ -18,8 +18,7 @@ test_that("single filter works", {
 test_that("multiple filters works", {
   expect_equal(build_search_query(filters = c("field_wbddh_data_type" = 294,
                                               "status" = 1)),
-               "limit=200&fields=[,,]&filter[field_wbddh_data_type]=294&
-               filter[status]=1")
+               "limit=200&fields=[,,]&filter[field_wbddh_data_type]=294&filter[status]=1")
 })
 
 test_that("string filter value works", {
@@ -37,7 +36,5 @@ test_that("combination of fields, filters and limit works", {
                                   filters = c("field_wbddh_data_type" = 294,
                                               "status" = 1),
                                   limit = 100),
-               "limit=100&fields=[,nid,uuid,title,field_contact_email,
-               field_wbddh_data_type,status,]&filter[field_wbddh_data_type]=294&
-               filter[status]=1")
+               "limit=100&fields=[,nid,uuid,title,field_contact_email,field_wbddh_data_type,status,]&filter[field_wbddh_data_type]=294&filter[status]=1")
 })
