@@ -16,19 +16,21 @@ With proper authorization, you can add and update datasets and resources to the 
 First, begin by setting up your account with the following `dkanr_setup` function to authenticate the user. Login information for access to the API's extended services can be obtained by contacting the World Bank's IT Services, provided you are authorized for these credentials.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
 library(dkanr)
-library(dhhconnect)
+library(ddhconnect)
 dkanr_setup(
-  url = 'http://datacatalog.worldbank.com',
+  url = 'http://datacatalog.worldbank.org',
   username = 'YOUR_USERNAME',
   password = 'YOUR_PASSWORD'
 )
 ```
 
+___
 You can view your profile information for the Data Catalog by calling `get_user_details()`. This will return your first and last name as well as your internal ID.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
 credentials <- list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
 get_user_details(credentials, uid = "YOUR_UPI_#")
 ```
+___
 
 ## Creating Content
 To add content to the site, begin by formatting your content into named vectors by assigning the field names and their corresponding values [ex: c(“title” = “World Development Indicators”)]. These can then be passed to the create functions to automatically populate your JSON body which sent to the Data Catalog. Please reference the curation documentation to see which fields are required.
