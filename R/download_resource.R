@@ -15,7 +15,7 @@ download_resource <- function(resource_nid,
                                                  token = dkanr::get_token())){
 
   resource <- get_metadata(nid = resource_nid,
-                           root_url = dkan::get_url(),
+                           root_url = dkanr::get_url(),
                            credentials = credentials)
   resource_url <- dkanr::get_resource_url(resource)
   ext <- tools::file_ext(resource_url)

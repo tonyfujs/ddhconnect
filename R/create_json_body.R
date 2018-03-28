@@ -45,20 +45,17 @@ create_json_body <- function(values = c("title" = "Test Create JSON",
       vals <- unlist(stringr::str_split(values[[field_name]], pattern = ";"))
       # check for invalid values
       lovs <- get_lovs(root_url)
-      if (nrow(lovs %>% filter(machine_name == field_name & tid %in% vals))
-          != length(vals)){
-        invalid_vals <- setdiff(values,
-                                lovs %>%
-                                filter(machine_name == field_name &
-                                        tid %in% vals) %>%
-                                pull(tid))
+      if (nrow(lovs[lovs$machine_name == field_name & lovs$tid %in% vals, ]) != length(vals)){
+        invalid_vals <- setdiff(vals,
+                                lovs[lovs$machine_name == field_name &
+                                     lovs$tid %in% vals,
+                                     "tid"])
         stop(paste0("Invalid values for ", field_name, ": ",
                    paste(invalid_vals, collapse = " "),
                    "\nPlease choose from the valid values for ", field_name,
                    ":\n",
-                   paste(lovs %>%
-                         filter(machine_name == field_name) %>%
-                         pull(tid), collapse = ", ")))
+                   paste(lovs[lovs$machine_name == field_name, "tid"],
+                         collapse = ", ")))
       }
       json_template[[field_name]]$und <- vals
     }

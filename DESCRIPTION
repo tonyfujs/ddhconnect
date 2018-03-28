@@ -23,7 +23,8 @@ Imports: httr,
     dkanr,
     tools,
     testthat,
-    utils
+    utils,
+    curl
 Suggests: knitr
 RoxygenNote: 6.0.1
 Depends: R (>= 2.10)
