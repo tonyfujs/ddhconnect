@@ -9,7 +9,7 @@
 data(ui_names_lookup)
 }
 \description{
-A dataset with UI form names and corresponding field names
+A dataset with User Interface form names and corresponding field names
 }
 \details{
 \itemize{

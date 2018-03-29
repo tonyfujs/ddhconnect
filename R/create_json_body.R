@@ -2,7 +2,7 @@
 #'
 #' Create the JSON body for updating the given fields or creating a new dataset
 #'
-#' @param values character vector: list of correspodning values that need to be updated
+#' @param values character vector: list of corresponding values that need to be updated
 #' @param node_type string: type of node to upload (dataset or resource)
 #' @param root_url string: API root URL
 #'

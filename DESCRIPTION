@@ -11,12 +11,12 @@ Encoding: UTF-8
 LazyData: true
 VignetteBuilder: knitr
 Imports: httr,
+    plyr,
     dplyr,
     stringr,
     ckanr,
     reshape2,
     jsonlite,
-    plyr,
     purrr,
     tidyr,
     assertthat,
@@ -25,6 +25,7 @@ Imports: httr,
     testthat,
     utils,
     curl
-Suggests: knitr
+Suggests: knitr,
+    covr
 RoxygenNote: 6.0.1
 Depends: R (>= 2.10)
