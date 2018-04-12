@@ -3,7 +3,7 @@ root_url <- "https://datacatalog.worldbank.org"
 
 json_template <- list()
 json_template$workflow_status <- jsonlite::unbox("published")
-
+# calls get_metadata() in create_json_attach()
 test_that("single resource works", {
   json_template$field_resources$und <- vector("list", length = 1)
   json_template$field_resources$und[[1]]$target_id <- "SDG Dashboard (94934)"
@@ -11,7 +11,7 @@ test_that("single resource works", {
                                   root_url = root_url),
                jsonlite::toJSON(json_template, auto_unbox = T, pretty = T))
 })
-
+# calls get_metadata() in create_json_attach()
 test_that("multiple resources work", {
   json_template$field_resources$und <- vector("list", length = 2)
   json_template$field_resources$und[[1]]$target_id <- "SDG Dashboard (94934)"
