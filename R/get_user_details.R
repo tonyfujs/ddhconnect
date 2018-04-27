@@ -2,18 +2,18 @@
 #'
 #' Retrieve user details: first name, last name, DDH internal ID
 #'
-#' @param credentials list: authentication token and cookie
 #' @param uid numeric: UPI number
 #' @param root_url character: API root URL
+#' @param credentials list: authentication token and cookie
 #'
 #' @return character
 #' @export
 #'
 
-get_user_details <- function(credentials = list(cookie = dkanr::get_cookie(),
-                                                token = dkanr::get_token()),
-                             uid,
-                             root_url = dkanr::get_url()) {
+get_user_details <- function(uid,
+                             root_url = dkanr::get_url(),
+                             credentials = list(cookie = dkanr::get_cookie(),
+                                                token = dkanr::get_token())) {
 
   cookie <- credentials$cookie
   token <- credentials$token
@@ -28,7 +28,7 @@ get_user_details <- function(credentials = list(cookie = dkanr::get_cookie(),
                                                   "Cookie" =  cookie,
                                                   "X-CSRF-Token" = token,
                                                   "charset" = "utf-8")))
-  dkanr:::err_handler(out)
+  dkanr::err_handler(out)
 
   out <- httr::content(out)
   out <- unlist(out)

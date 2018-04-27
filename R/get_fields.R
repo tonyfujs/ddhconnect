@@ -25,7 +25,10 @@ get_fields <- function(root_url = dkanr::get_url()) {
   out <- plyr::ldply(out, data.frame, stringsAsFactors = FALSE)
   out <- reshape2::melt(out, id = ".id")
   out[["variable"]] <- as.character(out[["variable"]])
-  out <- tidyr::separate_(out, col = "variable", into = c("type", "machine_name"), sep = "\\.")
+  out <- tidyr::separate_(out,
+                          col = "variable",
+                          into = c("type", "machine_name"),
+                          sep = "\\.")
   names(out) <- c("data_type", "node_type", "machine_name", "pretty_name")
 
   out <- out[!is.na(out$pretty_name), ]

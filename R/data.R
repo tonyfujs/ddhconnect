@@ -34,7 +34,7 @@ NULL
 
 #' Lookup Table for User Interface Form Fields and JSON Field Names
 #'
-#' A dataset with UI form names and corresponding field names
+#' A dataset with User Interface form names and corresponding field names
 #'
 #' \itemize{
 #'  \item machine_names. Data Catalog field names

@@ -1,10 +1,4 @@
 connect_ddh <- function(path, body = NULL, root_url = dkanr::get_url()) {
-
-  # if(!is.null(credentials)){
-  #   cookie <- credentials$cookie
-  #   token <- credentials$token
-  # }
-
   # Build url
   url <- httr::modify_url(production_root_url, path = path)
   # Make the request

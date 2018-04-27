@@ -12,11 +12,16 @@
 #' @export
 #'
 
-search_catalog <- function(fields = c("nid", "uuid", "title", "field_contact_email", "field_wbddh_data_type", "status"),
-                           filters = c("field_wbddh_data_type" = 294, "status" = 1),
+search_catalog <- function(fields = c("nid", "uuid", "title",
+                                      "field_contact_email",
+                                      "field_wbddh_data_type",
+                                      "status"),
+                           filters = c("field_wbddh_data_type" = 294,
+                                       "status" = 1),
                            limit = 200,
                            root_url = dkanr::get_url(),
-                           credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())) {
+                           credentials = list(cookie = dkanr::get_cookie(),
+                                              token = dkanr::get_token())) {
 
   # Build queries
   query_count <- build_search_query(fields = fields,
@@ -27,11 +32,10 @@ search_catalog <- function(fields = c("nid", "uuid", "title", "field_contact_ema
                               limit = limit)
 
   # get a count datasets
-  count <- search_ddh(credentials = credentials,
-                      query = query_count,
-                      root_url = root_url)
+  count <- search_ddh(query = query_count,
+                      root_url = root_url,
+                      credentials = credentials)
   count <- as.numeric(count$count)
-  #if (count < limit) {limit <- count}
 
   # Return query
   iterations <- ceiling(count / limit)
