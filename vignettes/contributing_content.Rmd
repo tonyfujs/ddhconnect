@@ -18,63 +18,67 @@ First, begin by setting up your account with the following `dkanr_setup` functio
 library(dkanr)
 library(ddhconnect)
 dkanr_setup(
-  url = 'http://datacatalog.worldbank.org',
+  url = 'https://datacatalog.worldbank.org',
   username = 'YOUR_USERNAME',
   password = 'YOUR_PASSWORD'
 )
 ```
 
 ___
-You can view your profile information for the Data Catalog by calling `get_user_details()`. This will return your first and last name as well as your internal ID.
-```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-credentials <- list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
-get_user_details(credentials, uid = "YOUR_UPI_#")
+
+## Adding a new dataset
+To add a new dataset to the site, begin by formatting your metadata into a named vector with the field names and corresponding values. You can pass this named vector to `create_json_body()`, which formats the metadata in the required JSON format. You can refer to the the data-raw folder to see which fields are required for the different data types. 
+
+```{r}
+metadata = c("title" = "Test Poverty Map",
+           "body" = "Dataset to test the addition of poverty map datasets into DDH.",
+           "field_topic" = "376",
+           "field_wbddh_data_class" = "358",
+           "field_wbddh_data_type" = "295",
+           "field_wbddh_languages_supported" = "337",
+           "field_frequency" = "18",
+           "field_wbddh_economy_coverage" = "1013",
+           "field_wbddh_country" = "35;36;37",
+           "field_license_wbddh" = "1341",
+           "workflow_status" = "published")
+json_dataset <- create_json_body(values = metadata,
+                                 node_type = "dataset")
 ```
-___
 
-## Creating Content
-To add content to the site, begin by formatting your content into named vectors by assigning the field names and their corresponding values [ex: c(“title” = “World Development Indicators”)]. These can then be passed to the create functions to automatically populate your JSON body which sent to the Data Catalog. Please reference the curation documentation to see which fields are required.
+One thing to note here is that fields that take a controlled vocabulary for input use a mapped id for the value. You can convert your controlled vocabulary into the mapped ids using `map_tids()`.
 
-### Adding a new dataset
-The process of adding a new dataset to Data Catalog begins with adding the dataset's metadata. To begin the contribution process, gather the required and recommended metadata information for your dataset. Follow the DDH Curation handbook for guidelines to populate the correct information. Since certain metadata values require a specific input, use the `map_tids()` function if you would like to convert your information to the correct format.
-```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-dataset_metadata = c("title" = "YOUR DATASET TITLE",
-                     "field_wbddh_country" = "YOUR DATASET COUNTRY")
-mapped_values <- map_tids(dataset_metadata)
-```
-
-Once the named vector is created, use the `create_json_body()` function format your information into a JSON body. Pass the named vector into the `body =` parameter. After producing the formatted JSON, you can add this information to the Data Catalog with the `create_dataset()` function.
+After producing the formatted JSON, you can add this information to the Data Catalog using `create_dataset()`.
 ```{r message = FALSE, warning = FALSE, paged.print = FALSE, eval = FALSE}
-dataset_json <- create_json_body(values = mapped_values, node_type = “dataset”)
-create_dataset(credentials, body = dataset_json)
+resp_dataset <- create_dataset(body = json_dataset)
 ```
 
-You can view your new Data Catalog dataset to confirm the submission by using the printed node id (nid).
+`create_dataset()` prints the node id of the node created for your new dataset. You can view the metadata using `get_metadata()`.
 ```{r message = FALSE, warning = FALSE, paged.print = FALSE, eval = FALSE}
-your_dataset <- get_metadata("YOUR NID")
+your_dataset <- get_metadata(resp_dataset$nid)
 your_dataset
 ```
 
-### Adding a supporting file/link
-Once the metadata is submitted, you can add the data files/links to the site in addition to other supporting resources. Using the same method as adding the metadata, you can add a resource to the Data Catalog by creating a named list, formatting it into the JSON body, and passing it to `create_resource()`. In addition, add
+### Adding supporting files/links/resources
+Once the metadata is submitted, you can add data the files/links/resources. Again, you can add a resource to the Data Catalog by creating a named list of the resource metadata, formatting it in JSON format using `create_json_body()`, and creating a resource node using `create_resource()`.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-resource_metadata <- c("title" = "YOUR RESOURCE TITLE",
-     "field_wbddh_country" = "YOUR RESOURCE COUNTRY")
-resource_json <- create_json_body(values = resource_metadata, node_type = “resource”)
-create_resource(body = resource_json)
+resource_metadata <-  c("title" = "Test Poverty Map Resource",
+                        "field_wbddh_data_class" = "358",
+                        "field_wbddh_resource_type" = "986",
+                        "workflow_status" = "published")
+json_resource <- create_json_body(values = resource_metadata,
+                                  node_type = "resource")
+resp_resource <- create_resource(body = json_resource)
 ```
 
-If your resource is a local file, you may upload it to the Data Catalog.
+If your resource is a local file, you can upload it to the Data Catalog using `attach_file_to_resource()`.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-attach_file_to_resource(resource_nid = "YOUR RESOURCE NID", file_path = "YOUR FILE PATH")
+attach_file_to_resource(resource_nid = resp_resource$nid, file_path = "PATH TO YOUR FILE")
 ```
 
 
-After the resource is added to the Data Catalog, it needs to map to the corresponding metadata for the dataset using the function `attach_resource_to_dataset()`. Since multiple resource can be mapped to one dataset, you can pass a vector with the corresponding resource nids to finish the mapping all in one go.
+After the resource is added to the Data Catalog, it needs to be mapped to the dataset using `attach_resources_to_dataset()`. Multiple resources can be attached to a dataset by passing a list of resource nids.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-attach_resource_to_dataset(dataset_nid = "YOUR DATASET NID"
-  resource_nid = c("YOUR RESOURCE NID 1", "YOUR RESOURCE NID 2")
-)
+attach_resources_to_dataset(dataset_nid = resp_dataset$nid, resource_nid = resp_resource$nid)
 ```
 
 ## Updating Content
