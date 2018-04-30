@@ -11,6 +11,7 @@ vignette: >
 
 # DDHCONNECT: Contributing Content
 With proper authorization, you can add and update datasets and resources to the Data Catalog through `ddhconnect`.
+Note: In line with the DKAN terminology, in this vignette, we use dataset to refer to the node that has all the metadata and resource to refer to the node that has data files, links or any supporting documents.
 
 ## Setting Up Your Connection
 First, begin by setting up your account with the following `dkanr_setup` function to authenticate the user. Login information for access to the API's extended services can be obtained by contacting the World Bank's IT Services, provided you are authorized for these credentials.
@@ -45,7 +46,13 @@ json_dataset <- create_json_body(values = metadata,
                                  node_type = "dataset")
 ```
 
-One thing to note here is that fields that take a controlled vocabulary for input use a mapped id for the value. You can convert your controlled vocabulary into the mapped ids using `map_tids()`.
+One thing to note here is that fields that take a controlled vocabulary for input use a mapped id for the value. You can find the ids corresponding to the controlled vocabulary using `get_lovs()`.
+
+```{r}
+tid_mapping <- get_lovs()
+tid_mapping
+```
+
 
 After producing the formatted JSON, you can add this information to the Data Catalog using `create_dataset()`.
 ```{r message = FALSE, warning = FALSE, paged.print = FALSE, eval = FALSE}
@@ -58,8 +65,8 @@ your_dataset <- get_metadata(resp_dataset$nid)
 your_dataset
 ```
 
-### Adding supporting files/links/resources
-Once the metadata is submitted, you can add data the files/links/resources. Again, you can add a resource to the Data Catalog by creating a named list of the resource metadata, formatting it in JSON format using `create_json_body()`, and creating a resource node using `create_resource()`.
+### Adding a corresponding resource
+Once the metadata is submitted, you can add the data files, links and supporting documents as resources. Again, you can add a resource to the Data Catalog by creating a named list of the resource metadata, formatting it in JSON format using `create_json_body()`, and creating a resource node using `create_resource()`.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
 resource_metadata <-  c("title" = "Test Poverty Map Resource",
                         "field_wbddh_data_class" = "358",
@@ -76,7 +83,7 @@ attach_file_to_resource(resource_nid = resp_resource$nid, file_path = "PATH TO Y
 ```
 
 
-After the resource is added to the Data Catalog, it needs to be mapped to the dataset using `attach_resources_to_dataset()`. Multiple resources can be attached to a dataset by passing a list of resource nids.
+After the resource is added to the Data Catalog, it can be attached to your dataset using `attach_resources_to_dataset()`. Multiple resources can be attached to a dataset by passing a list of resource nids.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
 attach_resources_to_dataset(dataset_nid = resp_dataset$nid, resource_nid = resp_resource$nid)
 ```
