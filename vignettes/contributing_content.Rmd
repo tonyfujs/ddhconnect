@@ -46,7 +46,7 @@ json_dataset <- create_json_body(values = metadata,
                                  node_type = "dataset")
 ```
 
-One thing to note here is that fields that take a controlled vocabulary for input use a mapped id for the value. You can find the ids corresponding to the controlled vocabulary using `get_lovs()`.
+One thing to note here is that fields that take a controlled vocabulary for input use a mapped id for the value. You can get a dataframe with the controlled vocabulary and the corresponding ids using `get_lovs()`.
 
 ```{r}
 tid_mapping <- get_lovs()
@@ -65,7 +65,7 @@ your_dataset <- get_metadata(resp_dataset$nid)
 your_dataset
 ```
 
-### Adding a corresponding resource
+### Adding a resource to the dataset
 Once the metadata is submitted, you can add the data files, links and supporting documents as resources. Again, you can add a resource to the Data Catalog by creating a named list of the resource metadata, formatting it in JSON format using `create_json_body()`, and creating a resource node using `create_resource()`.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
 resource_metadata <-  c("title" = "Test Poverty Map Resource",
@@ -89,33 +89,36 @@ attach_resources_to_dataset(dataset_nid = resp_dataset$nid, resource_nid = resp_
 ```
 
 ## Updating Content
-Updating content in the Data Catalog requires knowing the node ID of the content you wish you edit.
+Updating content in the Data Catalog requires knowing the node ID of the content you wish you edit. To obtain the node id, you may search the catalog based on the title of the object. For example, to get the node id of the "Test Poverty Map" dataset that we just created, we could do a search using `search_catalog()`.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+search_results <- search_catalog(fields = c("nid", "title"),
+                                    filters = c("title" = "Test Poverty Map"))
+poverty_map_nid <- search_results[[1]]$nid
+```
 
 ### updating a dataset
-To obtain the node id, you may search the catalog based on the title of the object. For example, passing the following parameters will return the node id for the World Development Indicators.
+
+The process for updating a dataset is similar to the process of adding a new dataset. Create a named vector with the metadata fields to be updated and the new values. Format the metadata using `create_json_body()` and pass it to `update_dataset()` to update the dataset.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-indicators_search <- search_catalog(fields = c("nid", "title"),
-                                    filters = c("title" = "World Development Indicators"))
-wdi_nid <- indicators_search[[1]]$nid
+update_dataset_metadata <- c("field_wbddh_country" = "59",
+                             "field_tags" = "1236",
+                             "workflow_status" = "published")
+update_dataset_json <- create_json_body(values = update_dataset_metadata, node_type = “dataset”)
+resp_update_dataset <- update_dataset(nid = poverty_map_nid, body = dataset_json)
 ```
+Note that you need to set the "workflow_status" to "published" every time you update the node.
 
 ### updating a resource
-Use the same process as with creating a new dataset, use named vector with the formatted metadata and passing it to create a JSON body. To update the node, use the `update_dataset()` function.
-```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-update_metadata = c("title" = "YOUR DATASET TITLE",
-     "field_wbddh_country" = "YOUR DATASET COUNTRY")
-mapped_values <- map_tids(update_metadata)
-dataset_json = create_json_body(values = mapped_values, node_type = “dataset”)
-update_dataset(credentials, body = dataset_json)
-```
 
-Use the same method to update the resource metadata. First, get the resource node id. Second, format the JSON. Lastly, use the `update_resource` function.
+You can use the same method to update the resource metadata. Get the resource node id, format the metadata using `create_json_body()` and update the resource using `update_resource()`.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-resource_metadata = c("title" = "YOUR RESOURCE TITLE",
-     "field_wbddh_country" = "YOUR RESOURCE COUNTRY")
-resource_json = create_json_body(values = resource_metadata, node_type = “resource”)
-update_resource(credentials, body = resource_json)
+update_resource_metadata <-  c("field_format" = "666",
+                               "workflow_status" = "published")
+update_resource_json <- create_json_body(values = update_resource_metadata, node_type = “resource”)
+resource_nid <- get_resource_nid(poverty_map_nid)
+update_resource(nid = resource_nid, body = resource_json)
 ```
+Note that the functionality to search for resources is not available currently. So you can search for the dataset that the resource is attached to and get the node ids of the attached resources using `get_resource_nid()`.
 
 ## Ending Your Connection
 After finishing your tasks, you can log out of your account.
