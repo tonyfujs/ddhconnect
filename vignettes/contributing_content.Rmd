@@ -33,6 +33,29 @@ dkanr_setup(
 ___
 
 ## Adding Content
+To add content to the Data Catalog, you need to add the metadata in the dataset node and add corresponding. Suppose we want to add a dataset with the following information to the Data Catalog. 
+
+```{r}
+metadata = c("title" = "Test Poverty Map",
+           "body" = "Dataset to test the addition of poverty map datasets into DDH.",
+           "field_topic" = "Poverty",
+           "field_wbddh_data_class" = "Public",
+           "field_wbddh_data_type" = "Geospatial",
+           "field_wbddh_languages_supported" = "English",
+           "field_frequency" = "Periodicity not specified",
+           "field_wbddh_economy_coverage" = "Blend",
+           "field_wbddh_country" = "Afghanistan;Albania;Algeria",
+           "field_license_wbddh" = "Custom License",
+           "workflow_status" = "published")
+```
+
+Some fields such as `field_topic` and `field_wbddh_data_class` take a controlled list of values as input. These values need to be mapped to their internal ids before they can be added to the Data Catalog. You can get a list of the fields that take a controlled list of values and the mapping from the controlled list of values to the corresponding ids using `get_lovs()`.
+
+```{r echo=TRUE, results="asis"}
+tid_mapping <- get_lovs()
+tid_mapping
+```
+
 ### Adding a new dataset
 To add a new dataset to the site, begin by formatting your metadata into a named vector with the field names and corresponding values. You can pass this named vector to `create_json_body()`, which formats the metadata in the required JSON format. You can refer to the the data-raw folder to see which fields are required for the different data types. 
 
@@ -52,15 +75,7 @@ json_dataset <- create_json_body(values = metadata,
                                  node_type = "dataset")
 ```
 
-One thing to note here is that some fields take a mapped id as the input. These correspond to fields which only accept a controlled list of values as input. You can get a mapping from the controlled list of values to the corresponding ids using `get_lovs()`.
-
-```{r echo=TRUE, results="asis"}
-tid_mapping <- get_lovs()
-tid_mapping
-```
-
-
-After producing the formatted JSON, you can add this information to the Data Catalog using `create_dataset()`.
+Using the formatted JSON, you can add the dataset to the Data Catalog using `create_dataset()`.
 ```{r message = FALSE, warning = FALSE, paged.print = FALSE, eval = FALSE}
 resp_dataset <- create_dataset(body = json_dataset)
 ```
@@ -112,7 +127,7 @@ update_dataset_metadata <- c("field_wbddh_country" = "59",
 update_dataset_json <- create_json_body(values = update_dataset_metadata, node_type = “dataset”)
 resp_update_dataset <- update_dataset(nid = poverty_map_nid, body = dataset_json)
 ```
-Note that you need to set the "workflow_status" to "published" when you update the node.
+Note that you need to set the "workflow_status" to "published" everytime you update the node.
 
 ### Updating a resource
 
