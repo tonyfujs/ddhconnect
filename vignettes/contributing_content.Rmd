@@ -3,10 +3,13 @@ title: "Contributing Content"
 author: "Tony Fujs"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
+runtime: shiny
 vignette: >
   %\VignetteIndexEntry{Introduction to ddhconnect}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
 ---
 
 # DDHCONNECT: Contributing Content
