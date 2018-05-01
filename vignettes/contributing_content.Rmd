@@ -48,7 +48,7 @@ json_dataset <- create_json_body(values = metadata,
 
 One thing to note here is that fields that take a controlled vocabulary for input use a mapped id for the value. You can get a dataframe with the controlled vocabulary and the corresponding ids using `get_lovs()`.
 
-```{r}
+```{r echo=TRUE}
 tid_mapping <- get_lovs()
 tid_mapping
 ```
