@@ -96,7 +96,7 @@ search_results <- search_catalog(fields = c("nid", "title"),
 poverty_map_nid <- search_results[[1]]$nid
 ```
 
-### updating a dataset
+### Updating a dataset
 
 The process for updating a dataset is similar to the process of adding a new dataset. Create a named vector with the metadata fields to be updated and the new values. Format the metadata using `create_json_body()` and pass it to `update_dataset()` to update the dataset.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
@@ -108,7 +108,7 @@ resp_update_dataset <- update_dataset(nid = poverty_map_nid, body = dataset_json
 ```
 Note that you need to set the "workflow_status" to "published" every time you update the node.
 
-### updating a resource
+### Updating a resource
 
 You can use the same method to update the resource metadata. Get the resource node id, format the metadata using `create_json_body()` and update the resource using `update_resource()`.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
