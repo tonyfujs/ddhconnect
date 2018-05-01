@@ -14,7 +14,9 @@ editor_options:
 
 # DDHCONNECT: Contributing Content
 With proper authorization, you can add and update datasets and resources to the Data Catalog through `ddhconnect`.
-Note: In line with the DKAN terminology, in this vignette, we use dataset to refer to the node that has all the metadata and resource to refer to the node that has data files, links or any supporting documents.
+
+## Glossary
+In line with the DKAN terminology, dataset is used to refer to a node that has all the metadata for the data and resource is used refer to a node that has the data file, link to the data file or any supporting document.
 
 ## Setting Up Your Connection
 First, begin by setting up your account with the following `dkanr_setup` function to authenticate the user. Login information for access to the API's extended services can be obtained by contacting the World Bank's IT Services, provided you are authorized for these credentials.
@@ -30,7 +32,8 @@ dkanr_setup(
 
 ___
 
-## Adding a new dataset
+## Adding Content
+### Adding a new dataset
 To add a new dataset to the site, begin by formatting your metadata into a named vector with the field names and corresponding values. You can pass this named vector to `create_json_body()`, which formats the metadata in the required JSON format. You can refer to the the data-raw folder to see which fields are required for the different data types. 
 
 ```{r}
@@ -49,9 +52,9 @@ json_dataset <- create_json_body(values = metadata,
                                  node_type = "dataset")
 ```
 
-One thing to note here is that fields that take a controlled vocabulary for input use a mapped id for the value. You can get a dataframe with the controlled vocabulary and the corresponding ids using `get_lovs()`.
+One thing to note here is that some fields take a mapped id as the input. These correspond to fields which only accept a controlled list of values as input. You can get a mapping from the controlled list of values to the corresponding ids using `get_lovs()`.
 
-```{r echo=TRUE}
+```{r echo=TRUE, results="asis"}
 tid_mapping <- get_lovs()
 tid_mapping
 ```
@@ -69,7 +72,7 @@ your_dataset
 ```
 
 ### Adding a resource to the dataset
-Once the metadata is submitted, you can add the data files, links and supporting documents as resources. Again, you can add a resource to the Data Catalog by creating a named list of the resource metadata, formatting it in JSON format using `create_json_body()`, and creating a resource node using `create_resource()`.
+Once the dataset node is created, you can add the data files, links and supporting documents as resources. Again, you can add a resource to the Data Catalog by creating a named list of the resource metadata, formatting it in JSON format using `create_json_body()`, and creating a resource node using `create_resource()`.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
 resource_metadata <-  c("title" = "Test Poverty Map Resource",
                         "field_wbddh_data_class" = "358",
@@ -86,16 +89,16 @@ attach_file_to_resource(resource_nid = resp_resource$nid, file_path = "PATH TO Y
 ```
 
 
-After the resource is added to the Data Catalog, it can be attached to your dataset using `attach_resources_to_dataset()`. Multiple resources can be attached to a dataset by passing a list of resource nids.
+After the resource is added to the Data Catalog, it can be attached to your dataset using `attach_resources_to_dataset()`. Multiple resources can be attached to a dataset by passing a vector of resource nids.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
 attach_resources_to_dataset(dataset_nid = resp_dataset$nid, resource_nid = resp_resource$nid)
 ```
 
 ## Updating Content
-Updating content in the Data Catalog requires knowing the node ID of the content you wish you edit. To obtain the node id, you may search the catalog based on the title of the object. For example, to get the node id of the "Test Poverty Map" dataset that we just created, we could do a search using `search_catalog()`.
+To update content in the Data Catalog, you need to know the node ID of the dataset you wish you edit. To obtain the node id, you can search the catalog based on the title of the object. For example, to get the node id of the "Test Poverty Map" dataset that we just created, we could do a search using `search_catalog()`.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
 search_results <- search_catalog(fields = c("nid", "title"),
-                                    filters = c("title" = "Test Poverty Map"))
+                                 filters = c("title" = "Test Poverty Map"))
 poverty_map_nid <- search_results[[1]]$nid
 ```
 
@@ -109,7 +112,7 @@ update_dataset_metadata <- c("field_wbddh_country" = "59",
 update_dataset_json <- create_json_body(values = update_dataset_metadata, node_type = “dataset”)
 resp_update_dataset <- update_dataset(nid = poverty_map_nid, body = dataset_json)
 ```
-Note that you need to set the "workflow_status" to "published" every time you update the node.
+Note that you need to set the "workflow_status" to "published" when you update the node.
 
 ### Updating a resource
 
@@ -119,7 +122,7 @@ update_resource_metadata <-  c("field_format" = "666",
                                "workflow_status" = "published")
 update_resource_json <- create_json_body(values = update_resource_metadata, node_type = “resource”)
 resource_nid <- get_resource_nid(poverty_map_nid)
-update_resource(nid = resource_nid, body = resource_json)
+resp_update_resource <- update_resource(nid = resource_nid, body = resource_json)
 ```
 Note that the functionality to search for resources is not available currently. So you can search for the dataset that the resource is attached to and get the node ids of the attached resources using `get_resource_nid()`.
 
