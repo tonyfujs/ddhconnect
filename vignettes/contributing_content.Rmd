@@ -8,14 +8,16 @@ vignette: >
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 # DDHCONNECT: Contributing Content
 With proper authorization, you can add and update datasets and resources to the Data Catalog through `ddhconnect`.
 
 ## Terminology
-In line with the DKAN terminology, the term "dataset" is used to refer to a node that has all the metadata for the data and the term "resource" is used refer to a node that has the data file, link to the data file or any supporting document. In the Data Catalog, every "dataset" is expected to have one or more "resources" attached to it.
+The World Bank Data Catalog is built using the DKAN platform. In line with DKAN terminology, the term "dataset" is used to refer to a node that has all the metadata for the data and the term "resource" is used refer to a node that has the data file, link to the data file or any supporting document. In the Data Catalog, every "dataset" is expected to have one or more "resources" attached to it.
+
+___
 
 ## Setting Up Your Connection
 First, begin by setting up your account with the following `dkanr_setup` function to authenticate the user. Login information for access to the API's extended services can be obtained by contacting the World Bank's IT Services, provided you are authorized for these credentials.
