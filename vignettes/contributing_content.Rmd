@@ -2,7 +2,7 @@
 title: "Contributing Content"
 author: "Tony Fujs"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: prettydoc::html_pretty
 runtime: shiny
 vignette: >
   %\VignetteIndexEntry{Introduction to ddhconnect}
@@ -15,7 +15,7 @@ editor_options:
 # DDHCONNECT: Contributing Content
 With proper authorization, you can add and update datasets and resources to the Data Catalog through `ddhconnect`.
 
-## Glossary
+## Terminology
 In line with the DKAN terminology, dataset is used to refer to a node that has all the metadata for the data and resource is used refer to a node that has the data file, link to the data file or any supporting document.
 
 ## Setting Up Your Connection
@@ -25,17 +25,17 @@ library(dkanr)
 library(ddhconnect)
 dkanr_setup(
   url = 'https://datacatalog.worldbank.org',
-  username = 'YOUR_USERNAME',
-  password = 'YOUR_PASSWORD'
+  username = Sys.getenv("username"),
+  password = Sys.getenv("password")
 )
 ```
 
 ___
 
 ## Adding Content
-To add content to the Data Catalog, you need to add the metadata in the dataset node and add corresponding. Suppose we want to add a dataset with the following information to the Data Catalog. 
+To add content to the Data Catalog, you need to add the metadata as a dataset node and the corresponding data files, links and supporting documentation as resources. Suppose we want to add a dataset with the following information to the Data Catalog and then attach a zip file containing the data as the resource. 
 
-```{r}
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
 metadata = c("title" = "Test Poverty Map",
            "body" = "Dataset to test the addition of poverty map datasets into DDH.",
            "field_topic" = "Poverty",
@@ -51,15 +51,21 @@ metadata = c("title" = "Test Poverty Map",
 
 Some fields such as `field_topic` and `field_wbddh_data_class` take a controlled list of values as input. These values need to be mapped to their internal ids before they can be added to the Data Catalog. You can get a list of the fields that take a controlled list of values and the mapping from the controlled list of values to the corresponding ids using `get_lovs()`.
 
-```{r echo=TRUE, results="asis"}
+```{r}
 tid_mapping <- get_lovs()
-tid_mapping
+head(tid_mapping)
+```
+
+For example, to get the tids corresponding to the topics of the dataset, you can look for `"field_topic"`:
+
+```{r}
+tid_mapping[tid_mapping$machine_name == "field_topic", c("machine_name", "list_value_name", "tid")]
 ```
 
 ### Adding a new dataset
 To add a new dataset to the site, begin by formatting your metadata into a named vector with the field names and corresponding values. You can pass this named vector to `create_json_body()`, which formats the metadata in the required JSON format. You can refer to the the data-raw folder to see which fields are required for the different data types. 
 
-```{r}
+```{r message = FALSE, warning = FALSE, paged.print = FALSE, eval = FALSE}
 metadata = c("title" = "Test Poverty Map",
            "body" = "Dataset to test the addition of poverty map datasets into DDH.",
            "field_topic" = "376",
@@ -125,7 +131,7 @@ update_dataset_metadata <- c("field_wbddh_country" = "59",
                              "field_tags" = "1236",
                              "workflow_status" = "published")
 update_dataset_json <- create_json_body(values = update_dataset_metadata, node_type = “dataset”)
-resp_update_dataset <- update_dataset(nid = poverty_map_nid, body = dataset_json)
+resp_update_dataset <- update_dataset(nid = poverty_map_nid, body = update_dataset_json)
 ```
 Note that you need to set the "workflow_status" to "published" everytime you update the node.
 
