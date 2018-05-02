@@ -2,7 +2,7 @@
 title: "Contributing Content"
 author: "Tony Fujs"
 date: "`r Sys.Date()`"
-output: prettydoc::html_pretty
+output: rmarkdown::html_vignette
 runtime: shiny
 vignette: >
   %\VignetteIndexEntry{Introduction to ddhconnect}
@@ -20,7 +20,7 @@ In line with the DKAN terminology, dataset is used to refer to a node that has a
 
 ## Setting Up Your Connection
 First, begin by setting up your account with the following `dkanr_setup` function to authenticate the user. Login information for access to the API's extended services can be obtained by contacting the World Bank's IT Services, provided you are authorized for these credentials.
-```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
 library(dkanr)
 library(ddhconnect)
 dkanr_setup(
