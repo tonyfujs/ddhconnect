@@ -14,6 +14,8 @@ editor_options:
 # DDHCONNECT: Contributing Content
 With proper authorization, you can add and update datasets and resources to the Data Catalog through `ddhconnect`.
 
+___
+
 ## Terminology
 The World Bank Data Catalog is built using the DKAN platform. In line with DKAN terminology, the term "dataset" is used to refer to a node that has all the metadata for the data and the term "resource" is used refer to a node that has the data file, link to the data file or any supporting document. In the Data Catalog, every "dataset" is expected to have one or more "resources" attached to it.
 
