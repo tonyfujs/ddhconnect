@@ -3,7 +3,6 @@ title: "Contributing Content"
 author: "Tony Fujs"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
-runtime: shiny
 vignette: >
   %\VignetteIndexEntry{Introduction to ddhconnect}
   %\VignetteEncoding{UTF-8}
@@ -16,7 +15,7 @@ editor_options:
 With proper authorization, you can add and update datasets and resources to the Data Catalog through `ddhconnect`.
 
 ## Terminology
-In line with the DKAN terminology, dataset is used to refer to a node that has all the metadata for the data and resource is used refer to a node that has the data file, link to the data file or any supporting document.
+In line with the DKAN terminology, the term "dataset" is used to refer to a node that has all the metadata for the data and the term "resource" is used refer to a node that has the data file, link to the data file or any supporting document. In the Data Catalog, every "dataset" is expected to have one or more "resources" attached to it.
 
 ## Setting Up Your Connection
 First, begin by setting up your account with the following `dkanr_setup` function to authenticate the user. Login information for access to the API's extended services can be obtained by contacting the World Bank's IT Services, provided you are authorized for these credentials.
@@ -115,6 +114,8 @@ After the resource is added to the Data Catalog, it can be attached to your data
 attach_resources_to_dataset(dataset_nid = resp_dataset$nid, resource_nid = resp_resource$nid)
 ```
 
+___
+
 ## Updating Content
 To update content in the Data Catalog, you need to know the node ID of the dataset you wish you edit. To obtain the node id, you can search the catalog based on the title of the object. For example, to get the node id of the "Test Poverty Map" dataset that we just created, we could do a search using `search_catalog()`.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
@@ -146,6 +147,8 @@ resource_nid <- get_resource_nid(poverty_map_nid)
 resp_update_resource <- update_resource(nid = resource_nid, body = resource_json)
 ```
 Note that the functionality to search for resources is not available currently. So you can search for the dataset that the resource is attached to and get the node ids of the attached resources using `get_resource_nid()`.
+
+___
 
 ## Ending Your Connection
 After finishing your tasks, you can log out of your account.
