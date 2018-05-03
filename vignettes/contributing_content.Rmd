@@ -59,11 +59,19 @@ tid_mapping <- get_lovs()
 head(tid_mapping)
 ```
 
-For example, to get the tids corresponding to the topics of the dataset, you can look for `"field_topic"`:
+You can get a list of all controlled vocabulary fields by getting the unique values in the `machine_name` column in the dataframe: 
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+lov_fields <- unique(tid_mapping$machine_name)
+```
+
+To get the tids corresponding to the topics of the dataset, you can look for `"field_topic"`:
 
 ```{r}
 tid_mapping[tid_mapping$machine_name == "field_topic", c("machine_name", "list_value_name", "tid")]
 ```
+
+Using this, you can map the field_topic `"Poverty"` to its internal id `376`. Similarly, you can map the values for other fields taking a controlled vocabulary.
 
 ### Adding a new dataset
 To add a new dataset to the site, begin by formatting your metadata into a named vector with the field names and corresponding values. You can pass this named vector to `create_json_body()`, which formats the metadata in the required JSON format. You can refer to the the data-raw folder to see which fields are required for the different data types. 
