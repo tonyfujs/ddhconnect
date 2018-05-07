@@ -2,7 +2,9 @@
 title: "Contributing Content"
 author: "Tony Fujs"
 date: "`r Sys.Date()`"
-output: rmarkdown::github_document
+output: 
+  md_document:
+    variant: markdown_github
 vignette: >
   %\VignetteIndexEntry{Introduction to ddhconnect}
   %\VignetteEncoding{UTF-8}
