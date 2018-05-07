@@ -9,7 +9,7 @@
 
 get_lovs <- function(root_url = dkanr::get_url()) {
   # Build url
-  path <- "internal/listvalues"
+  path <- "api/taxonomy/listvalues"
   url <- httr::modify_url(root_url, path = path)
   # Send request
   out <- httr::GET(url = url,
