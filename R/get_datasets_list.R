@@ -1,6 +1,6 @@
 #' get_datasets_list()
 #'
-#' @param datatype character: Restrict the list to a specific type of dataset. Available options are: "All", "Timeseries", "Microdata", "Geospatial", or "Other"
+#' @param datatype character: Restrict the list to a specific type of dataset. Available options are: "All", "Time Series", "Microdata", "Geospatial", or "Other"
 #' @param root_url character: API root URL
 #' @param credentials list: API authentication credentials
 #'
@@ -23,7 +23,7 @@ get_datasets_list <- function(datatype = "All",
   # Define the parameters for the search
   fields <- c("nid", "uuid", "title", "field_wbddh_data_type")
   filters <- c("status" = 1)
-  if (datatype != "all") {
+  if (datatype != "All") {
     filters <- c("field_wbddh_data_type" = unname(dtype), filters)
   }
   limit <- 500
