@@ -6,7 +6,7 @@
 #' @param root_url character: API root URL
 #'
 #' @import dplyr
-#' @return values character vector
+#' @return list: list of metadata with some of the fields to be converted to
 #' @export
 #'
 #'
