@@ -49,7 +49,7 @@ map_tids <- function(values,
   for (field_name in keep) {
     val_split <- values[field_name][[1]]
     for (val in val_split) {
-      map_tid <- lovs_subset[lovs_subset$list_value_name == val, 'tid']
+      map_tid <- lovs_subset[lovs_subset$machine_name == field_name & lovs_subset$list_value_name == val, 'tid']
       val_split[val_split == val] <- map_tid
     }
     values[[field_name]] <- val_split
