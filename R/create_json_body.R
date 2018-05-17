@@ -21,6 +21,7 @@ create_json_body <- function(values = list("title" = "Test Create JSON",
   # check for valid field names
   values_fields <- names(values)
   valid_fields <- unique(get_fields(root_url)$machine_name)
+  valid_fields <- c(valid_fields, "workflow_status", "type")
   invalid_fields <- setdiff(values_fields, valid_fields)
   if(length(invalid_fields) > 0) {
     stop(paste0("Invalid fields: ", paste(invalid_fields, collapse = "\n"),

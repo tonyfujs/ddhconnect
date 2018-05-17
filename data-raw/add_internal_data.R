@@ -10,7 +10,7 @@ test_resource_update_json <- fromJSON('data-raw/test_resource_update.json', simp
 
 mandatory_text_fields <- readLines('data-raw/mandatory_text_fields.txt')
 
-dataset_json_format_lookup <- read.csv("./data-raw/dataset_json_format_lookup.csv", fileEncoding = , stringsAsFactors = FALSE)
+dataset_json_format_lookup <- read.csv("./data-raw/dataset_json_format_lookup.csv", stringsAsFactors = FALSE)
 resource_json_format_lookup <- read.csv("./data-raw/resource_json_format_lookup.csv", stringsAsFactors = FALSE)
 
 names(dataset_json_format_lookup) <- c("machine_names", "json_template")
