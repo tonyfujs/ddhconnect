@@ -10,7 +10,7 @@ test_resource_update_json <- fromJSON('data-raw/test_resource_update.json', simp
 
 mandatory_text_fields <- readLines('data-raw/mandatory_text_fields.txt')
 
-dataset_json_format_lookup <- read.csv("./data-raw/dataset_json_format_lookup.csv", stringsAsFactors = FALSE)
+dataset_json_format_lookup <- read.csv("./data-raw/dataset_json_format_lookup.csv", fileEncoding = , stringsAsFactors = FALSE)
 resource_json_format_lookup <- read.csv("./data-raw/resource_json_format_lookup.csv", stringsAsFactors = FALSE)
 
 names(dataset_json_format_lookup) <- c("machine_names", "json_template")
@@ -18,6 +18,11 @@ names(resource_json_format_lookup) <- c("machine_names", "json_template")
 
 ui_names_lookup <- read.csv("./data-raw/ui_names_lookup.csv", stringsAsFactors = FALSE)
 names(ui_names_lookup) <- c("machine_names", "ui_names")
+
+gs_required_fields <- read.csv("./data-raw/gs_required_fields.csv", fileEncoding = "UTF-8-BOM", stringsAsFactors = FALSE)
+md_required_fields <- read.csv("./data-raw/md_required_fields.csv", fileEncoding = "UTF-8-BOM", stringsAsFactors = FALSE)
+ts_required_fields <- read.csv("./data-raw/ts_required_fields.csv", fileEncoding = "UTF-8-BOM", stringsAsFactors = FALSE)
+other_required_fields <- read.csv("./data-raw/other_required_fields.csv", fileEncoding = "UTF-8-BOM", stringsAsFactors = FALSE)
 
 # Save data
 devtools::use_data(attach_resources_template,
@@ -36,3 +41,8 @@ devtools::use_data(dataset_json_format_lookup,
                    resource_json_format_lookup,
                    overwrite = TRUE)
 
+devtools::use_data(gs_required_fields,
+                   md_required_fields,
+                   ts_required_fields,
+                   other_required_fields,
+                   overwrite = TRUE)
