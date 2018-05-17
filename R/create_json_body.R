@@ -58,20 +58,20 @@ create_json_body <- function(values = list("title" = "Test Create JSON",
     # controlled vocabulary fields
     else if (is.null(names(json_template[[field_name]]$und))) {
       vals <- values[[field_name]]
-      # check for invalid values
-      lovs <- get_lovs(root_url)
-      if (nrow(lovs[lovs$machine_name == field_name & lovs$tid %in% vals, ]) != length(vals)){
-        invalid_vals <- setdiff(vals,
-                                lovs[lovs$machine_name == field_name &
-                                     lovs$tid %in% vals,
-                                     "tid"])
-        stop(paste0("Invalid values for ", field_name, ": ",
-                   paste(invalid_vals, collapse = " "),
-                   "\nPlease choose from the valid values for ", field_name,
-                   ":\n",
-                   paste(lovs[lovs$machine_name == field_name, "tid"],
-                         collapse = ", ")))
-      }
+      # check for invalid values - not required any more since map_tids does the mapping
+      # lovs <- get_lovs(root_url)
+      # if (nrow(lovs[lovs$machine_name == field_name & lovs$tid %in% vals, ]) != length(vals)){
+      #   invalid_vals <- setdiff(vals,
+      #                           lovs[lovs$machine_name == field_name &
+      #                                lovs$tid %in% vals,
+      #                                "tid"])
+      #   stop(paste0("Invalid values for ", field_name, ": ",
+      #              paste(invalid_vals, collapse = " "),
+      #              "\nPlease choose from the valid values for ", field_name,
+      #              ":\n",
+      #              paste(lovs[lovs$machine_name == field_name, "tid"],
+      #                    collapse = ", ")))
+      # }
       json_template[[field_name]]$und <- vals
     }
     # free text fields
