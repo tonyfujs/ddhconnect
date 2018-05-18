@@ -42,10 +42,10 @@ dkanr_setup(
 ___
 
 ## Adding Content
-To add content to the Data Catalog, first add the metadata as a dataset node and then add the corresponding data files, links and supporting documentation as resource nodes. Consider the case where we want to add a dataset about poverty maps with the following metadata and attach a zip file containing the data as a resource.
+To add content to the Data Catalog, first add the metadata as a dataset node and then add the corresponding data files, links and supporting documentation as resource nodes. Consider the case where we want to add a dataset about poverty maps, with the following metadata and attach a zip file containing the data as a resource.
 
-```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-metadata = c("title" = "Test Poverty Map",
+```{r message = FALSE, warning = FALSE, paged.print = FALSE, eval = FALSE}
+metadata = list("title" = "Test Poverty Map",
            "body" = "Dataset to test the addition of poverty map datasets into DDH.",
            "field_topic" = "Poverty",
            "field_wbddh_data_class" = "Public",
@@ -53,46 +53,46 @@ metadata = c("title" = "Test Poverty Map",
            "field_wbddh_languages_supported" = "English",
            "field_frequency" = "Periodicity not specified",
            "field_wbddh_economy_coverage" = "Blend",
-           "field_wbddh_country" = "Afghanistan;Albania;Algeria",
+           "field_wbddh_country" = c("Afghanistan","Albania","Algeria"),
            "field_license_wbddh" = "Custom License",
            "workflow_status" = "published")
 ```
 
-Some of the above fields such as `field_topic` and `field_wbddh_data_class` take values from a list of controlled vocabulary. These values should be mapped to their internal ids before they can be added to the Data Catalog. Use `get_lovs()` to i) get the fields with controlled vocabulary and ii) map the controlled vocabulary values to their corresponding ids.
+Many of the fields here (Ex: `field_topic`, `field_wbddh_data_class`) take a controlled list of values as input. To view the fields that take a controlled list of values, use `get_lov_fields()`.
 
 ```{r}
-tid_mapping <- get_lovs()
-head(tid_mapping)
+lov_fields <- get_lov_fields()
+lov_fields
 ```
 
-You can get a list of all controlled vocabulary fields by getting the unique values in the `machine_name` column in the dataframe: 
-
-```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-lov_fields <- unique(tid_mapping$machine_name)
-```
-
-To get the ids corresponding to the dataset topics, you can filter the dataframe for `"field_topic"`:
+You can view the valid list of values that these controlled fields using `get_lovs()`. The `list_value_name` column in the dataframe shows the valid values:
 
 ```{r}
-tid_mapping[tid_mapping$machine_name == "field_topic", c("machine_name", "list_value_name", "tid")]
+lovs <- get_lovs()
+head(lovs)
 ```
 
-From the above table, you can map the field_topic `"Poverty"` to its internal id `376`. Follow a similar procedure to map all the controlled vocabulary fields to their internal ids.
 
 ### Adding a new dataset
-To add a new dataset to the Data Catalog, begin by formatting your metadata into a named vector with the field names and corresponding values. Pass this named vector to `create_json_body()`, to format the metadata in the required JSON format. You can refer to the the `data-raw` folder to see the required fields for the different data types. For example, for the 'geospatial' data type, you can find the required fields in `data-raw/gs_required_fields.csv`.
+To add a new dataset to the Data Catalog, begin by formatting your metadata into a named list with the field names and corresponding values. Pass this named vector to `create_json_body()`, to format the metadata in the required JSON format. You can find the required metadata fields for a given data type using `get_required_fields()`. In our example, we want to add a geospatial dataset. 
+
+```{r}
+get_required_fields("Geospatial")
+```
+
+Format your metadata into a named list with the required fields and their values. Note that the `node_type` sets the type of the parameter and this is not required to be part of the named list.
 
 ```{r message = FALSE, warning = FALSE, paged.print = FALSE, eval = FALSE}
-metadata = c("title" = "Test Poverty Map",
+metadata = list("title" = "Test Poverty Map",
            "body" = "Dataset to test the addition of poverty map datasets into DDH.",
-           "field_topic" = "376",
-           "field_wbddh_data_class" = "358",
-           "field_wbddh_data_type" = "295",
-           "field_wbddh_languages_supported" = "337",
-           "field_frequency" = "18",
-           "field_wbddh_economy_coverage" = "1013",
-           "field_wbddh_country" = "35;36;37",
-           "field_license_wbddh" = "1341",
+           "field_topic" = "Poverty",
+           "field_wbddh_data_class" = "Public",
+           "field_wbddh_data_type" = "Geospatial",
+           "field_wbddh_languages_supported" = "English",
+           "field_frequency" = "Periodicity not specified",
+           "field_wbddh_economy_coverage" = "Blend",
+           "field_wbddh_country" = c("Afghanistan","Albania","Algeria"),
+           "field_license_wbddh" = "Custom License",
            "workflow_status" = "published")
 json_dataset <- create_json_body(values = metadata,
                                  node_type = "dataset")
