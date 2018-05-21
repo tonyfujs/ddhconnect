@@ -1,7 +1,7 @@
 context("test-create_json_body.R")
-root_url <- "https://datacatalog.worldbank.org"
+root_url <- "https://newdatacatalogstg.worldbank.org"
 
-dkanr::dkanr_setup(url = 'https://datacatalog.worldbank.org/')
+dkanr::dkanr_setup(url = root_url)
 
 # httptest::start_capturing(path = './tests/testthat')
 # get_lovs()
