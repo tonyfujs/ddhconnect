@@ -1,7 +1,7 @@
 context("map strings to tids")
 root_url <- "https://datacatalog.worldbank.org"
 
-# dkanr::dkanr_setup(url = 'https://datacatalog.worldbank.org/')
+dkanr::dkanr_setup(url = 'https://datacatalog.worldbank.org/')
 
 # httptest::start_capturing(path = './tests/testthat')
 # get_lovs()
