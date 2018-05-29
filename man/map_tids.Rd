@@ -12,7 +12,7 @@ map_tids(values, root_url = dkanr::get_url())
 \item{root_url}{character: API root URL}
 }
 \value{
-values character vector
+list: list of metadata with some of the fields to be converted to
 }
 \description{
 Map strings to tids
