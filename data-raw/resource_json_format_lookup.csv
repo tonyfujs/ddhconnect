@@ -22,3 +22,23 @@ field_link_api,"{""field_link_api"": {
 		}]
 	}}"
 type,"{""type"": """"}"
+field_format,"{""field_format"": {
+		""und"": {
+			""tid"": """"
+		}
+	}}"
+field_wbddh_api_format,"{""field_wbddh_api_format"": {
+		""und"": {
+			""tid"": """"
+		}
+	}}"
+field_ddh_harvest_src,"{""field_ddh_harvest_src"": {
+		""und"": {
+			""tid"": """"
+		}
+	}}"
+field_ddh_harvest_sys_id,"{""field_ddh_harvest_sys_id"": {
+		""und"": [{
+			""value"": """"
+		}]
+	}}"
