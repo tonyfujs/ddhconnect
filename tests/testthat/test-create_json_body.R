@@ -88,3 +88,26 @@ test_that("multiple field update works", {
   expect_equal(body, json_string)
 })
 
+test_that("multiple resource fields generates body", {
+  body <- create_json_body(values = list("title" = "Test Resource Title",
+                                         "body" = "Test Resource Body",
+                                         "field_wbddh_data_class" = "Public",
+                                         "field_wbddh_resource_type" = "Resource Type not specified",
+                                         "field_format" = "Format Not Specified",
+                                         "field_link_api" = "www.google.com",
+                                         "field_ddh_harvest_src" = "Finances",
+                                         "field_ddh_harvest_sys_id" = "8675309"),
+                           node_type = "resource")
+  json_template <- list()
+  json_template$title <- "Test Resource Title"
+  json_template$body$und[[1]]$value <- "Test Resource Body"
+  json_template$field_wbddh_data_class$und$tid <- "358"
+  json_template$field_wbddh_resource_type$und$tid <- "877"
+  json_template$field_link_api$und[[1]]$url <- "www.google.com"
+  json_template$type <- "resource"
+  json_template$field_format$und$tid <- "1271"
+  json_template$field_ddh_harvest_src$und$tid <- "1015"
+  json_template$field_ddh_harvest_sys_id$und[[1]]$value <- "8675309"
+  json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
+  expect_equal(body, json_string)
+})
