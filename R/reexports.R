@@ -11,3 +11,7 @@ dkanr::dkanr_settings
 #' @importFrom dkanr dkanr_logout
 #' @export
 dkanr::dkanr_logout
+
+#' @importFrom dkanr get_resource_nids
+#' @export
+dkanr::get_resource_nids

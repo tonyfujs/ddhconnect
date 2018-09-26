@@ -4,9 +4,9 @@
 \alias{attach_file_to_resource}
 \title{attach_file_to_node}
 \usage{
-attach_file_to_resource(resource_nid, file_path, root_url = dkanr::get_url(),
-  credentials = list(cookie = dkanr::get_cookie(), token =
-  dkanr::get_token()), attach = 1)
+attach_file_to_resource(resource_nid, file_path,
+  root_url = dkanr::get_url(), credentials = list(cookie =
+  dkanr::get_cookie(), token = dkanr::get_token()), attach = 1)
 }
 \arguments{
 \item{resource_nid}{character: Data Catalog Resource Node ID}
