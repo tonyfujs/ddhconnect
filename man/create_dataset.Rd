@@ -4,8 +4,9 @@
 \alias{create_dataset}
 \title{create_dataset}
 \usage{
-create_dataset(root_url = dkanr::get_url(), body, credentials = list(cookie
-  = dkanr::get_cookie(), token = dkanr::get_token()))
+create_dataset(root_url = dkanr::get_url(), body,
+  credentials = list(cookie = dkanr::get_cookie(), token =
+  dkanr::get_token()))
 }
 \arguments{
 \item{root_url}{character: API root URL}
