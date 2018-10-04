@@ -1,3 +1,6 @@
+#' @import dplyr
+#' @import readxl
+
 replicate_resource <- function(n, template = ddhconnect::attach_resources_template) {
 
   template$field_resources$und <- rep(template$field_resources$und, n)
@@ -57,7 +60,6 @@ safe_assign <- function(x) {
 }
 
 map_metadata_excel <- function(path) {
-
   input_fields <- read_xlsx(path) %>%
     select("Metadata field", "Value")
   df_references<-ddhconnect::machine_name_metadata_references
@@ -84,7 +86,6 @@ map_metadata_excel <- function(path) {
 }
 
 map_machine_pretty <- function(data_vector,from,to) {
-
   data <- data.frame(data_vector)
   all_fields <- tbl_df(get_fields()) %>%
   select("machine_name", "pretty_name") %>%
@@ -123,5 +124,4 @@ map_machine_pretty <- function(data_vector,from,to) {
   }
 
   return(data.frame(output[,1]))
-
 }

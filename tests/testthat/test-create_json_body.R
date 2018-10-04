@@ -1,4 +1,3 @@
-library(readxl)
 context("test-create_json_body.R")
 root_url <- "https://newdatacatalogstg.worldbank.org"
 
@@ -116,7 +115,8 @@ test_that("multiple resource fields generates body", {
 
 
 test_that("map_metadata_excel works", {
-  body <- create_json_body(map_metadata_excel("./data-raw/test-map_metadata_excel.xlsx"),
+
+  body <- create_json_body(map_metadata_excel("../../data-raw/test-map_metadata_excel.xlsx"),
                            node_type = "dataset",
                            root_url = root_url)
   json_template <- list()
