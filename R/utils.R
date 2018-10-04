@@ -55,3 +55,73 @@ safe_assign <- function(x) {
     return("")
   }
 }
+
+map_metadata_excel <- function(path) {
+
+  input_fields <- read_xlsx(path) %>%
+    select("Metadata field", "Value")
+  df_references<-ddhconnect::machine_name_metadata_references
+
+  machine_names <- df_references %>%
+    left_join(input_fields, by = c("input_name" = "Metadata field") , copy = TRUE, ignore.case = TRUE) %>%
+    na.omit()
+
+  misses <-input_fields %>%
+    anti_join(df_references, by = c("Metadata field" = "input_name"), copy = TRUE, ignore.case = TRUE) %>%
+    na.omit() %>%
+    select("Metadata field")
+
+  if(nrow(misses) > 0) {
+    warning(paste0("The following Metadata fields are invalid, and won't be mapped to the appropriate machine_name: ", misses))
+  }
+
+  machine_names[] <- lapply(machine_names, as.character)
+  updated_data        <- c(machine_names[,"Value"])
+  names(updated_data) <- c(machine_names[,"machine_name"])
+  updated_data        <- c(updated_data, c("workflow_status" = "published"))
+
+  return(updated_data)
+}
+
+map_machine_pretty <- function(data_vector,from,to) {
+
+  data <- data.frame(data_vector)
+  all_fields <- tbl_df(get_fields()) %>%
+  select("machine_name", "pretty_name") %>%
+  unique()
+
+  if( (from == "machine") & (to == "pretty" ) ){
+
+    colnames(data) <- "machine_name"
+    output <- all_fields %>%
+      right_join(data, by = "machine_name" , copy = TRUE, ignore.case = TRUE) %>%
+      select("pretty_name","machine_name") %>%
+      na.omit() %>%
+      unique()
+
+    misses <-data %>%
+        anti_join(output, by = c("machine_name"), copy = TRUE, ignore.case = TRUE) %>%
+        select("machine_name")
+
+  }
+  else if ( (from == "pretty") & (to == "machine" ) ){
+
+    colnames(data) <- "pretty_name"
+    output <- all_fields %>%
+      right_join(data, by = "pretty_name" , copy = TRUE, ignore.case = TRUE) %>%
+      select("machine_name","pretty_name") %>%
+      na.omit() %>%
+      unique()
+
+    misses <-data %>%
+      anti_join(output, by = c("pretty_name"), copy = TRUE, ignore.case = TRUE) %>%
+      select("pretty_name")
+  }
+
+  if(nrow(misses) > 0) {
+    warning(paste0("The following fields could not be mapped: ", misses[,1]))
+  }
+
+  return(data.frame(output[,1]))
+
+}
