@@ -66,26 +66,26 @@ map_metadata_excel <- function(path) {
   input_fields <-
     path %>% select("Metadata field", "Value")
 
-  df_references <- ddhconnect::machine_name_metadata_references
+  df_references <- ddhconnect::ui_names_lookup
 
   machine_names <-
     df_references %>%
-      left_join(
-        input_fields,
-        by = c("input_name" = "Metadata field") ,
-        copy = TRUE,
-        ignore.case = TRUE) %>%
-      na.omit()
+    left_join(
+      input_fields,
+      by = c("ui_names" = "Metadata field") ,
+      copy = TRUE,
+      ignore.case = TRUE) %>%
+    na.omit()
 
   misses <-
     input_fields %>%
-      anti_join(
-        df_references,
-        by = c("Metadata field" = "input_name"),
-        copy = TRUE,
-        ignore.case = TRUE) %>%
-      na.omit() %>%
-      select("Metadata field")
+    anti_join(
+      df_references,
+      by = c("Metadata field" = "ui_names"),
+      copy = TRUE,
+      ignore.case = TRUE) %>%
+    na.omit() %>%
+    select("Metadata field")
 
   if (nrow(misses) > 0) {
     warning(paste0("The following Metadata fields are invalid, and won't be mapped to the appropriate machine_name: ", misses))
@@ -93,7 +93,7 @@ map_metadata_excel <- function(path) {
 
   machine_names[]     <- lapply(machine_names, as.character)
   updated_data        <- c(machine_names[, "Value"])
-  names(updated_data) <- c(machine_names[, "machine_name"])
+  names(updated_data) <- c(machine_names[, "machine_names"])
   updated_data        <- c(updated_data, c("workflow_status" = "published"))
 
   updated_data

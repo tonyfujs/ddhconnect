@@ -6,8 +6,8 @@ dkanr::dkanr_setup(url = root_url)
 test_that("multiple field lookup works", {
   machine_name_values <- map_metadata_excel("../../data-raw/test-map_metadata_excel.xlsx")
   updated_resource_data <-  c("body" = "Test Body",
-                              "field_wbddh_dsttl_upi" = "46404",
                               "title" = "TEST TITLE",
+                              "field_wbddh_dsttl_upi" = "46404",
                               "workflow_status" = "published")
   expect_equal(machine_name_values, updated_resource_data)
 })

@@ -23,7 +23,6 @@ gs_required_fields <- read.csv("./data-raw/gs_required_fields.csv", fileEncoding
 md_required_fields <- read.csv("./data-raw/md_required_fields.csv", fileEncoding = "UTF-8-BOM", stringsAsFactors = FALSE)
 ts_required_fields <- read.csv("./data-raw/ts_required_fields.csv", fileEncoding = "UTF-8-BOM", stringsAsFactors = FALSE)
 other_required_fields <- read.csv("./data-raw/other_required_fields.csv", fileEncoding = "UTF-8-BOM", stringsAsFactors = FALSE)
-machine_name_metadata_references <- read.csv("./data-raw/machine_name_metadata_references.csv", fileEncoding = "UTF-8-BOM", stringsAsFactors = FALSE)
 
 # Save data
 devtools::use_data(attach_resources_template,
@@ -46,5 +45,4 @@ devtools::use_data(gs_required_fields,
                    md_required_fields,
                    ts_required_fields,
                    other_required_fields,
-                   machine_name_metadata_references,
                    overwrite = TRUE)
