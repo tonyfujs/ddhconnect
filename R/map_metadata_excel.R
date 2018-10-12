@@ -14,11 +14,13 @@ map_metadata_excel <- function(path) {
 
   metadata_df <- read_xlsx(path)
 
+  #extract metadata
   input_fields <-
     metadata_df %>% select("Metadata field", "Value")
 
   df_references <- ddhconnect::ui_names_lookup
 
+  #map metadata values to correct machine_names
   machine_names <-
     df_references %>%
     left_join(
@@ -28,6 +30,7 @@ map_metadata_excel <- function(path) {
       ignore.case = TRUE) %>%
     na.omit()
 
+  #retrieve misses/invalid fields
   misses <-
     input_fields %>%
     anti_join(
@@ -42,6 +45,7 @@ map_metadata_excel <- function(path) {
     warning(paste0("The following Metadata fields are invalid, and won't be mapped to the appropriate machine_name: ", misses))
   }
 
+  #create vector of machine names and values
   machine_names[]     <- lapply(machine_names, as.character)
   updated_data        <- c(machine_names[, "Value"])
   names(updated_data) <- c(machine_names[, "machine_names"])
