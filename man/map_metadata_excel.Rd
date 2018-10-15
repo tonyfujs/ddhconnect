@@ -13,6 +13,6 @@ map_metadata_excel(path)
 vector
 }
 \description{
-Extract pretty_names and metadata values from an excel file. Map the values to the corresponding machine_names.
+Extract metadata from an excel file. Map the values to the corresponding machine_names.
 The file has to have "Metadata field" and "Values" columns.
 }
