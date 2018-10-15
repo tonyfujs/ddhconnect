@@ -111,3 +111,21 @@ test_that("multiple resource fields generates body", {
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
 })
+
+
+
+test_that("map_metadata_excel works", {
+
+  body <- create_json_body(map_metadata_excel("../../data-raw/test-map_metadata_excel.xlsx"),
+                           node_type = "dataset",
+                           root_url = root_url)
+  json_template <- list()
+  json_template$title <- "TEST TITLE"
+  json_template$body$und[[1]]$value <- "Test Body"
+  json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
+  json_template$type <- "dataset"
+  json_template$workflow_status <- "published"
+  json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
+
+  expect_equal(body, json_string)
+})
