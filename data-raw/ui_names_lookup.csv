@@ -114,3 +114,4 @@ field_wbddh_project_id,WB Project ID
 field_wbddh_web_service_index,Web Service Index
 field_wbddh_weighting,Weighting
 field_wbddh_west_bounding_coord,West Bounding Coordinate
+field_external_metadata,External Metadata
