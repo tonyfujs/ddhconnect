@@ -1,8 +1,8 @@
 #' map_metadata_excel
 #'
-#' Extract pretty_names and metadata values. Map the values to the corresponding machine_names
-#'
-#' @param path character: Takes path to an excel file containing metadata
+#' Extract pretty_names and metadata values from an excel file. Map the values to the corresponding machine_names.
+#' The file has to have "Metadata field" and "Values" columns.
+#' @param path string: Takes path to an excel file containing metadata
 #'
 #' @import dplyr
 #' @import readxl

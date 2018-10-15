@@ -7,11 +7,12 @@
 map_metadata_excel(path)
 }
 \arguments{
-\item{path}{character: Takes path to an excel file containing metadata}
+\item{path}{string: Takes path to an excel file containing metadata}
 }
 \value{
 vector
 }
 \description{
-Extract pretty_names and metadata values. Map the values to the corresponding machine_names
+Extract pretty_names and metadata values from an excel file. Map the values to the corresponding machine_names.
+The file has to have "Metadata field" and "Values" columns.
 }
