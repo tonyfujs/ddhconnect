@@ -2,13 +2,16 @@
 #'
 #' Retrieve list of fields (machine names + screen names) for each data type
 #' @param root_url character: API root URL
+#' @param credentials list: authentication token and cookie
 #'
 #' @return dataframe
 #' @export
 #'
 #'
 
-get_fields <- function(root_url = dkanr::get_url()) {
+get_fields <- function(root_url = dkanr::get_url(),
+                       credentials = list(cookie = dkanr::get_cookie(),
+                                          token = dkanr::get_token())) {
 
   # Build url
   path <- "internal/ddh_fields"
@@ -16,7 +19,9 @@ get_fields <- function(root_url = dkanr::get_url()) {
   # Send request
   out <- httr::GET(url = url,
                    httr::add_headers(.headers = c("Content-Type" = "application/json",
-                                                  "charset" = "utf-8")),
+                                                  "charset" = "utf-8",
+                                                  Cookie = credentials$cookie,
+                                                  `X-CSRF-Token` = credentials$token)),
                    httr::accept_json())
   httr::warn_for_status(out)
 
