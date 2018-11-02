@@ -13,7 +13,7 @@
 unpublish_dataset <- function(nid,
                               root_url = dkanr::get_url(),
                               credentials = list(cookie = dkanr::get_cookie(),
-                                                token = dkanr::get_token())) {
+                                                 token = dkanr::get_token())) {
 
   json_template <- jsonlite::fromJSON("{}")
   json_template$workflow_status <- jsonlite::unbox("unpublished")
