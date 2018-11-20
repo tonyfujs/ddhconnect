@@ -58,18 +58,6 @@ test_that("multiple tid value update works", {
   expect_equal(body, json_string)
 })
 
-# move this to test create_json_dataset, create_json_resource
-# test_that("tid fields update fails well for invalid field names", {
-#   fields <- unique(ddhconnect::get_fields(root_url = root_url)$machine_name)
-#   invalid_fields <- c("field_invalid_test")
-#   error_msg <- paste0("Invalid fields: ", paste(invalid_fields, collapse = "\n"),
-#                       "\nPlease choose a valid field from:\n")
-#   expect_error(create_json_body(list("field_invalid_test" = c("Energy and Extractives", "Topic123")),
-#                                 json_formats = ddhconnect::dataset_json_format_lookup,
-#                                 lovs = lovs),
-#                paste0(error_msg, ".*"))
-# })
-
 test_that("tid fields update fails well for invalid values", {
   error_msg <- paste0("Invalid value for field_topic",
                       ". The valid values are:\n")
