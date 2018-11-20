@@ -4,10 +4,13 @@
 \alias{map_tids}
 \title{map_tids}
 \usage{
-map_tids(values, root_url = dkanr::get_url())
+map_tids(values, lovs = ddhconnect::get_lovs(),
+  root_url = dkanr::get_url())
 }
 \arguments{
 \item{values}{character vector: list of corresponding values that need to be checked for tids}
+
+\item{lovs}{dataframe: lookup table of the data catalog tids and values}
 
 \item{root_url}{character: API root URL}
 }
