@@ -14,9 +14,10 @@
 create_json_body <- function(values = list("title" = "Test Create JSON",
                                           "body" = "Test Creation of JSON"),
                              json_formats = ddhconnect::dataset_json_format_lookup,
+                             lovs = ddhconnect::get_lovs(),
                              root_url = dkanr::get_url()) {
 
-  values <- map_tids(values, root_url)
+  values <- map_tids(values, lovs, root_url)
 
   machine_names <- json_formats$machine_names
   to_update <- subset(json_formats, machine_names %in% names(values))

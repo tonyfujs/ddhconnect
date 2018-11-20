@@ -2,6 +2,7 @@ context("test-create_json_body.R")
 root_url <- "https://newdatacatalogstg.worldbank.org"
 
 dkanr::dkanr_setup(url = root_url)
+lovs <- ddhconnect::get_lovs()
 
 # httptest::start_capturing(path = './tests/testthat')
 # get_lovs()
@@ -9,8 +10,10 @@ dkanr::dkanr_setup(url = root_url)
 # httptest::stop_capturing()
 
 test_that("title field update works", {
-
-  body <- create_json_body(list("title"="Test Create JSON"), node_type = "resource")
+  body <- create_json_body(list("title" = "Test Create JSON",
+                                "type" = "resource"),
+                           json_formats = ddhconnect::resource_json_format_lookup,
+                           lovs = lovs)
   json_template <- list()
   json_template$title <- "Test Create JSON"
   json_template$type <- "resource"
@@ -19,7 +22,10 @@ test_that("title field update works", {
 })
 
 test_that("text field update works", {
-  body <- create_json_body(list("body"="Test Body"), node_type = "dataset")
+  body <- create_json_body(list("body" = "Test Body",
+                                "type" = "dataset"),
+                           json_formats = ddhconnect::dataset_json_format_lookup,
+                           lovs = lovs)
   json_template <- list()
   json_template$body$und <- vector("list", length = 1)
   json_template$body$und[[1]]$value <- "Test Body"
@@ -29,7 +35,10 @@ test_that("text field update works", {
 })
 
 test_that("tid field update works", {
-  body <- create_json_body(list("field_topic"="Energy and Extractives"), node_type = "dataset")
+  body <- create_json_body(list("field_topic" = "Energy and Extractives",
+                                "type" = "dataset"),
+                           json_formats = ddhconnect::dataset_json_format_lookup,
+                           lovs = lovs)
   json_template <- list()
   json_template$field_topic$und <- list("366")
   json_template$type <- "dataset"
@@ -38,7 +47,10 @@ test_that("tid field update works", {
 })
 
 test_that("multiple tid value update works", {
-  body <- create_json_body(list("field_topic"=c("Energy and Extractives", "Poverty")), node_type = "dataset")
+  body <- create_json_body(list("field_topic" = c("Energy and Extractives", "Poverty"),
+                                "type" = "dataset"),
+                           json_formats = ddhconnect::dataset_json_format_lookup,
+                           lovs = lovs)
   json_template <- list()
   json_template$field_topic$und <- list("366", "376")
   json_template$type <- "dataset"
@@ -46,27 +58,32 @@ test_that("multiple tid value update works", {
   expect_equal(body, json_string)
 })
 
-test_that("tid fields update fails well for invalid field names", {
-  fields <- unique(get_fields(root_url = root_url)$machine_name)
-  invalid_fields <- c("field_invalid_test")
-  error_msg <- paste0("Invalid fields: ", paste(invalid_fields, collapse = "\n"),
-                      "\nPlease choose a valid field from:\n")
-  expect_error(create_json_body(list("field_invalid_test"=c("Energy and Extractives", "Topic123")), node_type = "dataset"),
-               paste0(error_msg, ".*"))
-})
+# move this to test create_json_dataset, create_json_resource
+# test_that("tid fields update fails well for invalid field names", {
+#   fields <- unique(ddhconnect::get_fields(root_url = root_url)$machine_name)
+#   invalid_fields <- c("field_invalid_test")
+#   error_msg <- paste0("Invalid fields: ", paste(invalid_fields, collapse = "\n"),
+#                       "\nPlease choose a valid field from:\n")
+#   expect_error(create_json_body(list("field_invalid_test" = c("Energy and Extractives", "Topic123")),
+#                                 json_formats = ddhconnect::dataset_json_format_lookup,
+#                                 lovs = lovs),
+#                paste0(error_msg, ".*"))
+# })
 
 test_that("tid fields update fails well for invalid values", {
-  lovs <- get_lovs(root_url = root_url)
   error_msg <- paste0("Invalid value for field_topic",
                       ". The valid values are:\n")
-  expect_error(create_json_body(list("field_topic"=c("Energy and Extractives", "Topic123")), node_type = "dataset"),
+  expect_error(create_json_body(list("field_topic" = c("Energy and Extractives", "Topic123")),
+                                json_formats = ddhconnect::dataset_json_format_lookup,
+                                lovs = lovs),
                paste0(error_msg, ".*"))
 })
 
 test_that("upi field update works", {
-  body <- create_json_body(values = list("field_wbddh_dsttl_upi" = "46404"),
-                          node_type = "dataset",
-                          root_url = root_url)
+  body <- create_json_body(values = list("field_wbddh_dsttl_upi" = "46404",
+                                         "type" = "dataset"),
+                           json_formats = ddhconnect::dataset_json_format_lookup,
+                           lovs = lovs)
   json_template <- list()
   json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
   json_template$type <- "dataset"
@@ -75,9 +92,13 @@ test_that("upi field update works", {
 })
 
 test_that("multiple field update works", {
-  body = create_json_body(list("title"="Test Create JSON", "body"="Test Body",
-                            "field_topic"="Energy and Extractives", "field_wbddh_dsttl_upi"="46404"),
-                          node_type = "dataset")
+  body = create_json_body(list("title" = "Test Create JSON",
+                               "body" = "Test Body",
+                               "field_topic" = "Energy and Extractives",
+                               "field_wbddh_dsttl_upi" = "46404",
+                               "type" = "dataset"),
+                          json_formats = ddhconnect::dataset_json_format_lookup,
+                          lovs = lovs)
   json_template <- list()
   json_template$title <- "Test Create JSON"
   json_template$body$und[[1]]$value <- "Test Body"
@@ -96,8 +117,10 @@ test_that("multiple resource fields generates body", {
                                          "field_format" = "Format Not Specified",
                                          "field_link_api" = "www.google.com",
                                          "field_ddh_harvest_src" = "Finances",
-                                         "field_ddh_harvest_sys_id" = "8675309"),
-                           node_type = "resource")
+                                         "field_ddh_harvest_sys_id" = "8675309",
+                                         "type" = "resource"),
+                           json_formats = ddhconnect::resource_json_format_lookup,
+                           lovs = lovs)
   json_template <- list()
   json_template$title <- "Test Resource Title"
   json_template$body$und[[1]]$value <- "Test Resource Body"
@@ -117,13 +140,13 @@ test_that("multiple resource fields generates body", {
 test_that("map_metadata_excel works", {
 
   body <- create_json_body(map_metadata_excel("../../data-raw/test-map_metadata_excel.xlsx"),
-                           node_type = "dataset",
-                           root_url = root_url)
+                           json_formats = ddhconnect::dataset_json_format_lookup,
+                           lovs = lovs)
   json_template <- list()
   json_template$title <- "TEST TITLE"
   json_template$body$und[[1]]$value <- "Test Body"
   json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
-  json_template$type <- "dataset"
+  # json_template$type <- "dataset" #leaving out due to change in func and parameters
   json_template$workflow_status <- "published"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
 
