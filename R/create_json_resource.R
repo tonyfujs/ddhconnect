@@ -3,7 +3,7 @@
 #' Create the JSON body for updating the given fields or creating a new dataset
 #'
 #' @param values list: list of corresponding values that need to be updated
-#' @param workflow_status string: status to post the mode, takes values of c("published", "unpublished", "draft")
+#' @param publication_status string: status to post the mode, takes values of c("published", "unpublished", "draft")
 #' @param ddh_fields dataframe: table of all the data catalog fields by node type
 #' @param lovs dataframe: lookup table of the data catalog tids and values
 #' @param root_url string: API root URL
@@ -21,7 +21,7 @@ create_json_resource <- function(values = list("title" = "Test Resource Title",
                                                "field_link_api" = "www.google.com",
                                                "field_ddh_harvest_src" = "Finances",
                                                "field_ddh_harvest_sys_id" = "8675309"),
-                                 workflow_status = "published",
+                                 publication_status = "published",
                                  ddh_fields = ddhconnect::get_fields(),
                                  lovs = ddhconnect::get_lovs(),
                                  root_url = dkanr::get_url()) {
@@ -36,7 +36,7 @@ create_json_resource <- function(values = list("title" = "Test Resource Title",
   }
 
   values["type"] <- "resource"
-  values["workflow_status"] <- workflow_status
+  values["workflow_status"] <- publication_status
 
   # get the correct JSON formats from the lookup table
   json_formats <- ddhconnect::resource_json_format_lookup

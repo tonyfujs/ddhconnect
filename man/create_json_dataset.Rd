@@ -7,13 +7,14 @@
 create_json_dataset(values = list(title = "Test Create JSON", body =
   "Test Creation of JSON", field_wbddh_dsttl_upi = "123", field_topic =
   "Poverty", field_wbddh_country = c("Antigua and Barbuda", "Armenia")),
-  workflow_status = "published", ddh_fields = ddhconnect::get_fields(),
-  lovs = ddhconnect::get_lovs(), root_url = dkanr::get_url())
+  publication_status = "published",
+  ddh_fields = ddhconnect::get_fields(), lovs = ddhconnect::get_lovs(),
+  root_url = dkanr::get_url())
 }
 \arguments{
 \item{values}{list: list of corresponding values that need to be updated}
 
-\item{workflow_status}{string: status to post the mode, takes values of c("published", "unpublished", "draft")}
+\item{publication_status}{string: status to post the mode, takes values of c("published", "unpublished", "draft")}
 
 \item{ddh_fields}{dataframe: table of all the data catalog fields by node type}
 

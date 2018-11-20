@@ -4,7 +4,7 @@ root_url <- "https://newdatacatalogstg.worldbank.org"
 dkanr::dkanr_setup(url = root_url)
 ddh_fields <- ddhconnect::get_fields()
 lovs <- ddhconnect::get_lovs()
-workflow_status <- "published"
+publication_status <- "published"
 
 
 # httptest::start_capturing(path = './tests/testthat')
@@ -21,7 +21,7 @@ test_that("basic resource json body builds correctly", {
                                              "field_link_api" = "www.google.com",
                                              "field_ddh_harvest_src" = "Finances",
                                              "field_ddh_harvest_sys_id" = "8675309"),
-                              workflow_status, ddh_fields, lovs, root_url)
+                              publication_status, ddh_fields, lovs, root_url)
   json_template <- list()
   json_template$title <- "Test Resource Title"
   json_template$body$und[[1]]$value <- "Test Resource Body"
@@ -41,7 +41,7 @@ test_that("basic resource json body builds correctly with unpublished", {
   body <- create_json_resource(values = list("title" = "Test Resource Title",
                                              "body" = "Test Resource Body",
                                              "field_wbddh_data_class" = "Public"),
-                              workflow_status = "unpublished",
+                              publication_status = "unpublished",
                               ddh_fields, lovs, root_url)
   json_template <- list()
   json_template$title <- "Test Resource Title"
@@ -62,7 +62,7 @@ test_that("tid fields update fails well for invalid field names", {
                       "\nPlease choose a valid field from:\n",
                       paste(fields, collapse = "\n"))
   expect_error(create_json_resource(list("field_invalid_test" = c("Energy and Extractives", "Topic123")),
-                                   workflow_status, ddh_fields, lovs, root_url),
+                                   publication_status, ddh_fields, lovs, root_url),
                paste0(error_msg, ".*"))
 })
 
@@ -71,6 +71,6 @@ test_that("tid fields update fails well for invalid values", {
   error_msg <- paste0("Invalid value for field_wbddh_data_class. The valid values are:\n",
                       paste(list_value_names, collapse = "\n"))
   expect_error(create_json_resource(list("field_wbddh_data_class" = c("Energy and Extractives", "Topic123")),
-                                   workflow_status, ddh_fields, lovs, root_url),
+                                   publication_status, ddh_fields, lovs, root_url),
                paste0(error_msg, ".*"))
 })
