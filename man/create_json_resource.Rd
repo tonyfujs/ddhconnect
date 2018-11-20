@@ -9,14 +9,14 @@ create_json_resource(values = list(title = "Test Resource Title", body =
   field_wbddh_resource_type = "Resource Type not specified", field_format =
   "Format Not Specified", field_link_api = "www.google.com",
   field_ddh_harvest_src = "Finances", field_ddh_harvest_sys_id =
-  "8675309"), workflow_status = "published",
+  "8675309"), publication_status = "published",
   ddh_fields = ddhconnect::get_fields(), lovs = ddhconnect::get_lovs(),
   root_url = dkanr::get_url())
 }
 \arguments{
 \item{values}{list: list of corresponding values that need to be updated}
 
-\item{workflow_status}{string: status to post the mode, takes values of c("published", "unpublished", "draft")}
+\item{publication_status}{string: status to post the mode, takes values of c("published", "unpublished", "draft")}
 
 \item{ddh_fields}{dataframe: table of all the data catalog fields by node type}
 
