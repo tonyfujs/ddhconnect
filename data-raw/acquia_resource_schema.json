@@ -1,0 +1,32 @@
+{
+  "body": {
+    "und": [
+      {
+        "value": "This is the body of the test page."
+      }
+    ]
+  },
+  "field_dataset_ref": {
+    "und": [
+      {
+        "target_id": "151376"
+      }
+    ]
+  },
+  "field_wbddh_data_class": {
+    "und": [
+      {
+        "tid": "358"
+      }
+    ]
+  },
+  "field_wbddh_resource_type": {
+    "und": [
+      {
+        "tid": "1356"
+      }
+    ]
+  },
+  "title": "check resource 500",
+  "type": "resource"
+}
