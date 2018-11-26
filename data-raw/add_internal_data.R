@@ -16,6 +16,7 @@ resource_json_format_lookup <- read.csv("./data-raw/resource_json_format_lookup.
 names(dataset_json_format_lookup) <- c("machine_names", "json_template")
 names(resource_json_format_lookup) <- c("machine_names", "json_template")
 
+machine_names_multiple_values <- read.csv("./data-raw/machine_names_multiple_values.csv", stringsAsFactors = FALSE)
 ui_names_lookup <- read.csv("./data-raw/ui_names_lookup.csv", stringsAsFactors = FALSE)
 names(ui_names_lookup) <- c("machine_names", "ui_names")
 
