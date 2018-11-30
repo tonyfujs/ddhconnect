@@ -1,16 +1,3 @@
-#' create_json_body
-#'
-#' Create the JSON body for updating the given fields or creating a new dataset
-#'
-#' @param values list: list of corresponding values that need to be updated
-#' @param json_formats dataframe: lookup table for machine name and expected value (dataset or resource)
-#' @param root_url string: API root URL
-#'
-#' @import dplyr
-#' @return json string
-#' @export
-#'
-
 create_json_body <- function(values = list("title" = "Test Create JSON",
                                           "body" = "Test Creation of JSON"),
                              json_formats = ddhconnect::dataset_json_format_lookup,
