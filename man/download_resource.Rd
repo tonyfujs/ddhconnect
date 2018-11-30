@@ -4,12 +4,14 @@
 \alias{download_resource}
 \title{download_resource}
 \usage{
-download_resource(resource_nid, root_url = dkanr::get_url(),
-  credentials = list(cookie = dkanr::get_cookie(), token =
-  dkanr::get_token()))
+download_resource(resource_nid, destination = getwd(),
+  root_url = dkanr::get_url(), credentials = list(cookie =
+  dkanr::get_cookie(), token = dkanr::get_token()))
 }
 \arguments{
 \item{resource_nid}{character: Resource NID}
+
+\item{destination}{string: file path to save the file, defaults to current working directory}
 
 \item{root_url}{string: API root URL}
 

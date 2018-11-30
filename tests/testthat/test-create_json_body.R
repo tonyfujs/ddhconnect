@@ -97,6 +97,19 @@ test_that("multiple field update works", {
   expect_equal(body, json_string)
 })
 
+test_that("can handle multiple values", {
+  body <- create_json_body(values = list("field_tags" = c("Africa", "ALADI", "ANDEAN", "ANZCERTA"),
+                                         "type" = "dataset"),
+                           json_formats = ddhconnect::dataset_json_format_lookup,
+                           lovs = lovs)
+  json_template <- list()
+  json_template$field_tags$und$value_field <- "\"\"Africa\"\" \"\"ALADI\"\" \"\"ANDEAN\"\" \"\"ANZCERTA\"\""
+  json_template$type <- "dataset"
+  json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
+  expect_equal(body, json_string)
+})
+
+
 test_that("multiple resource fields generates body", {
   body <- create_json_body(values = list("title" = "Test Resource Title",
                                          "body" = "Test Resource Body",
@@ -122,8 +135,6 @@ test_that("multiple resource fields generates body", {
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
 })
-
-
 
 test_that("map_metadata_excel works", {
 

@@ -24,7 +24,7 @@ create_json_dataset <- function(values = list("title" = "Test Create JSON",
                                 root_url = dkanr::get_url()) {
 
   values_fields <- names(values)
-  valid_fields <- unique(c(ddh_fields$machine_name[ddh_fields$node_type == "dataset"], "type"))
+  valid_fields <- unique(c(ddh_fields$machine_name[ddh_fields$node_type == "dataset"], "type", "workflow_status"))
   invalid_fields <- setdiff(values_fields, valid_fields)
   if (length(invalid_fields) > 0) {
     stop(paste0("Invalid fields: ", paste(invalid_fields, collapse = "\n"),

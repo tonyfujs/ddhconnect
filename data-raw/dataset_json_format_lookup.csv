@@ -43,11 +43,9 @@ field_wbddh_data_collector,"{""field_wbddh_data_collector"": {
         ]
     }}"
 field_wbddh_collaborator_upi,"{""field_wbddh_collaborator_upi"": {
-        ""und"": [
-            {
-                ""value"": """"
+        ""und"": {
+                ""autocomplete_hidden_value"": """"
             }
-        ]
     }}"
 field_wbddh_data_type,"{""field_wbddh_data_type"": {
         ""und"": []
@@ -67,9 +65,7 @@ field_wbddh_disclosure_risk,"{""field_wbddh_disclosure_risk"": {
         ]
     }}"
 field_wbddh_economy_coverage,"{""field_wbddh_economy_coverage"": {
-		""und"": {
-			""value"": """"
-		}
+		""und"":[]
 }}"
 field_wbddh_estimate_sampling,"{""field_wbddh_estimate_sampling"": {
         ""und"": [
@@ -274,7 +270,7 @@ field_frequency,"{""field_frequency"": {
 field_granularity_list,"{""field_granularity_list"": {
         ""und"": []
     }}"
-field_tags,"{""field_tags"": { ""und"": [ { ""value"": """" } ] }}"
+field_tags,"{""field_tags"": { ""und"": [ { ""value_field"": """" } ] }}"
 field_wbddh_data_notes,"{""field_wbddh_data_notes"": {
         ""und"": [
             {
