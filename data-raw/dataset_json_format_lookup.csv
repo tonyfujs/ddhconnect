@@ -110,10 +110,12 @@ field_wbddh_series_information,"{""field_wbddh_series_information"": {
         ]
     }}"
 field_wbddh_study_type,"{""field_wbddh_study_type"": {
-		""und"": {
-			""value"": """"
-		}
-	}}"
+        ""und"": [
+            {
+                ""value"": """"
+            }
+        ]
+    }}"
 field_wbddh_terms_of_use,"{""field_wbddh_terms_of_use"": {
         ""und"": [
             {
