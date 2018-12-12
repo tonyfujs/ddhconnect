@@ -31,3 +31,14 @@ field_wbddh_data_class,"""field_wbddh_data_class"":{""und"":[{""tid"":""""}]}"
 field_wbddh_resource_type,"{""field_wbddh_resource_type"":{""und"":[{""tid"":""""}]}}"
 title,"{""title"": """"}"
 type,"{""type"": """"}"
+field_ddh_harvest_src,"{""field_ddh_harvest_src"": {
+		""und"": {
+			""tid"": """"
+		}
+	}}"
+field_ddh_harvest_sys_id,"{""field_ddh_harvest_sys_id"": {
+		""und"": [{
+			""value"": """"
+		}]
+	}}"
+workflow_status,"{""workflow_status"": """"}"

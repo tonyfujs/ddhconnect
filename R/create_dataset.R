@@ -10,8 +10,8 @@
 #' @export
 #'
 
-create_dataset <- function(root_url = dkanr::get_url(),
-                           body,
+create_dataset <- function(body,
+                           root_url = dkanr::get_url(),
                            credentials = list(cookie = dkanr::get_cookie(),
                                               token = dkanr::get_token())) {
   out <- dkanr::create_node(url = root_url,

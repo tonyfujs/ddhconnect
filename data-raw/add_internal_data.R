@@ -16,6 +16,7 @@ resource_json_format_lookup <- read.csv("./data-raw/resource_json_format_lookup.
 names(dataset_json_format_lookup) <- c("machine_names", "json_template")
 names(resource_json_format_lookup) <- c("machine_names", "json_template")
 
+machine_names_multiple_values <- read.csv("./data-raw/machine_names_multiple_values.csv", stringsAsFactors = FALSE)
 ui_names_lookup <- read.csv("./data-raw/ui_names_lookup.csv", stringsAsFactors = FALSE)
 names(ui_names_lookup) <- c("machine_names", "ui_names")
 
@@ -25,24 +26,24 @@ ts_required_fields <- read.csv("./data-raw/ts_required_fields.csv", fileEncoding
 other_required_fields <- read.csv("./data-raw/other_required_fields.csv", fileEncoding = "UTF-8-BOM", stringsAsFactors = FALSE)
 
 # Save data
-devtools::use_data(attach_resources_template,
-                   test_dataset_update_json,
-                   test_resource_update_json,
-                   ui_names_lookup,
-                   overwrite = TRUE)
+usethis::use_data(attach_resources_template,
+                  test_dataset_update_json,
+                  test_resource_update_json,
+                  ui_names_lookup,
+                  overwrite = TRUE)
 
-devtools::use_data(production_root_url,
-                   stg_root_url,
-                   mandatory_text_fields,
-                   overwrite = TRUE,
-                   internal = TRUE)
+usethis::use_data(production_root_url,
+                  stg_root_url,
+                  mandatory_text_fields,
+                  overwrite = TRUE,
+                  internal = TRUE)
 
-devtools::use_data(dataset_json_format_lookup,
-                   resource_json_format_lookup,
-                   overwrite = TRUE)
+usethis::use_data(dataset_json_format_lookup,
+                  resource_json_format_lookup,
+                  overwrite = TRUE)
 
-devtools::use_data(gs_required_fields,
-                   md_required_fields,
-                   ts_required_fields,
-                   other_required_fields,
-                   overwrite = TRUE)
+usethis::use_data(gs_required_fields,
+                  md_required_fields,
+                  ts_required_fields,
+                  other_required_fields,
+                  overwrite = TRUE)

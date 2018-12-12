@@ -1,0 +1,13 @@
+﻿machine_name,type,field_name
+field_wbddh_dsttl_upi,dataset,TTL Name or UPI
+field_wbddh_collaborator_upi,dataset,Collaborator Name(s)
+field_best_bets,dataset,Best Bets 
+field_topic,dataset,Topics
+field_wbddh_country,dataset,Geographical Coverage 
+field_granularity_list,dataset,Granularity
+field_wbddh_economy_coverage,dataset,Economy Coverage
+field_wbddh_languages_supported,dataset,Languages Supported 
+field_wbddh_ds_source,dataset,Source Type
+field_tags,dataset,Tags
+og_group_ref,dataset,Your Collections
+field_best_bets,resource,Best Bets 

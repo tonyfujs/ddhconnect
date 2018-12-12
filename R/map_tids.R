@@ -3,6 +3,7 @@
 #' Map strings to tids
 #'
 #' @param values character vector: list of corresponding values that need to be checked for tids
+#' @param lovs dataframe: lookup table of the data catalog tids and values
 #' @param root_url character: API root URL
 #'
 #' @import dplyr
@@ -12,23 +13,23 @@
 #'
 
 map_tids <- function(values,
+                     lovs = ddhconnect::get_lovs(),
                      root_url = dkanr::get_url()) {
-  lovs_df <- get_lovs(root_url = root_url)
   # check for valid values
-  values_df <- metadata_list_values_to_df(values, lovs_df)
+  values_df <- metadata_list_values_to_df(values, lovs)
   invalid_df <- values_df %>%
-                left_join(lovs_df) %>%
+                left_join(lovs) %>%
                 filter(is.na(tid))
 
   errors <- c()
   if(nrow(invalid_df) > 0) {
     for(machine_name in invalid_df$machine_name) {
       # if the machine_name is valid
-      if(machine_name %in% lovs_df$machine_name) {
+      if(machine_name %in% lovs$machine_name) {
         errors <- c(errors,
                     paste0("Invalid value for ", machine_name,
                            ". The valid values are:\n",
-                           paste(lovs_df[lovs_df$machine_name == machine_name, "list_value_name"],
+                           paste(lovs[lovs$machine_name == machine_name, "list_value_name"],
                            collapse = "\n"))
                     )
       }
@@ -36,15 +37,15 @@ map_tids <- function(values,
         errors <- c(errors,
                     paste0("Invalid machine name: ", machine_name,
                            ". The valid machine names are:\n",
-                           paste(unique(lovs_df$machine_name), collapse = "\n"))
+                           paste(unique(lovs$machine_name), collapse = "\n"))
                     )
       }
     }
     stop(paste(errors, collapse = "\n\n"))
   }
 
-  keep <- intersect(names(values), lovs_df$machine_name)
-  lovs_subset <- lovs_df[which(lovs_df$machine_name %in% keep), ]
+  keep <- intersect(names(values), lovs$machine_name)
+  lovs_subset <- lovs[which(lovs$machine_name %in% keep), ]
 
   for (field_name in keep) {
     val_split <- values[field_name][[1]]
