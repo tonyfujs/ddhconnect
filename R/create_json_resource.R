@@ -27,7 +27,7 @@ create_json_resource <- function(values = list("title" = "Test Resource Title",
                                  root_url = dkanr::get_url()) {
 
   values_fields <- names(values)
-  valid_fields <- unique(c(ddh_fields$machine_name[ddh_fields$node_type == "resource"], "type"))
+  valid_fields <- unique(c(ddh_fields$machine_name[ddh_fields$node_type == "resource"], "type", "moderation_next_state"))
   invalid_fields <- setdiff(values_fields, valid_fields)
   if (length(invalid_fields) > 0) {
     stop(paste0("Invalid fields: ", paste(invalid_fields, collapse = "\n"),
@@ -36,7 +36,7 @@ create_json_resource <- function(values = list("title" = "Test Resource Title",
   }
 
   values["type"] <- "resource"
-  values["workflow_status"] <- publication_status
+  values["moderation_next_state"] <- publication_status
 
   # get the correct JSON formats from the lookup table
   json_formats <- ddhconnect::resource_json_format_lookup

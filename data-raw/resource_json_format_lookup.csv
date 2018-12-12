@@ -41,4 +41,4 @@ field_ddh_harvest_sys_id,"{""field_ddh_harvest_sys_id"": {
 			""value"": """"
 		}]
 	}}"
-workflow_status,"{""workflow_status"": """"}"
+moderation_next_state,"{""moderation_next_state"": """"}"
