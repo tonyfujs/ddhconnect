@@ -26,20 +26,19 @@ construct_datatypes_lookup <- function(root_url = dkanr::get_url()) {
   return(datatypes_lkup)
 }
 
-metadata_list_values_to_df <- function(metadata, lovs_df) {
-  i = 1
-  num_values = length(unlist(metadata))
+metadata_list_values_to_df <- function(metadata, lovs = ddhconnect::get_lovs()) {
+  i <- 1
   list_value_names <-  vector(mode = "character")
   machine_names <-  vector(mode = "character")
-  lov_fields <- unique(lovs_df$machine_name)
+  lov_fields <- unique(lovs$machine_name)
 
   for(x in 1:length(metadata)) {
     machine_name <- names(metadata)[x]
     if(!machine_name %in% lov_fields) {next}
     for(y in 1:length(metadata[[x]])) {
-      list_value_names <- c(list_value_names, metadata[[x]][y])
-      machine_names <- c(machine_names, machine_name)
-      i = i + 1
+      list_value_names[[i]] <- metadata[[x]][y]
+      machine_names[[i]] <- machine_name
+      i <- i + 1
     }
   }
 
