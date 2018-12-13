@@ -2,9 +2,7 @@ machine_names,json_template
 body,"{""body"":{""und"":[{""value"":""""}]}}"
 field_dataset_ref,"{""field_dataset_ref"":{""und"":[{""target_id"":""""}]}}"
 field_ddh_harvest_src,"{""field_ddh_harvest_src"": {
-		""und"": {
-			""tid"": """"
-		}
+		""und"": []
 	}}"
 field_ddh_harvest_sys_id,"{""field_ddh_harvest_sys_id"": {
 		""und"": [{
@@ -13,9 +11,7 @@ field_ddh_harvest_sys_id,"{""field_ddh_harvest_sys_id"": {
 	}}"
 field_exception_s_,"{""field_exception_s_"": []}"
 field_format,"{""field_format"": {
-		""und"": {
-			""tid"": """"
-		}
+		""und"": []
 	}}"
 field_link_api,"{""field_link_api"": {
 		""und"": [{
@@ -23,18 +19,14 @@ field_link_api,"{""field_link_api"": {
 		}]
 	}}"
 field_wbddh_api_format,"{""field_wbddh_api_format"": {
-		""und"": {
-			""tid"": """"
-		}
+		""und"": []
 	}}"
-field_wbddh_data_class,"""field_wbddh_data_class"":{""und"":[{""tid"":""""}]}"
-field_wbddh_resource_type,"{""field_wbddh_resource_type"":{""und"":[{""tid"":""""}]}}"
+field_wbddh_data_class,"{""field_wbddh_data_class"":{""und"":[]}}"
+field_wbddh_resource_type,"{""field_wbddh_resource_type"":{""und"":[]}}"
 title,"{""title"": """"}"
 type,"{""type"": """"}"
 field_ddh_harvest_src,"{""field_ddh_harvest_src"": {
-		""und"": {
-			""tid"": """"
-		}
+		""und"": []
 	}}"
 field_ddh_harvest_sys_id,"{""field_ddh_harvest_sys_id"": {
 		""und"": [{

@@ -74,3 +74,28 @@ test_that("tid fields update fails well for invalid values", {
                                    publication_status, ddh_fields, lovs, root_url),
                paste0(error_msg, ".*"))
 })
+
+acquia_resource <- c(
+  "body" = "have yourself a merry little christmas",
+  "field_dataset_ref" = "159981",
+  "field_wbddh_data_class" = "Public",
+  "field_wbddh_resource_type" = "API",
+  "title" = "judy garland"
+)
+
+test_that("correct body for acquia", {
+  body <- create_json_resource(values = acquia_resource,
+                               publication_status,
+                               dataset_nid = "159981",
+                               ddh_fields, lovs, root_url)
+  # json_template <- list()
+  # json_template$title <- "Test Create JSON"
+  # json_template$field_topic$und <- list("366", "376")
+  # json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
+  # json_template$type <- "dataset"
+  # json_template$workflow_status <- "published"
+  # json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
+  # expect_equal(body, json_string)
+})
+
+
