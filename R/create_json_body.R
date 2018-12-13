@@ -14,14 +14,14 @@ create_json_body <- function(values = list("title" = "Test Create JSON",
     json_template <- jsonlite::fromJSON(to_update[i, 2])
     if (is.character(json_template[[field_name]])) {
       # title, type, and status
-      json_template[[field_name]] <- format_free_text(values, field_name)
+      json_template[[field_name]] <- safe_unbox(safe_assign(values[[field_name]]))
     } else if (is.null(names(json_template[[field_name]]$und))) {
       # controlled vocabulary fields
       json_template[[field_name]]$und <- format_controlled_vocab(values, field_name)
     } else {
       # free text fields
       subfield_name <- names(json_template[[field_name]]$und)
-      json_template[[field_name]]$und[[subfield_name]] <- format_free_text(values, field_name)
+      json_template <- format_free_text(json_template, values, field_name, subfield_name)
     }
     json_body[field_name] <- json_template
   }
@@ -35,11 +35,13 @@ format_controlled_vocab <- function(values, field_name) {
   return(values[[field_name]])
 }
 
-format_free_text <- function(values, field_name) {
+format_free_text <- function(json_template, values, field_name, subfield_name) {
   if (is.list(values[[field_name]])) {
-    values[[field_name]] <- unlist(values[[field_name]])
+    out <- lapply(values[[field_name]], list)
+    out <- lapply(out, setNames, subfield_name)
+    json_template[[field_name]]$und <- out
   } else {
-    values[[field_name]] <- safe_unbox(safe_assign(values[[field_name]]))
+    json_template[[field_name]]$und[[subfield_name]] <- safe_unbox(safe_assign(values[[field_name]]))
   }
-  return(values[[field_name]])
+  return(json_template)
 }
