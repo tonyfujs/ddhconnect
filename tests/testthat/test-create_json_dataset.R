@@ -72,7 +72,7 @@ acquia_body <- list(
   "field_exception_s" = "1. Personal Information of Bank Staff",
   "field_frequency" = "Month",
   "field_granularity_list" = "National",
-  "field_license_wbddh" = "License not applicable (AMS 6.21A)",
+  "field_license_wbddh" = "License not Applicable (AMS 6.21A)",
   "field_tags" = list("ddh", "Governance"),
   "field_topic" = list("Fragility, Conflict and Violence", "Agriculture and Food Security"),
   "field_wbddh_base_period" = "2017-01-15 12:01:01",
