@@ -1,0 +1,169 @@
+{
+  "body": {
+    "und": [
+      {
+        "value": "Description of an API test dataset"
+      }
+    ]
+  },
+  "field_frequency": {
+    "und": [
+      {
+        "value": "2"
+      }
+    ]
+  },
+  "field_granularity_list": {
+    "und": [
+      {
+        "tid": "941"
+      }
+    ]
+  },
+  "field_license_wbddh": {
+    "und": [
+      {
+        "tid": "1344"
+      }
+    ]
+  },
+  "field_topic": {
+    "und": [
+      {
+        "tid": "369"
+      }
+    ]
+  },
+  "field_wbddh_base_period": {
+    "und": [
+      {
+        "value": "2017-01-15 12:01:01"
+      }
+    ]
+  },
+  "field_wbddh_collaborator_upi": {
+    "und": [
+      {
+        "target_id": "35258"
+      }
+    ]
+  },
+  "field_wbddh_country": {
+    "und": [
+      {
+        "tid": "38"
+      }
+    ]
+  },
+  "field_wbddh_data_class": {
+    "und": [
+      {
+        "tid": "359"
+      }
+    ]
+  },
+  "field_wbddh_data_type": {
+    "und": [
+      {
+        "tid": "294"
+      }
+    ]
+  },
+  "field_wbddh_ds_embargo_date": {
+    "und": [
+      {
+        "value": "2017-01-12 15:01:01"
+      }
+    ]
+  },
+  "field_wbddh_dsttl_upi": {
+    "und": [
+      {
+        "target_id": "753"
+      }
+    ]
+  },
+  "field_wbddh_economy_coverage": {
+    "und": [
+      {
+        "tid": "290"
+      }
+    ]
+  },
+  "field_wbddh_end_date": {
+    "und": [
+      {
+        "value": "2017-01-14 13:01:01"
+      }
+    ]
+  },
+  "field_wbddh_languages_supported": {
+    "und": [
+      {
+        "tid": "1024"
+      }
+    ]
+  },
+  "field_wbddh_modified_date": {
+    "und": [
+      {
+        "value": "2017-01-10 17:01:01"
+      }
+    ]
+  },
+  "field_wbddh_next_expected_update": {
+    "und": [
+      {
+        "value": "2017-01-16 11:01:01"
+      }
+    ]
+  },
+  "field_wbddh_release_date": {
+    "und": [
+      {
+        "value": "2017-01-11 16:01:01"
+      }
+    ]
+  },
+  "field_wbddh_responsible": {
+    "und": [
+      {
+        "value": "No"
+      }
+    ]
+  },
+  "field_wbddh_start_date": {
+    "und": [
+      {
+        "value": "2017-01-13 14:01:01"
+      }
+    ]
+  },
+  "field_wbddh_subscription_date": {
+    "und": [
+      {
+        "value": "2017-01-20 10:01:01",
+        "value2": "2017-01-21 10:01:01"
+      }
+    ]
+  },
+  "field_wbddh_time_periods": {
+    "und": [
+      {
+        "show_todate": 1,
+        "value": "2017-01-18 10:01:01",
+        "value2": "2017-01-19 10:01:01"
+      }
+    ]
+  },
+  "field_wbddh_version_date": {
+    "und": [
+      {
+        "value": "2017-01-17 10:01:01"
+      }
+    ]
+  },
+  "title": "test DS 500 error",
+  "type": "dataset",
+  "workflow_status": "draft"
+}

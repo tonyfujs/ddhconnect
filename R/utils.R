@@ -36,7 +36,7 @@ metadata_list_values_to_df <- function(metadata, lovs = ddhconnect::get_lovs()) 
     machine_name <- names(metadata)[x]
     if(!machine_name %in% lov_fields) {next}
     for(y in 1:length(metadata[[x]])) {
-      list_value_names[[i]] <- metadata[[x]][y]
+      list_value_names[[i]] <- unlist(metadata[[x]][y])
       machine_names[[i]] <- machine_name
       i <- i + 1
     }
