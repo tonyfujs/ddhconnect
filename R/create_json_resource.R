@@ -44,6 +44,8 @@ create_json_resource <- function(values = list("title" = "Test Resource Title",
 
   # get the correct JSON formats from the lookup table
   json_formats <- ddhconnect::resource_json_format_lookup
-  json_body <- create_json_body(values, json_formats, lovs, root_url)
+  # json_body <- create_json_body(values, json_formats, lovs, root_url)
+  json_body <- create_json_body(values)
+  
   return(json_body)
 }
