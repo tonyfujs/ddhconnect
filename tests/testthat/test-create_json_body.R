@@ -143,17 +143,32 @@ test_that("multiple resource fields generates body", {
                                          "type" = "resource"),
                            json_formats = ddhconnect::resource_json_format_lookup,
                            lovs = lovs)
+  # json_template <- list()
+  # json_template$title <- "Test Resource Title"
+  # json_template$body$und[[1]]$value <- "Test Resource Body"
+  # json_template$field_wbddh_data_class$und$tid <- "358"
+  # json_template$field_wbddh_resource_type$und$tid <- "877"
+  # json_template$field_link_api$und[[1]]$url <- "www.google.com"
+  # json_template$type <- "resource"
+  # json_template$field_format$und$tid <- "1271"
+  # json_template$field_ddh_harvest_src$und$tid <- "1015"
+  # json_template$field_ddh_harvest_sys_id$und[[1]]$value <- "8675309"
+  # json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
+  
   json_template <- list()
   json_template$title <- "Test Resource Title"
   json_template$body$und[[1]]$value <- "Test Resource Body"
-  json_template$field_wbddh_data_class$und$tid <- "358"
-  json_template$field_wbddh_resource_type$und$tid <- "877"
-  json_template$field_link_api$und[[1]]$url <- "www.google.com"
-  json_template$type <- "resource"
-  json_template$field_format$und$tid <- "1271"
-  json_template$field_ddh_harvest_src$und$tid <- "1015"
+  # json_template$field_ddh_harvest_src$und$tid <- "1015"
+  json_template$field_ddh_harvest_src$und <- list(list("tid" = "1015"))
   json_template$field_ddh_harvest_sys_id$und[[1]]$value <- "8675309"
+  # json_template$field_format$und$tid <- "1271"
+  json_template$field_format$und <- list(list("tid" = "1271"))
+  json_template$field_link_api$und[[1]]$url <- "www.google.com"
+  json_template$field_wbddh_data_class$und <- list(list("tid" = "358"))
+  json_template$field_wbddh_resource_type$und <- list(list("tid" = "877"))
+  json_template$type <- "resource"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
+  
   expect_equal(body, json_string)
 })
 
