@@ -25,7 +25,7 @@ create_json_body <- function(values = list("title" = "Test Create JSON",
     }
     json_body[field_name] <- json_template
   }
-  return(jsonlite::toJSON(json_body))
+  return(jsonlite::toJSON(json_body, auto_unbox = T))
 }
 
 format_controlled_vocab <- function(values, field_name) {
