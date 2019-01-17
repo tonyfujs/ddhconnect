@@ -2,7 +2,7 @@ machine_names,json_template
 body,"{""body"":{""und"":[{""value"":""""}]}}"
 field_dataset_ref,"{""field_dataset_ref"":{""und"":[{""target_id"":""""}]}}"
 field_ddh_harvest_src,"{""field_ddh_harvest_src"":{""und"":[{""tid"":""""}]}}"
-field_ddh_harvest_sys_id,"{""field_ddh_harvest_sys_id"":{""und"":[{""target_id"":""""}]}}"
+field_ddh_harvest_sys_id,"{""field_ddh_harvest_sys_id"":{""und"":[{""value"":""""}]}}"
 field_exception_s_,"{""field_exception_s_"":{""und"":[{""tid"":""""}]}}"
 field_format,"{""field_format"":{""und"":[{""tid"":""""}]}}"
 field_link_api,"{""field_link_api"":{""und"":[{""url"":""""}]}}"
