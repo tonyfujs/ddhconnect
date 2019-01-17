@@ -99,13 +99,22 @@ test_that("multiple field update works", {
                                "type" = "dataset"),
                           json_formats = ddhconnect::dataset_json_format_lookup,
                           lovs = lovs)
+  # json_template <- list()
+  # json_template$title <- "Test Create JSON"
+  # json_template$body$und[[1]]$value <- "Test Body"
+  # json_template$field_topic$und <- list("366")
+  # json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
+  # json_template$type <- "dataset"
+  # json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
+  
   json_template <- list()
   json_template$title <- "Test Create JSON"
   json_template$body$und[[1]]$value <- "Test Body"
-  json_template$field_topic$und <- list("366")
-  json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
+  json_template$field_topic$und <- list(list("tid" = "366"))
+  json_template$field_wbddh_dsttl_upi$und <- list(list("target_id" = "46404"))
   json_template$type <- "dataset"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
+  
   expect_equal(body, json_string)
 })
 
@@ -115,7 +124,7 @@ test_that("can handle multiple values", {
                            json_formats = ddhconnect::dataset_json_format_lookup,
                            lovs = lovs)
   json_template <- list()
-  json_template$field_tags$und$value_field <- "\"\"Africa\"\" \"\"ALADI\"\" \"\"ANDEAN\"\" \"\"ANZCERTA\"\""
+  json_template$field_tags$und <- list("1229","1260","1246","1247")
   json_template$type <- "dataset"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
