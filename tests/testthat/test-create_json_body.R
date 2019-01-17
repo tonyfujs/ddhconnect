@@ -39,10 +39,16 @@ test_that("tid field update works", {
                                 "type" = "dataset"),
                            json_formats = ddhconnect::dataset_json_format_lookup,
                            lovs = lovs)
+  # json_template <- list()
+  # json_template$field_topic$und <- list("366")
+  # json_template$type <- "dataset"
+  # json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
+  
   json_template <- list()
-  json_template$field_topic$und <- list("366")
+  json_template$field_topic$und <- list( list("tid" = "366"))
   json_template$type <- "dataset"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
+  
   expect_equal(body, json_string)
 })
 
@@ -72,10 +78,16 @@ test_that("upi field update works", {
                                          "type" = "dataset"),
                            json_formats = ddhconnect::dataset_json_format_lookup,
                            lovs = lovs)
+  # json_template <- list()
+  # json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
+  # json_template$type <- "dataset"
+  # json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
+  
   json_template <- list()
-  json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
+  json_template$field_wbddh_dsttl_upi$und <- list(list("target_id" = "46404"))
   json_template$type <- "dataset"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
+  
   expect_equal(body, json_string)
 })
 

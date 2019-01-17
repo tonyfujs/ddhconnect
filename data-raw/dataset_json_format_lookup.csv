@@ -1,4 +1,5 @@
 machine_names,json_template
+title,"{""title"":""""}"
 body,"{""body"":{""und"":[{""value"":""""}]}}"
 field_contact_email,"{""field_contact_email"":{""und"":[{""value"":""""}]}}"
 field_ddh_external_contact_email,"{""field_ddh_external_contact_email"":{""und"":[{""value"":""""}]}}"
