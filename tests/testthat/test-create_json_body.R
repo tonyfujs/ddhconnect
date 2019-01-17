@@ -52,6 +52,9 @@ test_that("tid field update works", {
   expect_equal(body, json_string)
 })
 
+###########################
+#FAILS
+##########################
 test_that("multiple tid value update works", {
   body <- create_json_body(list("field_topic" = c("Energy and Extractives", "Poverty"),
                                 "type" = "dataset"),
@@ -118,6 +121,9 @@ test_that("multiple field update works", {
   expect_equal(body, json_string)
 })
 
+##############################################
+#FAILS
+##############################################
 test_that("can handle multiple values", {
   body <- create_json_body(values = list("field_tags" = c("Africa", "ALADI", "ANDEAN", "ANZCERTA"),
                                          "type" = "dataset"),
@@ -180,7 +186,8 @@ test_that("map_metadata_excel works", {
   json_template <- list()
   json_template$title <- "TEST TITLE"
   json_template$body$und[[1]]$value <- "Test Body"
-  json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
+  # json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
+  json_template$field_wbddh_dsttl_upi$und <- list(list("target_id" = "46404"))
   # json_template$type <- "dataset" #leaving out due to change in func and parameters
   json_template$workflow_status <- "published"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
