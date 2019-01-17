@@ -49,7 +49,8 @@ safe_unbox <- purrr::possibly(jsonlite::unbox, otherwise = "")
 
 safe_assign <- function(x) {
   if (length(x) > 0) {
-    return(x)
+    # return(x)
+    return(as.character(x))
   } else {
     return("")
   }
