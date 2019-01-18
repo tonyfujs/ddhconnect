@@ -73,7 +73,7 @@ test_that("upi field update works", {
                            json_formats = ddhconnect::dataset_json_format_lookup,
                            lovs = lovs)
   json_template <- list()
-  json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
+  json_template$field_wbddh_dsttl_upi$und <- list(list("target_id" = "46404"))
   json_template$type <- "dataset"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
@@ -90,8 +90,8 @@ test_that("multiple field update works", {
   json_template <- list()
   json_template$title <- "Test Create JSON"
   json_template$body$und[[1]]$value <- "Test Body"
-  json_template$field_topic$und <- list("366")
-  json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
+  json_template$field_topic$und <- list(list("tid" = "366"))
+  json_template$field_wbddh_dsttl_upi$und <- list(list("target_id" = "46404"))
   json_template$type <- "dataset"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
@@ -103,7 +103,7 @@ test_that("can handle multiple values", {
                            json_formats = ddhconnect::dataset_json_format_lookup,
                            lovs = lovs)
   json_template <- list()
-  json_template$field_tags$und$value_field <- "\"\"Africa\"\" \"\"ALADI\"\" \"\"ANDEAN\"\" \"\"ANZCERTA\"\""
+  json_template$field_tags$und <- list(list("tid" = "1229"),list("tid" = "1260"),list("tid" = "1246"),list("tid" = "1247"))
   json_template$type <- "dataset"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
@@ -125,28 +125,25 @@ test_that("multiple resource fields generates body", {
   json_template <- list()
   json_template$title <- "Test Resource Title"
   json_template$body$und[[1]]$value <- "Test Resource Body"
-  json_template$field_wbddh_data_class$und$tid <- "358"
-  json_template$field_wbddh_resource_type$und$tid <- "877"
-  json_template$field_link_api$und[[1]]$url <- "www.google.com"
-  json_template$type <- "resource"
-  json_template$field_format$und$tid <- "1271"
-  json_template$field_ddh_harvest_src$und$tid <- "1015"
+  json_template$field_ddh_harvest_src$und <- list(list("tid" = "1015"))
   json_template$field_ddh_harvest_sys_id$und[[1]]$value <- "8675309"
+  json_template$field_format$und <- list(list("tid" = "1271"))
+  json_template$field_link_api$und[[1]]$url <- "www.google.com"
+  json_template$field_wbddh_data_class$und <- list(list("tid" = "358"))
+  json_template$field_wbddh_resource_type$und <- list(list("tid" = "877"))
+  json_template$type <- "resource"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
 })
 
 test_that("map_metadata_excel works", {
-
   body <- create_json_body(map_metadata_excel("../../data-raw/test-map_metadata_excel.xlsx"),
                            json_formats = ddhconnect::dataset_json_format_lookup,
                            lovs = lovs)
   json_template <- list()
   json_template$title <- "TEST TITLE"
   json_template$body$und[[1]]$value <- "Test Body"
-  json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
-  # json_template$type <- "dataset" #leaving out due to change in func and parameters
-  json_template$workflow_status <- "published"
+  json_template$field_wbddh_dsttl_upi$und <- list(list("target_id" = "46404"))
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
 
   expect_equal(body, json_string)

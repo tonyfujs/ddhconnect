@@ -1,4 +1,5 @@
 machine_names,json_template
+title,"{""title"": """"}"
 body,"{""body"":{""und"":[{""value"":""""}]}}"
 field_dataset_ref,"{""field_dataset_ref"":{""und"":[{""target_id"":""""}]}}"
 field_ddh_harvest_src,"{""field_ddh_harvest_src"":{""und"":[{""tid"":""""}]}}"
@@ -9,6 +10,5 @@ field_link_api,"{""field_link_api"":{""und"":[{""url"":""""}]}}"
 field_wbddh_api_format,"{""field_wbddh_api_format"": {""und"": [{""tid"": """"}]}}"
 field_wbddh_data_class,"{""field_wbddh_data_class"": {""und"": [{""tid"": """"}]}}"
 field_wbddh_resource_type,"{""field_wbddh_resource_type"": {""und"": [{""tid"": """"}]}}"
-title,"{""title"": """"}"
 type,"{""type"": """"}"
 moderation_next_state,"{""moderation_next_state"": """"}"
