@@ -2,10 +2,10 @@ context("test-create_json_dataset.R")
 
 root_url <- "http://ddh1stg.prod.acquia-sites.com"
 
-# use regular log in
-# dkanr::dkanr_setup(url = root_url,
-#                    username = Sys.getenv("ddh_username"),
-#                    password = Sys.getenv("ddh_stg_password"))
+# Make sure enviroment variables for stg username and passowrd are setup
+dkanr::dkanr_setup(url = root_url,
+                   username = Sys.getenv("ddh_username"),
+                   password = Sys.getenv("ddh_stg_password"))
 
 ddh_fields <- ddhconnect::get_fields()
 lovs <- ddhconnect::get_lovs()
@@ -92,7 +92,7 @@ acquia_body <- list(
   "field_exception_s" = "1. Personal Information of Bank Staff",
   "field_frequency" = "Month",
   "field_granularity_list" = "National",
-  "field_license_wbddh" = "License not Applicable (AMS 6.21A)",
+  "field_license_wbddh" = "License Not Applicable (AMS 6.21A)",
   "field_tags" = list("ddh", "Governance"),
   "field_topic" = list("Fragility, Conflict and Violence", "Agriculture and Food Security"),
   "field_wbddh_base_period" = "2017-01-15 12:01:01",

@@ -1,7 +1,13 @@
 context("test-create_json_resource.R")
 
 root_url <- "http://ddh1stg.prod.acquia-sites.com"
-dkanr::dkanr_setup(url = root_url)
+
+# Make sure enviroment variables for stg username and passowrd are setup
+dkanr::dkanr_setup(url = root_url,
+                   username = Sys.getenv("ddh_username"),
+                   password = Sys.getenv("ddh_stg_password"))
+
+
 ddh_fields <- ddhconnect::get_fields()
 lovs <- ddhconnect::get_lovs()
 publication_status <- "published"
@@ -61,7 +67,7 @@ test_that("basic resource json body builds correctly with unpublished", {
 })
 
 test_that("tid fields update fails well for invalid field names", {
-  resource_fields <- ddhconnect::get_fields(root_url = root_url)
+  resource_fields <- ddh_fields
   fields <- unique(resource_fields$machine_name[resource_fields$node_type == "resource"])
   invalid_fields <- c("field_invalid_test")
   error_msg <- paste0("Invalid fields: ",
@@ -69,7 +75,9 @@ test_that("tid fields update fails well for invalid field names", {
                       "\nPlease choose a valid field from:\n",
                       paste(fields, collapse = "\n"))
   expect_error(create_json_resource(list("field_invalid_test" = c("Energy and Extractives", "Topic123")),
-                                   publication_status, ddh_fields, lovs, root_url),
+                                    publication_status = publication_status,
+                                    ddh_fields = ddh_fields, lovs = lovs,
+                                    root_url = root_url),
                paste0(error_msg, ".*"))
 })
 
