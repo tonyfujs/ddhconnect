@@ -32,26 +32,26 @@ values <- list("type" = "resource",
 #   expect_equal(output, expected)
 # })
 
-required_fields <- list(
-  "body" = "multiple values json body",
-  "field_best_bets" = list("something", "else"),
-  "field_license_wbddh" = "Creative Commons Attribution 4.0",
-  "field_topic" = list("Jobs", "Poverty"),
-  "field_frequency" = "Periodicity not specified",
-  # "field_tags" = list("Africa", "ALADI"),
-  "field_wbddh_collaborator_upi" = list("49436", "741"),
-  "field_wbddh_country" = list("Afghanistan", "Albania"),
-  "field_wbddh_dsttl_upi" = list("49436", "741"),
-  "field_wbddh_ds_source" = list("Academia", "Civil Society"),
-  "field_wbddh_data_class" = "Public",
-  "field_wbddh_data_type" = "Other",
-  "field_wbddh_economy_coverage" = list("High Income", "Low Income"),
-  "field_wbddh_economy_coverage" = "Economy Coverage not specified",
-  "field_granularity_list" = list("National", "Regional"),
-  "field_wbddh_languages_supported" = list("English", "Spanish"),
-  "title" = "test multiple values",
-  "type" = "dataset",
-  "workflow_status" = "published"
-)
+# required_fields <- list(
+#   "body" = "multiple values json body",
+#   "field_best_bets" = list("something", "else"),
+#   "field_license_wbddh" = "Creative Commons Attribution 4.0",
+#   "field_topic" = list("Jobs", "Poverty"),
+#   "field_frequency" = "Periodicity not specified",
+#   # "field_tags" = list("Africa", "ALADI"),
+#   "field_wbddh_collaborator_upi" = list("49436", "741"),
+#   "field_wbddh_country" = list("Afghanistan", "Albania"),
+#   "field_wbddh_dsttl_upi" = list("49436", "741"),
+#   "field_wbddh_ds_source" = list("Academia", "Civil Society"),
+#   "field_wbddh_data_class" = "Public",
+#   "field_wbddh_data_type" = "Other",
+#   "field_wbddh_economy_coverage" = list("High Income", "Low Income"),
+#   "field_wbddh_economy_coverage" = "Economy Coverage not specified",
+#   "field_granularity_list" = list("National", "Regional"),
+#   "field_wbddh_languages_supported" = list("English", "Spanish"),
+#   "title" = "test multiple values",
+#   "type" = "dataset",
+#   "workflow_status" = "published"
+# )
 
-temp <- create_json_dataset(required_fields)
+# temp <- create_json_dataset(required_fields)

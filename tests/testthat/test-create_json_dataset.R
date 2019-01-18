@@ -1,8 +1,12 @@
 context("test-create_json_dataset.R")
 
-root_url <- "http://ddh1stg.prod.acquia-sites.com/"
+root_url <- "http://ddh1stg.prod.acquia-sites.com"
+
 # use regular log in
-# dkanr::dkanr_setup(url = root_url)
+# dkanr::dkanr_setup(url = root_url,
+#                    username = Sys.getenv("ddh_username"),
+#                    password = Sys.getenv("ddh_stg_password"))
+
 ddh_fields <- ddhconnect::get_fields()
 lovs <- ddhconnect::get_lovs()
 publication_status <- "published"
@@ -20,7 +24,7 @@ test_that("basic dataset json body builds correctly", {
                                             "field_topic" = c("Energy and Extractives", "Poverty"),
                                             "field_wbddh_dsttl_upi" = "46404"),
                               publication_status = publication_status,
-                              ddh_fields = ddh_fields,
+                              ddh_fields = ddh_fields, 
                               lovs = lovs,
                               root_url = root_url)
   json_template <- list()
