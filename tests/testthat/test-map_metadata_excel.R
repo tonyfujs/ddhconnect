@@ -1,5 +1,5 @@
 context("test-map_metadata_excel.R")
-root_url <- "https://newdatacatalogstg.worldbank.org"
+root_url <- "http://ddh1stg.prod.acquia-sites.com"
 
 dkanr::dkanr_setup(url = root_url)
 

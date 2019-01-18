@@ -19,7 +19,10 @@ test_that("basic dataset json body builds correctly", {
   body <- create_json_dataset(values = list("title" = "Test Create JSON",
                                             "field_topic" = c("Energy and Extractives", "Poverty"),
                                             "field_wbddh_dsttl_upi" = "46404"),
-                              publication_status, ddh_fields, lovs, root_url)
+                              publication_status = publication_status,
+                              ddh_fields = ddh_fields,
+                              lovs = lovs,
+                              root_url = root_url)
   json_template <- list()
   json_template$title <- "Test Create JSON"
   json_template$field_topic$und <- list(list("tid" = "366"),list("tid" = "376"))
@@ -35,7 +38,9 @@ test_that("basic dataset json body builds correctly with unpublished", {
                                             "field_topic" = c("Energy and Extractives", "Poverty"),
                                             "field_wbddh_dsttl_upi" = "46404"),
                               publication_status = "unpublished",
-                              ddh_fields, lovs, root_url)
+                              ddh_fields = ddh_fields,
+                              lovs = lovs,
+                              root_url = root_url)
   json_template <- list()
   json_template$title <- "Test Create JSON"
   json_template$field_topic$und <- list(list("tid" = "366"),list("tid" = "376"))
@@ -59,7 +64,10 @@ test_that("tid fields update fails well for invalid field names", {
   
   
   expect_error(create_json_dataset(list("field_invalid_test" = c("Energy and Extractives", "Topic123")),
-                                   publication_status, ddh_fields, lovs, root_url),
+                                   publication_status = publication_status,
+                                   ddh_fields = ddh_fields,
+                                   lovs = lovs,
+                                   root_url = root_url),
                paste0(error_msg_1, ".*"))
 })
 
@@ -68,7 +76,10 @@ test_that("tid fields update fails well for invalid values", {
   error_msg <- paste0("Invalid value for field_topic. The valid values are:\n",
                       paste(list_value_names, collapse = "\n"))
   expect_error(create_json_dataset(list("field_topic" = c("Energy and Extractives", "Topic123")),
-                                   publication_status, ddh_fields, lovs, root_url),
+                                   publication_status = publication_status,
+                                   ddh_fields = ddh_fields,
+                                   lovs = lovs,
+                                   root_url = root_url),
                paste0(error_msg, ".*"))
 })
 
@@ -100,7 +111,10 @@ acquia_body <- list(
 )
 test_that("correct body for acquia", {
   body <- create_json_dataset(values = acquia_body,
-                              publication_status, ddh_fields, lovs, root_url)
+                              publication_status = publication_status,
+                              ddh_fields = ddh_fields,
+                              lovs = lovs,
+                              root_url = root_url)
   # json_template <- list()
   # json_template$title <- "Test Create JSON"
   # json_template$field_topic$und <- list("366", "376")
