@@ -36,7 +36,7 @@ format_controlled_vocab <- function(values, field_name) {
 }
 
 format_free_text <- function(json_template, values, field_name, subfield_name) {
-  if (is.list(values[[field_name]])) {
+  if (length(values[[field_name]]) > 1){
     out <- lapply(values[[field_name]], list)
     out <- lapply(out, setNames, subfield_name)
     json_template[[field_name]]$und <- out

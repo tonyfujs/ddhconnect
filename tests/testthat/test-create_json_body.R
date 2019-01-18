@@ -40,7 +40,7 @@ test_that("tid field update works", {
                            json_formats = ddhconnect::dataset_json_format_lookup,
                            lovs = lovs)
   json_template <- list()
-  json_template$field_topic$und <- list("366")
+  json_template$field_topic$und <- list( list("tid" = "366"))
   json_template$type <- "dataset"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
@@ -52,7 +52,7 @@ test_that("multiple tid value update works", {
                            json_formats = ddhconnect::dataset_json_format_lookup,
                            lovs = lovs)
   json_template <- list()
-  json_template$field_topic$und <- list("366", "376")
+  json_template$field_topic$und <- list(list("tid" = "366"),list("tid" = "376"))
   json_template$type <- "dataset"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
