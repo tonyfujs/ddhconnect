@@ -57,7 +57,7 @@ map_tids <- function(values,
   #   }
   #   values[[field_name]] <- val_split
   # }
-  # 
+
   
   temp <- inner_join(values_df, lovs, by = c("machine_name","list_value_name")) %>%
     select(machine_name, tid)
@@ -68,7 +68,7 @@ map_tids <- function(values,
       name <- temp[i,]$machine_name
       id   <- temp[i,]$tid
 
-      values[[name]] <- id
+      values[[name]][[i]] <- id
     }
 
   }

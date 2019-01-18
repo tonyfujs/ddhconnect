@@ -1,5 +1,5 @@
 context("test-create_json_body.R")
-root_url <- "https://newdatacatalogstg.worldbank.org"
+root_url <- "http://ddh1stg.prod.acquia-sites.com"
 
 dkanr::dkanr_setup(url = root_url)
 lovs <- ddhconnect::get_lovs()
