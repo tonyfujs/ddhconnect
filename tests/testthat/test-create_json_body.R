@@ -52,9 +52,6 @@ test_that("tid field update works", {
   expect_equal(body, json_string)
 })
 
-###########################
-#FAILS
-##########################
 test_that("multiple tid value update works", {
   body <- create_json_body(list("field_topic" = c("Energy and Extractives", "Poverty"),
                                 "type" = "dataset"),
