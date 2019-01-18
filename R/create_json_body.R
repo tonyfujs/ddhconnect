@@ -25,8 +25,8 @@ create_json_body <- function(values = list("title" = "Test Create JSON",
     }
     json_body[field_name] <- json_template
   }
-  return(jsonlite::toJSON(json_body))
-  # return(jsonlite::toJSON(json_body, auto_unbox = TRUE))
+  # return(jsonlite::toJSON(json_body))
+  return(jsonlite::toJSON(json_body, auto_unbox = TRUE))
 }
 
 format_controlled_vocab <- function(values, field_name) {
@@ -51,7 +51,8 @@ format_controlled_vocab <- function(values, field_name) {
 # }
 
 format_free_text <- function(json_template, values, field_name, subfield_name) {
-  if (is.list(values[[field_name]])) {
+  # if (is.list(values[[field_name]])) {
+  if (length(values[[field_name]]) > 1){
     out <- lapply(values[[field_name]], list)
     out <- lapply(out, setNames, subfield_name)
     json_template[[field_name]]$und <- out

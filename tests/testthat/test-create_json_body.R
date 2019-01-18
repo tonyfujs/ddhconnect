@@ -1,5 +1,5 @@
 context("test-create_json_body.R")
-root_url <- "https://newdatacatalogstg.worldbank.org"
+root_url <- "http://ddh1stg.prod.acquia-sites.com/"
 
 dkanr::dkanr_setup(url = root_url)
 lovs <- ddhconnect::get_lovs()
@@ -61,7 +61,8 @@ test_that("multiple tid value update works", {
                            json_formats = ddhconnect::dataset_json_format_lookup,
                            lovs = lovs)
   json_template <- list()
-  json_template$field_topic$und <- list("366", "376")
+  # json_template$field_topic$und <- list("366", "376")
+  json_template$field_topic$und <- list(list("tid" = "366"),list("tid" = "376"))
   json_template$type <- "dataset"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
@@ -130,7 +131,7 @@ test_that("can handle multiple values", {
                            json_formats = ddhconnect::dataset_json_format_lookup,
                            lovs = lovs)
   json_template <- list()
-  json_template$field_tags$und <- list("1229","1260","1246","1247")
+  json_template$field_tags$und <- list(list("tid" = "1229"),list("tid" = "1260"),list("tid" = "1246"),list("tid" = "1247"))
   json_template$type <- "dataset"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
@@ -189,7 +190,7 @@ test_that("map_metadata_excel works", {
   # json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
   json_template$field_wbddh_dsttl_upi$und <- list(list("target_id" = "46404"))
   # json_template$type <- "dataset" #leaving out due to change in func and parameters
-  json_template$workflow_status <- "published"
+  # json_template$workflow_status <- "published"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
 
   expect_equal(body, json_string)

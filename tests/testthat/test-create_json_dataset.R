@@ -14,7 +14,6 @@ publication_status <- "published"
 # httptest::stop_capturing()
 
 # TODO: add tests for multiple values when we get the format back
-
 test_that("basic dataset json body builds correctly", {
   body <- create_json_dataset(values = list("title" = "Test Create JSON",
                                             "field_topic" = c("Energy and Extractives", "Poverty"),
@@ -22,10 +21,13 @@ test_that("basic dataset json body builds correctly", {
                               publication_status, ddh_fields, lovs, root_url)
   json_template <- list()
   json_template$title <- "Test Create JSON"
-  json_template$field_topic$und <- list("366", "376")
-  json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
+  # json_template$field_topic$und <- list("366", "376")
+  json_template$field_topic$und <- list(list("tid" = "366"),list("tid" = "376"))
+  # json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
+  json_template$field_wbddh_dsttl_upi$und <- list(list("target_id" = "46404"))
+  # json_template$workflow_status <- "published"
+  json_template$moderation_next_state <- "published"
   json_template$type <- "dataset"
-  json_template$workflow_status <- "published"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
 })
@@ -38,10 +40,10 @@ test_that("basic dataset json body builds correctly with unpublished", {
                               ddh_fields, lovs, root_url)
   json_template <- list()
   json_template$title <- "Test Create JSON"
-  json_template$field_topic$und <- list("366", "376")
-  json_template$field_wbddh_dsttl_upi$und$autocomplete_hidden_value <- "46404"
+  json_template$field_topic$und <- list(list("tid" = "366"),list("tid" = "376"))
+  json_template$field_wbddh_dsttl_upi$und <- list(list("target_id" = "46404"))
+  json_template$moderation_next_state <- "unpublished"
   json_template$type <- "dataset"
-  json_template$workflow_status <- "unpublished"
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
 })
