@@ -38,7 +38,7 @@ First, set up your connection and authenticate your credentials using `dkanr::dk
 library(dkanr)
 library(ddhconnect)
 dkanr_setup(
-  url = 'https://newdatacatalogstg.worldbank.org',
+  url = 'http://ddh1stg.prod.acquia-sites.com',
   username = Sys.getenv("ddh_username"),
   password = Sys.getenv("ddh_stg_password")
 )

@@ -46,31 +46,16 @@ map_tids <- function(values,
     stop(paste(errors, collapse = "\n\n"))
   }
 
-  # keep <- intersect(names(values), lovs$machine_name)
-  # lovs_subset <- lovs[which(lovs$machine_name %in% keep), ]
-  # 
-  # for (field_name in keep) {
-  #   val_split <- values[field_name][[1]]
-  #   for (val in val_split) {
-  #     map_tid <- lovs_subset[lovs_subset$machine_name == field_name & lovs_subset$list_value_name == val, 'tid']
-  #     val_split[val_split == val] <- map_tid
-  #   }
-  #   values[[field_name]] <- val_split
-  # }
-  # 
-  
-  temp <- inner_join(values_df, lovs, by = c("machine_name","list_value_name")) %>%
-    select(machine_name, tid)
+  keep <- intersect(names(values), lovs$machine_name)
+  lovs_subset <- lovs[which(lovs$machine_name %in% keep), ]
 
-  if(nrow(temp) > 0){
-
-    for(i in 1:nrow(temp)){
-      name <- temp[i,]$machine_name
-      id   <- temp[i,]$tid
-
-      values[[name]] <- id
+  for (field_name in keep) {
+    val_split <- values[field_name][[1]]
+    for (val in val_split) {
+      map_tid <- lovs_subset[lovs_subset$machine_name == field_name & lovs_subset$list_value_name == val, 'tid']
+      val_split[val_split == val] <- map_tid
     }
-
+    values[[field_name]] <- val_split
   }
   
   return(values)

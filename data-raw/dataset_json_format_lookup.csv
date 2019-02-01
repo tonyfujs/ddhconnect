@@ -1,4 +1,5 @@
 machine_names,json_template
+title,"{""title"":""""}"
 body,"{""body"":{""und"":[{""value"":""""}]}}"
 field_contact_email,"{""field_contact_email"":{""und"":[{""value"":""""}]}}"
 field_ddh_external_contact_email,"{""field_ddh_external_contact_email"":{""und"":[{""value"":""""}]}}"
@@ -71,7 +72,6 @@ field_wbddh_version_notes,"{""field_wbddh_version_notes"":{""und"":[{""value"":"
 field_wbddh_weighting,"{""field_wbddh_weighting"":{""und"":[{""value"":""""}]}}"
 moderation_next_state,"{""moderation_next_state"":""""}"
 og_group_ref,"{""og_group_ref"":{""und"":[{""target_id"":"""",""field_mode"":""""}]}}"
-title,"{""title"":""""}"
 type,"{""type"":""""}"
 field_wbddh_questionnaires,"{""field_wbddh_questionnaires"":{""und"":[{""value"":""""}]}}"
 field_wbddh_ds_embargo_date,"{""field_wbddh_ds_embargo_date"":{""und"":[{""value"":""""}]}}"
