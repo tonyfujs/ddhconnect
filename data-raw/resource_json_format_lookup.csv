@@ -12,3 +12,4 @@ field_wbddh_data_class,"{""field_wbddh_data_class"": {""und"": [{""tid"": """"}]
 field_wbddh_resource_type,"{""field_wbddh_resource_type"": {""und"": [{""tid"": """"}]}}"
 type,"{""type"": """"}"
 moderation_next_state,"{""moderation_next_state"": """"}"
+field_resource_weight,"{""field_resource_weight"":{""und"":[{""value"":""""}]}}"
