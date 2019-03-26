@@ -17,12 +17,7 @@ map_tids <- function(values,
                      root_url = dkanr::get_url()) {
   
   # check for valid values
-  #########################################################################
-  #Temporary fix ITS needs to fix taxonomy endpoint api/taxonomy/list_values
-  #########################################################################
-  lovs <- lovs %>% filter(machine_name != "field_wbddh_mode_data_collection" & machine_name != "field_wbddh_kind_of_data")
-  values_df <- metadata_list_values_to_df(values, lovs)
-  # values_df <- metadata_list_values_to_df(values)
+  values_df <- metadata_list_values_to_df(values)
   invalid_df <- values_df %>%
                 left_join(lovs) %>%
                 filter(is.na(tid))
