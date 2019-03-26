@@ -17,6 +17,7 @@ map_tids <- function(values,
                      root_url = dkanr::get_url()) {
   
   # check for valid values
+  values_df <- metadata_list_values_to_df(values)
   invalid_df <- values_df %>%
                 left_join(lovs) %>%
                 filter(is.na(tid))
