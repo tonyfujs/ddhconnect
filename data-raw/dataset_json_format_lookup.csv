@@ -52,7 +52,7 @@ field_wbddh_responsible,"{""field_wbddh_responsible"":{""und"":[{""value"":""""}
 field_wbddh_sampling_procedure,"{""field_wbddh_sampling_procedure"":{""und"":[{""value"":""""}]}}"
 field_wbddh_search_tags,"{""field_wbddh_search_tags"":{""und"":[{""value"":""""}]}}"
 field_wbddh_series_information,"{""field_wbddh_series_information"":{""und"":[{""value"":""""}]}}"
-field_wbddh_source,"{""field_wbddh_source"":{""und"":[{""tid"":""""}]}}"
+field_wbddh_source,"{""field_wbddh_source"":{""und"":[{""value"":""""}]}}"
 field_wbddh_start_date,"{""field_wbddh_start_date"":{""und"":[{""value"":""""}]}}"
 field_wbddh_statistical_concept,"{""field_wbddh_statistical_concept"":[]}"
 field_wbddh_study_type,"{""field_wbddh_study_type"":{""und"":[{""value"":""""}]}}"
