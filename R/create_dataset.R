@@ -17,6 +17,9 @@ create_dataset <- function(body,
   out <- dkanr::create_node(url = root_url,
                             body = body,
                             credentials = credentials)
-
+  
+  # Clean out
+  out <- gsub("^\\d*", "", out)
+  
   return(jsonlite::fromJSON(out))
 }

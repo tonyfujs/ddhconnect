@@ -21,5 +21,9 @@ update_dataset <- function(nid,
                             url = root_url,
                             body = body,
                             credentials = credentials)
+  
+  # Clean out
+  out <- gsub("^\\d*", "", out)
+  
   return(jsonlite::fromJSON(out))
 }
