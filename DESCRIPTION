@@ -30,4 +30,4 @@ Suggests: knitr,
     covr,
     httptest
 RoxygenNote: 6.1.1
-Depends: R (>= 3.5.3)
+Depends: R (>= 3.5.1)
