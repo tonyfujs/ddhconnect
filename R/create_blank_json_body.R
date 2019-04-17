@@ -18,7 +18,8 @@ create_blank_json_body <- function(values = c("title","body"),
                              root_url = dkanr::get_url()) {
 
     # Retireve JSON formats
-    json_formats <- blank_fields_json_format_lookup
+    json_formats  <- blank_fields_json_format_lookup
+    machine_names <- json_formats$machine_names
 
     # Flag invalid fields
     invalid_fields <- values[!values %in% machine_names]
