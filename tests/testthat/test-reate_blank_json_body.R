@@ -84,3 +84,25 @@ test_that("Passing invalid fields returns warning", {
 
   expect_warning(create_blank_json_body(values, type = "dataset", publication_status = "published"))
 })
+
+# Test passing blank fields for resources (e.g field_ddh_harvest_src)
+test_that("Passing resource fields", {
+  body <- create_blank_json_body(c("body","field_format",
+                                   "field_ddh_harvest_src",
+                                   "field_ddh_harvest_sys_id"),
+                                 type = "resource",
+                                 publication_status = "published"
+  )
+
+  json_template           <- list()
+  json_template$body$und  <- list()
+  json_template$field_ddh_harvest_src$und     <- list()
+  json_template$field_ddh_harvest_sys_id$und  <- list()
+  json_template$moderation_next_state         <- "published"
+  json_template$type                          <- "resource"
+  json_template$field_format$und              <- list()
+  json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
+  expect_equal(body, json_string)
+})
+
+
