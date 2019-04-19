@@ -5,16 +5,18 @@ attach_resources_template <- fromJSON('./data-raw/attach_single_resource_schema.
 production_root_url <- 'https://datacatalog.worldbank.org'
 stg_root_url <- 'http://ddh1stg.prod.acquia-sites.com'
 
-test_dataset_update_json <- fromJSON('data-raw/test_dataset_update.json', simplifyVector = FALSE)
+test_dataset_update_json  <- fromJSON('data-raw/test_dataset_update.json', simplifyVector = FALSE)
 test_resource_update_json <- fromJSON('data-raw/test_resource_update.json', simplifyVector = FALSE)
 
 mandatory_text_fields <- readLines('data-raw/mandatory_text_fields.txt')
 
-dataset_json_format_lookup <- read.csv("./data-raw/dataset_json_format_lookup.csv", stringsAsFactors = FALSE)
-resource_json_format_lookup <- read.csv("./data-raw/resource_json_format_lookup.csv", stringsAsFactors = FALSE)
+dataset_json_format_lookup      <- read.csv("./data-raw/dataset_json_format_lookup.csv", stringsAsFactors = FALSE)
+resource_json_format_lookup     <- read.csv("./data-raw/resource_json_format_lookup.csv", stringsAsFactors = FALSE)
+blank_fields_json_format_lookup <- read.csv("./data-raw/blank_fields_json_format_lookup.csv", stringsAsFactors = FALSE)
 
-names(dataset_json_format_lookup) <- c("machine_names", "json_template")
-names(resource_json_format_lookup) <- c("machine_names", "json_template")
+names(dataset_json_format_lookup)       <- c("machine_names", "json_template")
+names(resource_json_format_lookup)      <- c("machine_names", "json_template")
+names(blank_fields_json_format_lookup)  <- c("machine_names", "json_template")
 
 machine_names_multiple_values <- read.csv("./data-raw/machine_names_multiple_values.csv", stringsAsFactors = FALSE)
 ui_names_lookup <- read.csv("./data-raw/ui_names_lookup.csv", stringsAsFactors = FALSE)
@@ -40,6 +42,7 @@ usethis::use_data(production_root_url,
 
 usethis::use_data(dataset_json_format_lookup,
                   resource_json_format_lookup,
+                  blank_fields_json_format_lookup,
                   overwrite = TRUE)
 
 usethis::use_data(gs_required_fields,
