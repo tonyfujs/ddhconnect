@@ -12,37 +12,27 @@
 
 map_metadata_excel <- function(path) {
 
-  metadata_df <- read_xlsx(path)
+  metadata_df <- readxl::read_xlsx(path)
 
   #extract metadata
-  input_fields <-
-    metadata_df %>% select("Metadata field", "Value")
+  input_fields <- metadata_df[,c("Metadata field", "Value")]
+
 
   df_references <- ddhconnect::ui_names_lookup
 
   #map metadata values to correct machine_names
-  machine_names <-
-    df_references %>%
-    left_join(
-      input_fields,
-      by = c("ui_names" = "Metadata field") ,
-      copy = TRUE,
-      ignore.case = TRUE) %>%
-    na.omit()
+  machine_names <- dplyr::left_join(df_references, input_fields,
+                             by = c("ui_names" = "Metadata field"), copy = TRUE,
+                             ignore.case = TRUE) %>% na.omit()
 
   #retrieve misses/invalid fields
-  misses <-
-    input_fields %>%
-    anti_join(
-      df_references,
-      by = c("Metadata field" = "ui_names"),
-      copy = TRUE,
-      ignore.case = TRUE) %>%
-    na.omit() %>%
-    select("Metadata field")
+  misses <- dplyr::anti_join(input_fields, df_references,
+            by = c("Metadata field" = "ui_names"), copy = TRUE,
+            ignore.case = TRUE) %>% na.omit()
+
 
   if (nrow(misses) > 0) {
-    warning(paste0("The following Metadata fields are invalid, and won't be mapped to the appropriate machine_name: ", misses))
+    warning(paste0("The following Metadata fields are invalid, and won't be mapped to the appropriate machine_name: ", misses$`Metadata field`))
   }
 
   #create vector of machine names and values
