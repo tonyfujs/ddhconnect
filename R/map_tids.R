@@ -15,12 +15,12 @@
 map_tids <- function(values,
                      lovs = ddhconnect::get_lovs(),
                      root_url = dkanr::get_url()) {
-  
+
   # check for valid values
   values_df <- metadata_list_values_to_df(values)
-  invalid_df <- values_df %>%
-                left_join(lovs) %>%
-                filter(is.na(tid))
+  invalid_df <- dplyr::left_join(values_df, lovs)
+  invalid_df <- invalid_df[is.na(invalid_df$tid),]
+
 
   errors <- c()
   if(nrow(invalid_df) > 0) {
@@ -45,7 +45,7 @@ map_tids <- function(values,
     stop(paste(errors, collapse = "\n\n"))
   }
 
-  keep <- intersect(names(values), lovs$machine_name)
+  keep <- dplyr::intersect(names(values), lovs$machine_name)
   lovs_subset <- lovs[which(lovs$machine_name %in% keep), ]
 
   for (field_name in keep) {
@@ -56,6 +56,6 @@ map_tids <- function(values,
     }
     values[[field_name]] <- val_split
   }
-  
+
   return(values)
 }
