@@ -7,7 +7,7 @@
 get_required_fields(datatype = "Other")
 }
 \arguments{
-\item{data_type}{character: One value out of "Timeseries", "Microdata", "Geospatial" and "Other"}
+\item{datatype}{character: One value out of "Timeseries", "Microdata", "Geospatial" and "Other"}
 }
 \value{
 vector

@@ -16,8 +16,6 @@ create_blank_json_body(values = c("title", "body"),
 \item{type}{string: indicates whether the JSON body is for a "dataset" or a "resource"}
 
 \item{root_url}{string: API root URL}
-
-\item{root_url}{string: API root URL}
 }
 \value{
 json string

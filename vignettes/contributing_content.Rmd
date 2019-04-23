@@ -80,16 +80,14 @@ metadata = list("title" = "My first dataset",
            "body" = "A short description: What my dataset is about.",
            "field_topic" = "Poverty",
            "field_wbddh_data_class" = "Public",
-           "field_wbddh_data_type" = "Geospatial",
+           "field_wbddh_data_type" = "Microdata",
            "field_wbddh_languages_supported" = "English",
            "field_frequency" = "Periodicity not specified",
            "field_wbddh_economy_coverage" = "Blend",
            "field_wbddh_country" = c("Afghanistan","Albania","Algeria"),
-           "field_license_wbddh" = "Custom License",
-           "workflow_status" = "published")
+           "field_license_wbddh" = "Custom License")
 
-json_dataset <- create_json_body(values = metadata,
-                                 node_type = "dataset")
+json_dataset <- create_json_dataset(values = metadata)
 ```
 
 
@@ -127,11 +125,9 @@ Once the dataset is created, you can add the data files, links and supporting do
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE}
 resource_metadata <-  c("title" = "My geospatial file",
                         "field_wbddh_data_class" = "Public",
-                        "field_wbddh_resource_type" = "Download",
-                        "workflow_status" = "published")
+                        "field_wbddh_resource_type" = "Download")
 
-json_resource <- create_json_body(values = resource_metadata,
-                                  node_type = "resource")
+json_resource <- create_json_resource(values = resource_metadata, dataset_nid = resp_dataset$nid)
 
 resp_resource <- create_resource(body = json_resource)
 ```
@@ -148,11 +144,9 @@ If your resource is a link to an external page, you can add the link as part of 
 resource_metadata <-  c("title" = "Small Area Estimation of Poverty",
                         "field_wbddh_data_class" = "Public",
                         "field_wbddh_resource_type" = "Related Material",
-                        "field_link_api" = "http://www.nsb.gov.bt/publication/files/pub9zo1561nu.pdf",
-                        "workflow_status" = "published")
+                        "field_link_api" = "http://www.nsb.gov.bt/publication/files/pub9zo1561nu.pdf")
 
-json_resource <- create_json_body(values = resource_metadata,
-                                  node_type = "resource")
+json_resource <- create_json_resource(values = resource_metadata)
 
 resp_resource <- create_resource(body = json_resource)
 ```
@@ -181,7 +175,7 @@ update_dataset_metadata <- c("field_wbddh_country" = "Colombia",
                              "field_tags" = "Poverty",
                              "workflow_status" = "published")
 
-update_dataset_json <- create_json_body(values = update_dataset_metadata, node_type = “dataset”)
+update_dataset_json <- create_json_body(values = update_dataset_metadata)
 
 update_dataset(nid = poverty_map_nid, body = update_dataset_json)
 ```
@@ -196,13 +190,12 @@ Use the same process as above to update the resource metadata.
 * Update the resource using `update_resource()`.
 
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-update_resource_metadata <-  c("field_format" = "CSV",
-                               "workflow_status" = "published")
+update_resource_metadata <-  c("field_format" = "CSV")
 
-update_resource_json <- create_json_body(values = update_resource_metadata, 
-                                         node_type = “resource”)
+update_resource_json <- create_json_resource(values = update_resource_metadata,
+                                         dataset_nid = poverty_map_nid)
 
-resource_nid <- get_resource_nid(poverty_map_nid)
+resource_nid <- get_resource_nids(poverty_map_nid)
 
 update_resource(nid = resource_nid, body = resource_json)
 ```

@@ -23,12 +23,12 @@ map_metadata_excel <- function(path) {
   #map metadata values to correct machine_names
   machine_names <- dplyr::left_join(df_references, input_fields,
                              by = c("ui_names" = "Metadata field"), copy = TRUE,
-                             ignore.case = TRUE) %>% na.omit()
+                             ignore.case = TRUE) %>% stats::na.omit()
 
   #retrieve misses/invalid fields
   misses <- dplyr::anti_join(input_fields, df_references,
             by = c("Metadata field" = "ui_names"), copy = TRUE,
-            ignore.case = TRUE) %>% na.omit()
+            ignore.case = TRUE) %>% stats::na.omit()
 
 
   if (nrow(misses) > 0) {

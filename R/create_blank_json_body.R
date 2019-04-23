@@ -6,7 +6,6 @@
 #' @param publication_status string: status to post the mode, takes values of c("published", "unpublished", "draft")
 #' @param root_url string: API root URL
 #' @param type string: indicates whether the JSON body is for a "dataset" or a "resource"
-#' @param root_url string: API root URL
 #'
 #' @return json string
 #' @export
