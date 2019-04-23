@@ -98,9 +98,9 @@ test_that("Passing resource fields", {
   json_template$body$und  <- list()
   json_template$field_ddh_harvest_src$und     <- list()
   json_template$field_ddh_harvest_sys_id$und  <- list()
+  json_template$field_format$und              <- list()
   json_template$moderation_next_state         <- "published"
   json_template$type                          <- "resource"
-  json_template$field_format$und              <- list()
   json_string <- jsonlite::toJSON(json_template, auto_unbox = TRUE)
   expect_equal(body, json_string)
 })
