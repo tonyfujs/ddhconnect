@@ -25,7 +25,8 @@ Imports: httr,
     testthat,
     utils,
     curl,
-    readxl
+    readxl,
+    stats
 Suggests: knitr,
     covr,
     httptest

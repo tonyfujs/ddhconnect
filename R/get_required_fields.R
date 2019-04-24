@@ -1,7 +1,7 @@
 #' get_required_fields
 #'
 #' Retrieve list of required fields for a data type
-#' @param data_type character: One value out of "Timeseries", "Microdata", "Geospatial" and "Other"
+#' @param datatype character: One value out of "Timeseries", "Microdata", "Geospatial" and "Other"
 #'
 #' @return vector
 #' @export

@@ -1,7 +1,7 @@
 #' get_lov_fields
 #'
 #' Retrieve list of lov fields
-#' @param data_type character: Takes a value among "Timeseries", "Microdata" or "Geospatial"
+#' @param root_url string: API root URL
 #'
 #' @return vector
 #' @export

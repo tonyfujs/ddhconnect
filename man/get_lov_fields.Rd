@@ -7,7 +7,7 @@
 get_lov_fields(root_url = dkanr::get_url())
 }
 \arguments{
-\item{data_type}{character: Takes a value among "Timeseries", "Microdata" or "Geospatial"}
+\item{root_url}{string: API root URL}
 }
 \value{
 vector
