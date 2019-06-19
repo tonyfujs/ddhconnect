@@ -28,7 +28,7 @@ create_json_dataset <- function(values = list("title" = "Test Create JSON",
 
   values_fields <- names(values)
   valid_fields <- unique(c(ddh_fields$machine_name[ddh_fields$node_type == "dataset"],
-                           "type", "moderation_next_state", "field_exception_s","field_wbddh_region","og_group_ref"))
+                           "type", "moderation_next_state", "field_exception_s","field_wbddh_region","field_collection_field"))
   invalid_fields <- setdiff(values_fields, valid_fields)
   if (length(invalid_fields) > 0) {
     stop(paste0("Invalid fields: ", paste(invalid_fields, collapse = "\n"),
