@@ -118,6 +118,7 @@ resp
 
 ## Adding a resource to the dataset
 Once the dataset is created, you can add the data files, links and supporting documents as resources. Creating a resource is very similar to creating a dataset:
+
 * you create a named list of the resource metadata
 * you use `create_json_body()` to generate the required JSON body
 * you pass the created JSON body to `create_resource()`.
