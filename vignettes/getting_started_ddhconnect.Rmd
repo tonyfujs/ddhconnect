@@ -25,7 +25,7 @@ dkanr_setup(
 
 ## Connect to the Data Catalog
 First, begin by setting up your connection to the Data Catalog with `dkanr_setup`.
-```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=TRUE, paged.print=TRUE}
 library(dkanr)
 library(ddhconnect)
 dkanr_setup(
@@ -97,7 +97,12 @@ for (resource_id in indicators_resources) {
 ## Get the data
 You can also download the data via the API. The results show that there are files related to the World Development Indicators that can are downloadable. You can use the `download_resource()` function by passing the resource's metadata.
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-library(rcurl)
-resource_metadata <- get_metadata(nid = 94974)
 download_resource(resource_metadata)
+```
+
+# Ending Your Connection
+Once you're done using the API, use the `logout_ddh()` function to end the connection:
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, results='hide'}
+logout_ddh()
 ```

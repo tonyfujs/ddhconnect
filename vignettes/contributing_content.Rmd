@@ -199,6 +199,6 @@ ___
 # Ending Your Connection
 Once you're done using the API, use the `logout_ddh()` function to end the connection:
 
-```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, results='hide'}
 logout_ddh()
 ```
