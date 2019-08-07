@@ -118,6 +118,7 @@ resp
 
 ## Adding a resource to the dataset
 Once the dataset is created, you can add the data files, links and supporting documents as resources. Creating a resource is very similar to creating a dataset:
+
 * you create a named list of the resource metadata
 * you use `create_json_body()` to generate the required JSON body
 * you pass the created JSON body to `create_resource()`.
@@ -146,17 +147,10 @@ resource_metadata <-  c("title" = "Small Area Estimation of Poverty",
                         "field_wbddh_resource_type" = "Related Material",
                         "field_link_api" = "http://www.nsb.gov.bt/publication/files/pub9zo1561nu.pdf")
 
-json_resource <- create_json_resource(values = resource_metadata)
+json_resource <- create_json_resource(values = resource_metadata, dataset_nid = "111")
 
 resp_resource <- create_resource(body = json_resource)
 ```
-
-After the resource is added to the Data Catalog, attach it to your dataset using `attach_resources_to_dataset()`. You can attach multiple resources to a dataset by passing a vector of resource nids.
-```{r message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-attach_resources_to_dataset(dataset_nid = resp_dataset$nid, 
-                            resource_nid = resp_resource$nid)
-```
-
 ___
 
 # Updating Content
@@ -205,6 +199,6 @@ ___
 # Ending Your Connection
 Once you're done using the API, use the `logout_ddh()` function to end the connection:
 
-```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, results='hide'}
 logout_ddh()
 ```
