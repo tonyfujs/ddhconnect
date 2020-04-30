@@ -14,6 +14,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{dkanr}{\code{\link[dkanr]{dkanr_setup}}, \code{\link[dkanr]{dkanr_settings}}, \code{\link[dkanr]{dkanr_logout}}, \code{\link[dkanr]{get_resource_nids}}}
+  \item{dkanr}{\code{\link[dkanr]{dkanr_logout}}, \code{\link[dkanr]{dkanr_settings}}, \code{\link[dkanr]{dkanr_setup}}, \code{\link[dkanr]{get_resource_nids}}}
 }}
 

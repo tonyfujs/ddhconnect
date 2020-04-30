@@ -4,9 +4,11 @@
 \alias{get_datasets_count}
 \title{get_datasets_count()}
 \usage{
-get_datasets_count(datatype = "All", root_url = dkanr::get_url(),
-  credentials = list(cookie = dkanr::get_cookie(), token =
-  dkanr::get_token()))
+get_datasets_count(
+  datatype = "All",
+  root_url = dkanr::get_url(),
+  credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
+)
 }
 \arguments{
 \item{datatype}{character: Restrict the list to a specific type of dataset. Available options are: "All", "Timeseries", "Microdata", "Geospatial", or "Other"}

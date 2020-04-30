@@ -4,9 +4,11 @@
 \alias{get_metadata}
 \title{get_metadata}
 \usage{
-get_metadata(nid, root_url = dkanr::get_url(),
-  credentials = list(cookie = dkanr::get_cookie(), token =
-  dkanr::get_token()))
+get_metadata(
+  nid,
+  root_url = dkanr::get_url(),
+  credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
+)
 }
 \arguments{
 \item{nid}{character: The dataset node id}

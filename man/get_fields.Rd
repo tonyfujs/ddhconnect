@@ -4,8 +4,10 @@
 \alias{get_fields}
 \title{get_fields}
 \usage{
-get_fields(root_url = dkanr::get_url(), credentials = list(cookie =
-  dkanr::get_cookie(), token = dkanr::get_token()))
+get_fields(
+  root_url = dkanr::get_url(),
+  credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
+)
 }
 \arguments{
 \item{root_url}{character: API root URL}

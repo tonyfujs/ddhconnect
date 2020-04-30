@@ -4,9 +4,11 @@
 \alias{delete_dataset}
 \title{delete_dataset}
 \usage{
-delete_dataset(nid, root_url = dkanr::get_url(),
-  credentials = list(cookie = dkanr::get_cookie(), token =
-  dkanr::get_token()))
+delete_dataset(
+  nid,
+  root_url = dkanr::get_url(),
+  credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
+)
 }
 \arguments{
 \item{nid}{character: Node ID of the dataset to be updated}
