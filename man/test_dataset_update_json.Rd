@@ -4,9 +4,7 @@
 \name{test_dataset_update_json}
 \alias{test_dataset_update_json}
 \title{Test Values for Dataset Update}
-\format{
-A list with 30 items
-}
+\format{A list with 30 items}
 \usage{
 data(test_dataset_update_json)
 }

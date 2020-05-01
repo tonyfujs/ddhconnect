@@ -4,9 +4,7 @@
 \name{ui_names_lookup}
 \alias{ui_names_lookup}
 \title{Lookup Table for User Interface Form Fields and JSON Field Names}
-\format{
-A data frame with 115 rows and 2 variables
-}
+\format{A data frame with 115 rows and 2 variables}
 \usage{
 data(ui_names_lookup)
 }

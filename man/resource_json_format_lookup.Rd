@@ -4,9 +4,7 @@
 \name{resource_json_format_lookup}
 \alias{resource_json_format_lookup}
 \title{Lookup Table of JSON Formats for Resources}
-\format{
-A data frame with 7 rows and 2 variables
-}
+\format{A data frame with 7 rows and 2 variables}
 \usage{
 data(resource_json_format_lookup)
 }

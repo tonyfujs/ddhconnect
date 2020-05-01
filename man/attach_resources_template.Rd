@@ -4,9 +4,7 @@
 \name{attach_resources_template}
 \alias{attach_resources_template}
 \title{Format to Attach a Resource}
-\format{
-A list with 1 item
-}
+\format{A list with 1 item}
 \usage{
 data(attach_resources_template)
 }
