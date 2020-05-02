@@ -4,9 +4,12 @@
 \alias{download_resource}
 \title{download_resource}
 \usage{
-download_resource(resource_nid, destination = getwd(),
-  root_url = dkanr::get_url(), credentials = list(cookie =
-  dkanr::get_cookie(), token = dkanr::get_token()))
+download_resource(
+  resource_nid,
+  destination = getwd(),
+  root_url = dkanr::get_url(),
+  credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
+)
 }
 \arguments{
 \item{resource_nid}{character: Resource NID}

@@ -4,11 +4,14 @@
 \alias{search_catalog}
 \title{search_catalog}
 \usage{
-search_catalog(fields = c("nid", "uuid", "title", "field_contact_email",
-  "field_wbddh_data_type", "status"), filters = c(field_wbddh_data_type =
-  294, status = 1), limit = 200, root_url = dkanr::get_url(),
-  credentials = list(cookie = dkanr::get_cookie(), token =
-  dkanr::get_token()))
+search_catalog(
+  fields = c("nid", "uuid", "title", "field_contact_email", "field_wbddh_data_type",
+    "status"),
+  filters = c(field_wbddh_data_type = 294, status = 1),
+  limit = 200,
+  root_url = dkanr::get_url(),
+  credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
+)
 }
 \arguments{
 \item{fields}{character vector: fields to be returned by the search}

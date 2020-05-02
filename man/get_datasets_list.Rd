@@ -4,9 +4,11 @@
 \alias{get_datasets_list}
 \title{get_datasets_list()}
 \usage{
-get_datasets_list(datatype = "All", root_url = dkanr::get_url(),
-  credentials = list(cookie = dkanr::get_cookie(), token =
-  dkanr::get_token()))
+get_datasets_list(
+  datatype = "All",
+  root_url = dkanr::get_url(),
+  credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
+)
 }
 \arguments{
 \item{datatype}{character: Restrict the list to a specific type of dataset. Available options are: "All", "Time Series", "Microdata", "Geospatial", or "Other"}

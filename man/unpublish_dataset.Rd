@@ -4,9 +4,11 @@
 \alias{unpublish_dataset}
 \title{unpublish_dataset}
 \usage{
-unpublish_dataset(nid, root_url = dkanr::get_url(),
-  credentials = list(cookie = dkanr::get_cookie(), token =
-  dkanr::get_token()))
+unpublish_dataset(
+  nid,
+  root_url = dkanr::get_url(),
+  credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
+)
 }
 \arguments{
 \item{nid}{character: Node ID of the dataset to be unpublished}

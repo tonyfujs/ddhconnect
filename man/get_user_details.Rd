@@ -4,9 +4,11 @@
 \alias{get_user_details}
 \title{get_user_details}
 \usage{
-get_user_details(uid, root_url = dkanr::get_url(),
-  credentials = list(cookie = dkanr::get_cookie(), token =
-  dkanr::get_token()))
+get_user_details(
+  uid,
+  root_url = dkanr::get_url(),
+  credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
+)
 }
 \arguments{
 \item{uid}{numeric: UPI number}

@@ -4,8 +4,12 @@
 \alias{update_resource}
 \title{update_resource}
 \usage{
-update_resource(credentials = list(cookie = dkanr::get_cookie(), token =
-  dkanr::get_token()), nid, body, root_url = dkanr::get_url())
+update_resource(
+  credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token()),
+  nid,
+  body,
+  root_url = dkanr::get_url()
+)
 }
 \arguments{
 \item{credentials}{list: authentication token and cookie}

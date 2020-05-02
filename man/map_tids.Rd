@@ -4,8 +4,7 @@
 \alias{map_tids}
 \title{map_tids}
 \usage{
-map_tids(values, lovs = ddhconnect::get_lovs(),
-  root_url = dkanr::get_url())
+map_tids(values, lovs = ddhconnect::get_lovs(), root_url = dkanr::get_url())
 }
 \arguments{
 \item{values}{character vector: list of corresponding values that need to be checked for tids}

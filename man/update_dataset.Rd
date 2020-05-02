@@ -4,9 +4,12 @@
 \alias{update_dataset}
 \title{update_dataset}
 \usage{
-update_dataset(nid, body, root_url = dkanr::get_url(),
-  credentials = list(cookie = dkanr::get_cookie(), token =
-  dkanr::get_token()))
+update_dataset(
+  nid,
+  body,
+  root_url = dkanr::get_url(),
+  credentials = list(cookie = dkanr::get_cookie(), token = dkanr::get_token())
+)
 }
 \arguments{
 \item{nid}{character: Node ID of the dataset to be updated}
