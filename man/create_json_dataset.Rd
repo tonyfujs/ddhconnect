@@ -4,15 +4,14 @@
 \alias{create_json_dataset}
 \title{create_json_dataset}
 \usage{
-create_json_dataset(
-  values = list(title = "Test Create JSON", body = "Test Creation of JSON",
-    field_wbddh_dsttl_upi = "123", field_topic = "Poverty", field_wbddh_country =
-    c("Antigua and Barbuda", "Armenia")),
+create_json_dataset(values = list(title = "Test Create JSON", body =
+  "Test Creation of JSON", field_wbddh_dsttl_upi = "123", field_topic =
+  "Poverty", field_wbddh_country = c("Antigua and Barbuda", "Armenia"),
+  field_wbddh_data_class = "Not Specified", field_wbddh_data_type =
+  "Other", field_license_wbddh = "Data not available"),
   publication_status = "published",
-  ddh_fields = ddhconnect::get_fields(),
-  lovs = ddhconnect::get_lovs(),
-  root_url = dkanr::get_url()
-)
+  ddh_fields = ddhconnect::get_fields(), lovs = ddhconnect::get_lovs(),
+  root_url = dkanr::get_url())
 }
 \arguments{
 \item{values}{list: list of corresponding values that need to be updated}
