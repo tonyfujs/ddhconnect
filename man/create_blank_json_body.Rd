@@ -4,9 +4,12 @@
 \alias{create_blank_json_body}
 \title{create_blank_json_body}
 \usage{
-create_blank_json_body(values = c("title", "body"),
-  publication_status = "published", type = "dataset",
-  root_url = dkanr::get_url())
+create_blank_json_body(
+  values = c("title", "body"),
+  publication_status = "published",
+  type = "dataset",
+  root_url = dkanr::get_url()
+)
 }
 \arguments{
 \item{values}{vector: vector of fields to make blank}

@@ -4,7 +4,9 @@
 \name{test_resource_update_json}
 \alias{test_resource_update_json}
 \title{Test Values for Resource Update}
-\format{A list with 6 items}
+\format{
+A list with 6 items
+}
 \usage{
 data(test_resource_update_json)
 }

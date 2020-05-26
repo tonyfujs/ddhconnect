@@ -7,8 +7,8 @@
 create_json_resource(
   values = list(title = "Test Resource Title", body = "Test Resource Body",
     field_wbddh_data_class = "Public", field_wbddh_resource_type =
-    "Resource Type not specified", field_format = "Format Not Specified", field_link_api =
-    "www.google.com", field_ddh_harvest_src = "Finances", field_ddh_harvest_sys_id =
+    "Resource Type not specified", field_format = "Format Not Specified", field_link_api
+    = "www.google.com", field_ddh_harvest_src = "Finances", field_ddh_harvest_sys_id =
     "8675309"),
   publication_status = "published",
   dataset_nid = "111",

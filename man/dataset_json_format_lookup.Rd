@@ -4,7 +4,9 @@
 \name{dataset_json_format_lookup}
 \alias{dataset_json_format_lookup}
 \title{Lookup Table of JSON Formats for Datasets}
-\format{A data frame with 73 rows and 2 variables}
+\format{
+A data frame with 73 rows and 2 variables
+}
 \usage{
 data(dataset_json_format_lookup)
 }
