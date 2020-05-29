@@ -1,13 +1,13 @@
-#' get_iso3
+#' get_iso3_codes
 #'
-#' Retrieve list of country names and iso3 codes accepted by DDH
+#' Non memoised version: Retrieve list of country names and iso3 codes
+#' accepted by DDH
 #' @param root_url character: API root URL
 #'
 #' @return dataframe
-#' @export
 #'
 
-get_iso3 <- function(root_url = dkanr::get_url()) {
+get_iso3_codes <- function(root_url = dkanr::get_url()) {
   # Build url
   path <- "api/taxonomy/listvalues"
   url <- httr::modify_url(root_url, path = path)
@@ -20,3 +20,14 @@ get_iso3 <- function(root_url = dkanr::get_url()) {
 
   return(out)
 }
+
+#' get_iso3
+#'
+#' Retrieve list of country names and iso3 codes accepted by DDH
+#'
+#' @param root_url character: API root URL
+#'
+#' @return dataframe
+#' @export
+#'
+get_iso3 <- memoise::memoise(get_iso3_codes)
